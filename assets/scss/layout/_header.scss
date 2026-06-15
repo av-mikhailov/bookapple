@@ -1,0 +1,145 @@
+@use '../abstracts/variables' as *;
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050; // Выше подложки
+  padding-top: 1rem; // 16px
+  padding-bottom: 1rem;
+  transition: $transition;
+
+  &.header-scrolled {
+    padding-top: 0.5rem; // 8px
+    padding-bottom: 0.5rem;
+
+    .header-inner {
+      box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08); // 10px 30px
+    }
+  }
+}
+
+.header-inner {
+  background-color: $color-white;
+  border-radius: $radius-xxl; // 50px (3.125rem)
+  height: 4.6875rem; // 75px
+  padding: 0 2rem; // 32px
+  box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.04); // 4px 24px
+  transition: $transition;
+}
+
+// Логотип и подписи
+.logo-wrapper {
+  .logo-img {
+    height: 3rem; // 48px
+    width: auto;
+    object-fit: contain;
+    transition: $transition;
+  }
+
+  .logo-text {
+    margin-left: 0.75rem; // 12px
+    color: $color-text;
+    line-height: 1.2;
+  }
+
+  .logo-subtitle {
+    font-family: $font-accent;
+    font-size: 0.62rem; // 10px
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    opacity: 0.8;
+  }
+
+  .logo-title {
+    font-family: $font-accent;
+    font-size: 1.125rem; // 18px
+    font-weight: 400;
+    white-space: nowrap;
+  }
+}
+
+// Десктопная навигация (от 1200px)
+.navbar-menu {
+  .nav-list {
+    gap: 1.75rem; // 28px
+  }
+
+  .nav-link {
+    font-family: $font-accent;
+    font-size: 1.125rem; // 18px
+    font-weight: 400;
+    color: $color-text;
+    padding: 0.5rem 0; // 8px
+    position: relative;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0.125rem; // 2px
+      background-color: $color-primary;
+      transition: $transition;
+    }
+
+    &:hover, &.active {
+      color: $color-primary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Кнопка бургера (скрыта на десктопе)
+.mobile-nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.75rem; // 28px
+  color: $color-text;
+  cursor: pointer;
+  padding: 0.25rem; // 4px
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+// Адаптивность для экранов меньше 1200px
+@media (max-width: 1199.98px) {
+  #header {
+    padding-top: 0.75rem; // 12px
+    padding-bottom: 0.75rem;
+
+    &.header-scrolled {
+      padding-top: 0.375rem; // 6px
+      padding-bottom: 0.375rem;
+    }
+  }
+
+  .header-inner {
+    height: 4.0625rem; // 65px
+    padding: 0 1.25rem; // 20px
+  }
+
+  .logo-wrapper {
+    .logo-img {
+      height: 2.375rem; // 38px
+    }
+    .logo-title {
+      font-size: 1rem; // 16px
+    }
+    .logo-subtitle {
+      font-size: 0.5625rem; // 9px
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Базовая структура со слайд-эффектом для обеих кнопок
+%btn-slide-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: $font-accent;
+  transition: $transition;
+  border: none;
+  overflow: hidden;
+
+  span, i {
+    position: relative;
+    z-index: 2;
+  }
+
+  i {
+    font-size: 1.4rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    left: 0;
+  }
+}
+
+// Кнопка «Стать участником»
+.btn-hero-action {
+  @extend %btn-slide-base;
+  position: relative;
+  background-color: $color-bg;
+  color: $color-primary;
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  max-width: 18.9375rem; // 303px
+  height: 2.75rem; // 44px
+  border-radius: $radius-sm; // 16px
+  z-index: 1;
+
+  span, i {
+    transition: color 0.3s ease;
+  }
+
+  // Слайд-плашка закрашивания (ваши настроенные 0.8s)
+  &::before {
+    background-color: $color-bg-alt;
+    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: $color-primary !important;
+  }
+
+  @include respond-to(max-sm) {
+    max-width: 100%;
+  }
+}
+
+// Кнопка «Расписание»
+.btn-schedule {
+  @extend %btn-slide-base;
+  position: absolute;
+  z-index: 3;
+  background-color: $color-accent;
+  color: $color-white;
+  font-size: 1.125rem;
+  font-weight: 500;
+
+  span, i {
+    letter-spacing: 1px;
+  }
+
+  // Слайд-плашка закрашивания (ваши настроенные 0.4s)
+  &::before {
+    background-color: $color-primary;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: $color-white !important;
+  }
+
+  // --- Адаптивность кнопки по вашим шагам ---
+  
+  // 1. Мониторы со средним разрешением (1200px - 1399.98px)
+  @include respond-to(laptop-only) {
+    width: 12.5rem; // 200px
+    height: 2.375rem; // 38px
+    right: 0;
+    bottom: 0;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  // 2. Десктопы от 1400px
+  @include respond-to(min-xxl) {
+    width: 14.625rem; // 234px
+    height: 2.6875rem; // 43px
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+  }
+
+  // 3. Планшеты и мелкие экраны (768px - 1199.98px)
+  @include respond-to(tablet-only) {
+    width: 14.625rem; // 234px
+    height: 2.6875rem; // 43px
+    right: 2.5rem;
+    bottom: 2.5rem;
+    border-radius: 0.75rem !important; // 12px для всех углов
+  }
+
+  // 4. Мобильная версия (< 767.98px)
+  @include respond-to(mobile-only) {
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: auto;
+    height: 2.75rem;
+    border-radius: $radius-sm !important; // 16px
+    display: inline-flex;
+  }
+}

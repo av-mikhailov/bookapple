@@ -1,0 +1,249 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero-section {
+  padding-top: 6.7rem; 
+  padding-bottom: 4rem;
+  background-color: $color-bg;
+
+  @include respond-to(max-xl) {
+    padding-top: 5.6rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+// Базовая карточка по сетке Figma
+.hero-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 636 / 625; 
+  border-radius: $radius-md; 
+  transition: $transition;
+
+  @include respond-to(max-xl) {
+    aspect-ratio: auto; 
+    min-height: 34rem;
+  }
+}
+
+// --- ЛЕВАЯ КАРТОЧКА (Оранжевая) ---
+.hero-card-orange {
+  background-color: $color-primary;
+  padding: 2.5rem;
+
+  @include respond-to(max-sm) {
+    padding: 1.5rem;
+  }
+
+  .pfki-wrapper,
+  .orange-card-bottom {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 0;
+    width: 26rem;
+    height: 29.375rem;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    transform: translateY(1rem);
+    filter: brightness(0) invert(1);
+    opacity: 0.08;
+  }
+
+  .pfki-logo {
+    width: 23rem; 
+    height: 5.8125rem;
+    object-fit: contain;
+    max-width: 100%;
+    margin-left: -1.75rem; 
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    @include respond-to(max-sm) {
+      width: 16rem;
+      height: auto;
+      margin-left: -1.2rem;
+    }
+  }
+
+  .hero-title-group {
+    margin-bottom: 2rem;
+
+    .hero-sub-serif {
+      font-family: 'Cormorant Infant', serif;
+      font-size: 2.5rem;
+      color: $color-white;
+      line-height: 1.1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-main-title {
+      font-family: $font-accent;
+      font-size: 3.25rem;
+      color: $color-white !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-desc {
+      font-family: $font-accent;
+      font-size: 1.1875rem;
+      color: $color-white;
+      font-weight: 500;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    @include respond-to(max-sm) {
+      .hero-sub-serif { font-size: 1.6rem; }
+      .hero-main-title { font-size: 1.75rem; }
+      .hero-desc { font-size: 1rem; }
+    }
+  }
+}
+
+// --- ПРАВАЯ КАРТОЧКА (Фото с вырезом) ---
+.hero-card-photo {
+  background: transparent;
+
+  // Фотография
+  .hero-img-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: $radius-md;
+  }
+
+  // Счетчик (Таймер)
+  .timer-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    right: 3rem; 
+    z-index: 2;
+    text-align: right;
+
+    .timer-title {
+      font-family: $font-accent;
+      font-size: 1.5rem;
+      color: $color-white;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // Плитки таймера 
+  .timer-box {
+    background-color: $color-primary;
+    border-radius: $radius-sm;
+    width: 5.5rem; 
+    height: 6.25rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    .timer-num {
+      font-size: 2.25rem; 
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .timer-label {
+      font-size: 0.8125rem; 
+      font-weight: 400;
+      opacity: 0.9;
+    }
+  }
+
+  // Даты проведения
+  .event-info {
+    position: absolute;
+    bottom: 5.5rem; 
+    right: 3rem; 
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+
+    .info-item {
+      font-family: $font-accent;
+      font-size: 1.375rem; 
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-icon {
+      font-size: 1.625rem;
+      color: $color-accent-alt;
+    }
+  }
+
+  // --- Настройки адаптивности карточки ---
+
+  @include respond-to(tablet-only) {
+    background-color: $color-bg-alt;
+    border-radius: $radius-md;
+    overflow: hidden;
+
+    .timer-container {
+      top: 2.5rem;
+      transform: none; 
+    }
+
+    .event-info {
+      bottom: 6.5rem;
+      right: 2.5rem;
+    }
+  }
+
+  @include respond-to(mobile-only) {
+    background-color: $color-bg-alt; 
+    border-radius: $radius-md;
+    overflow: hidden;
+    position: relative; 
+
+    .hero-img-bg {
+      opacity: 0.6; 
+    }
+
+    .timer-container {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      transform: none;
+      text-align: center;
+      margin: 0;
+
+      #countdown {
+        justify-content: center !important;
+      }
+    }
+
+    .event-info {
+      position: absolute;
+      bottom: 5.5rem; 
+      left: 1.5rem;
+      right: 1.5rem;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}

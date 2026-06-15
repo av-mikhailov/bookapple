@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Литературный фестиваль «Книжная яблоня»</title>
+    <meta name="description" content="Сайт литературного фестиваля Книжная яблоня в Пскове.">
+    
+    <!-- Вендоры -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+    <link rel="stylesheet" href="assets/vendor/boxicons/fonts/basic/boxicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/boxicons/fonts/brands/boxicons-brands.min.css">
+    <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- Ссылка быстрого перехода для пользователей экранных дикторов и клавиатуры -->
+<a href="#main-content" class="visually-hidden-focusable py-2 px-3 bg-primary text-white position-absolute start-0 top-0 z-3">
+    Перейти к основному контенту
+</a>
+
+<header id="header" class="fixed-top header-transparent">
+    <div class="container">
+        <!-- Белая скругленная капсула шапки -->
+        <div class="header-inner d-flex align-items-center justify-content-between">
+            
+            <!-- Логотип и текстовое описание -->
+            <a href="index.html" class="logo-wrapper d-flex align-items-center text-decoration-none" aria-label="На главную страницу фестиваля Книжная яблоня">
+                <img src="assets/img/logo.svg" alt="" class="img-fluid logo-img" role="presentation" width="48" height="48">
+                <div class="logo-text d-flex flex-column justify-content-center">
+                    <span class="logo-subtitle">Литературный фестиваль</span>
+                    <span class="logo-title">Книжная яблоня</span>
+                </div>
+            </a>
+
+            <!-- Навигационная панель -->
+            <nav id="navbar" class="navbar-menu">
+                <!-- Кнопка закрытия для мобильного меню (скрыта на экранах шире 1200px) -->
+                <button type="button" class="mobile-nav-close d-xl-none" aria-label="Закрыть меню навигации">
+                    <i class="bx bx-x" aria-hidden="true"></i>
+                </button>
+
+                <ul class="nav-list d-flex align-items-center list-unstyled m-0">
+                    <li><a class="nav-link" href="about.html">О фестивале</a></li>
+                    <li><a class="nav-link" href="program.html">Программа</a></li>
+                    <li><a class="nav-link" href="news.html">Новости</a></li>
+                    <li><a class="nav-link" href="guests.html">Гости</a></li>
+                    <li><a class="nav-link" href="partners.html">Партнеры</a></li>
+                    <li><a class="nav-link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <!-- Кнопка-бургер мобильного меню (показывается на экранах уже 1200px) -->
+            <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Открыть меню навигации" aria-expanded="false" aria-controls="navbar">
+                <i class="bx bx-menu" aria-hidden="true"></i>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<!-- Точка входа для основного контента страницы -->
+<main id="main-content">
+<section class="hero-section">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Левая карточка (Оранжевая) -->
+            <div class="col-xl-6 d-flex">
+                <article class="hero-card hero-card-orange w-100 d-flex flex-column justify-content-between">
+                    
+                    <!-- Фоновый логотип (белый, полупрозрачный узор) -->
+                    <img src="assets/img/logo.svg" alt="" class="hero-bg-pattern" role="presentation">
+
+                    <!-- Ссылка-логотип ПФКИ с отрицательным отступом для компенсации полей -->
+                    <div class="pfki-wrapper">
+                        <a href="https://xn--80aeeqaabljrdbg6a3ahhcl4ay9hsa.xn--p1ai/" target="_blank" rel="noopener noreferrer" class="pfki-link" aria-label="Сайт Президентского фонда культурных инициатив (открывается в новой вкладке)">
+                            <img src="assets/img/logo-pfki.svg" alt="Логотип Президентского фонда культурных инициатив" class="img-fluid pfki-logo" width="368" height="93">
+                        </a>
+                    </div>
+
+                    <!-- Текстовый блок и кнопка с эффектом слайд-заливки -->
+                    <div class="orange-card-bottom">
+                        <div class="hero-title-group text-white">
+                            <span class="hero-sub-serif">Литературный фестиваль</span>
+                            <h1 class="hero-main-title">Книжная яблоня</h1>
+                            <p class="hero-desc">Вкусные и полезные книги для детей и подростков</p>
+                        </div>
+                        
+                        <a href="#register" class="btn-hero-action text-decoration-none">
+                            <span class="ps-sm-3">Стать участником</span> <i class="bx bx-arrow-right-stroke" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+
+            <!-- Правая карточка (Фото + Таймер) -->
+            <div class="col-xl-6 d-flex">
+                <article class="hero-card hero-card-photo w-100">
+                    
+                    <!-- Фотография -->
+                    <img src="assets/img/hero-photo.png" alt="Дети на фестивале Книжная яблоня" class="hero-img-bg">
+
+                    <!-- Таймер (теперь выровнен по правому краю в центре карточки) -->
+                    <div class="timer-container">
+                        <h2 class="timer-title">До начала мероприятия</h2>
+                        
+                        <div id="countdown" class="d-flex gap-2 gap-sm-3 justify-content-end" aria-label="Обратный отсчет до фестиваля">
+                            <div class="timer-box">
+                                <span class="timer-num" id="timer-days">00</span>
+                                <span class="timer-label" id="label-days">дней</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="timer-hours">00</span>
+                                <span class="timer-label" id="label-hours">часов</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="timer-minutes">00</span>
+                                <span class="timer-label" id="label-minutes">минут</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="timer-seconds">00</span>
+                                <span class="timer-label" id="label-seconds">секунд</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дата, место проведения и кнопка «Расписание» со слайд-заливкой -->
+                    <div class="photo-card-bottom">
+                        <div class="event-info text-white text-end">
+                            <div class="info-item d-flex align-items-center justify-content-end gap-2">
+                                <i class="bx bx-calendar-alt info-icon" aria-hidden="true"></i>
+                                <span>23 - 27 сентября, 2026</span>
+                            </div>
+                            <div class="info-item d-flex align-items-center justify-content-end gap-2">
+                                <i class="bx bx-location info-icon" aria-hidden="true"></i>
+                                <span>г. Псков</span>
+                            </div>
+                        </div>
+
+                        <a href="program.html" class="btn-schedule text-decoration-none">
+                            <span class="ps-sm-3 ps-lg-4">Расписание</span> <i class="bx bx-arrow-right-stroke" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Скрипты -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>

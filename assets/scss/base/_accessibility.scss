@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as *; 
+
+// Стили для фокуса при навигации кнопкой Tab
+*:focus-visible {
+  outline: 3px solid $color-accent !important;
+  outline-offset: 3px;
+}
+
+// Скрытие элементов, доступных только для скринридеров (взято из Bootstrap, но продублировано для надежности)
+.visually-hidden-focusable {
+  &:not(:focus) {
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    margin: -1px !important;
+  }
+}
