@@ -154,5 +154,10 @@ const updateCountdown = () => {
 // Запуск таймера каждую секунду
 setInterval(updateCountdown, 1000);
 updateCountdown(); // Первый запуск сразу при загрузке
+
+// --- 4. Инициализация счетчиков PureCounter ---
+if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
+}
     
 });

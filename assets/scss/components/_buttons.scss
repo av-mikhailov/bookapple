@@ -42,7 +42,7 @@
   position: relative;
   background-color: $color-bg;
   color: $color-primary;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   width: 100%;
   max-width: 18.9375rem; // 303px
@@ -70,31 +70,56 @@
 }
 
 // Кнопка «Расписание»
+// Кнопка «Расписание» из секции Hero
 .btn-schedule {
-  @extend %btn-slide-base;
   position: absolute;
   z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background-color: $color-accent;
   color: $color-white;
+  font-family: $font-accent;
   font-size: 1.125rem;
   font-weight: 500;
+  transition: $transition;
+  border: none;
+  overflow: hidden;
 
   span, i {
+    position: relative;
+    z-index: 2;
     letter-spacing: 1px;
   }
 
-  // Слайд-плашка закрашивания (ваши настроенные 0.4s)
+  i {
+    font-size: 1.4rem;
+  }
+
+  // Эффект закрашивания в оранжевый при наведении
   &::before {
-    background-color: $color-primary;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $color-primary; 
     transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
   }
 
   &:hover {
     color: $color-white !important;
+    
+    &::before {
+      left: 0;
+    }
   }
 
-  // --- Адаптивность кнопки по вашим шагам ---
-  
+  // --- Настройки адаптивности из вашего hero.scss ---
+
   // 1. Мониторы со средним разрешением (1200px - 1399.98px)
   @include respond-to(laptop-only) {
     width: 12.5rem; // 200px
@@ -133,5 +158,92 @@
     height: 2.75rem;
     border-radius: $radius-sm !important; // 16px
     display: inline-flex;
+  }
+}
+
+
+// Кнопка «Подробнее» на первой карточке (с эффектом слайд-закрашивания)
+.btn-outline-about {
+  @extend %btn-slide-base;
+  background-color: transparent;
+  border: 1px solid $color-accent; // Переопределяем border: none из шаблона
+  color: $color-accent;
+  width: 11.0625rem; // 177px
+  height: 2.375rem; // 38px
+  border-radius: $radius-md; // 24px (1.5rem)
+  padding: 0;
+
+  span, i {
+    transition: color 0.3s ease;
+  }
+
+  // Настройка слайд-плашки закрашивания в зеленый цвет
+  &::before {
+    background-color: $color-accent;
+    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: $color-text !important; // Текст плавно становится белым
+    font-weight: 500;
+  }
+
+  @include respond-to(max-sm) {
+    width: 100%; // Растягиваем на мобильных
+  }
+}
+
+// Кнопка «Подробнее» на нижней плашке программы
+.btn-program-more {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: $color-accent;
+  color: $color-white;
+  width: 11.0625rem; // 177px
+  height: 2.375rem; // 38px
+  border-radius: 50px; 
+  border: none;
+  font-family: $font-accent;
+  font-size: 1.125rem;
+  font-weight: 500;
+  z-index: 1;
+
+  span, i {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Стили для новой стрелочки-шеврона
+  i {
+    font-size: 1.4rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    height: 100%;
+    background-color: $color-primary; 
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
+  &:hover {
+    color: $color-white !important;
+
+    &::before {
+      left: 0; 
+    }
+  }
+
+  @include respond-to(max-sm) {
+    width: auto;
+    padding: 0 1.25rem;
   }
 }

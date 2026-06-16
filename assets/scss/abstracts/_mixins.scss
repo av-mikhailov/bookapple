@@ -1,16 +1,24 @@
-// Миксин для медиа-запросов (брейкпоинты из вашего кода)
 @mixin respond-to($breakpoint) {
   @if $breakpoint == max-xl {
     @media (max-width: 1199.98px) { @content; }
   }
+  @else if $breakpoint == max-lg {
+    @media (max-width: 991.98px) { @content; }
+  }
   @else if $breakpoint == max-sm {
     @media (max-width: 575.98px) { @content; }
   }
+  @else if $breakpoint == lg-only {
+    @media (min-width: 992px) and (max-width: 1199.98px) { @content; } // 2x2 сжатый
+  }
+  @else if $breakpoint == md-only {
+    @media (min-width: 768px) and (max-width: 991.98px) { @content; } // 1x4 просторный
+  }
   @else if $breakpoint == tablet-only {
-    @media (min-width: 768px) and (max-width: 1199.98px) { @content; }
+    @media (min-width: 768px) and (max-width: 1199.98px) { @content; } // <-- ВЕРНУЛИ НАЗАД!
   }
   @else if $breakpoint == mobile-only {
-    @media (max-width: 767.98px) { @content; }
+    @media (max-width: 767.98px) { @content; } // Смартфоны
   }
   @else if $breakpoint == laptop-only {
     @media (min-width: 1200px) and (max-width: 1399.98px) { @content; }
