@@ -2,14 +2,14 @@
 @use '../abstracts/mixins' as *;
 
 .about-section {
-  padding-top: 5.5rem; 
+  padding-top: 2.5rem; 
   padding-bottom: 5.5rem;
   background-color: $color-bg;
 }
 
 // --- БЛОК ЗАГОЛОВКА ---
 .section-header {
-  margin-bottom: 3rem; 
+  margin-bottom: 2rem; 
 
   .about-apple-icon {
     width: 2.375rem; 
@@ -195,7 +195,7 @@
   }
 
   @include respond-to(max-sm) {
-    padding: 1rem 0.5rem;
+    padding: 2rem 0.5rem;
     
     .counter-num {
       font-size: 1.5rem; // Еще чуть-чуть ужимаем на самых мелких телефонах

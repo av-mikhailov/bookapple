@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as *;
 
 .program-section {
-  padding-top: 5.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 5.5rem;
   background-color: $color-bg;
 }
@@ -49,25 +49,31 @@
   height: 100%; 
   display: flex;
   flex-direction: row; 
+  position: relative; 
   transition: $transition;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    // При наведении на ЛЮБУЮ область карточки — линия плавно закрашивает ВСЕ строки заголовка на 100%
+    .program-card-title a {
+      background-size: 100% 1px;
+    }
   }
 
   .program-card-img-wrapper {
-    width: 17.875rem; // 286px
-    height: 14.0625rem; // 225px
+    width: 17.875rem; 
+    height: 14.0625rem; 
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: $radius-sm;
 
-    // Сжатие фото строго для сжатого ноутбучного шага 2х2 (992px - 1200px)
     @include respond-to(lg-only) {
       width: 11rem;
       height: 9.5rem;
     }
 
-    // Полная ширина фото для просторного планшетного шага 1х4 (768px - 991px)
     @include respond-to(md-only) {
       width: 17.875rem;
       height: 14.0625rem;
@@ -78,7 +84,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: $radius-sm; 
+    transition: $transition;
   }
 
   .program-card-content {
@@ -101,7 +107,6 @@
         color: $color-primary;
       }
 
-      // ТЗ: Время начала на разрешении 992-1200px
       @include respond-to(lg-only) {
         font-size: 1.325rem; 
       }
@@ -116,6 +121,12 @@
       border-radius: $radius-sm; 
       padding: 0.25rem 0.75rem;
     }
+
+    // Нейтральный бейдж для прошедшего события
+    .program-tag-past {
+      background-color: #EAE8E4 !important;
+      color: #f56046  !important;
+    }
   }
 
   .program-card-middle {
@@ -123,26 +134,41 @@
     gap: 0.5rem; 
   }
 
-  .program-card-title {
+.program-card-title {
     font-family: $font-main;
     font-size: 1rem; 
     font-weight: 400;
-    color: $color-text;
     line-height: 1.4;
     margin: 0;
 
-    // ТЗ: Заголовок на разрешении 992-1200px
+    // Ссылка-заголовок (Stretched Link)
+    a {
+      display: inline; // Критично! Должен быть строго inline, чтобы текст переносился по строкам
+      color: $color-text;
+      
+      // Ваш фирменный многострочный градиентный эффект
+      background-image: linear-gradient($color-text, $color-text);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 1px; // Изначально ширина линии 0%, толщина 1px
+      transition: background-size 0.4s ease-in-out;
+    }
+
     @include respond-to(lg-only) {
       font-size: 0.9rem; 
       line-height: 1.2;
     }
   }
 
+  // Ссылка на автора поднята на z-index: 5, чтобы оставаться кликабельной поверх карточки
   .program-author {
     font-family: $font-main;
-    font-size: 1rem; 
+    font-size: 0.9rem; 
     font-weight: 400;
     color: $color-primary;
+    position: relative;
+    z-index: 5; // Выше stretched-link
+    width: fit-content;
     transition: $transition;
 
     i {
@@ -153,7 +179,6 @@
       color: darken($color-primary, 10%);
     }
 
-    // ТЗ: Писатель на разрешении 992-1200px
     @include respond-to(lg-only) {
       font-size: 0.9rem; 
     }
@@ -170,14 +195,44 @@
       color: $color-accent;
     }
 
-    // ТЗ: Библиотека на разрешении 992-1200px
     @include respond-to(lg-only) {
       font-size: 0.7rem; 
       line-height: 1.2;
     }
   }
 
-  // Смещение на мобильных (< 768px)
+  // --- СТИЛИ ДЛЯ ПРОШЕДШИХ МЕРОПРИЯТИЙ (Trends) ---
+  &.program-card-past {
+    opacity: 0.82; // Легкая общая полупрозрачность карточки
+
+    &:hover {
+      opacity: 1; // Возвращаем 100% при наведении
+    }
+
+    // Обесцвечиваем и притемняем картинку
+    .program-card-img {
+      filter: grayscale(0.8) brightness(0.85);
+    }
+
+    // Приглушаем яркие акценты (оранжевый и зеленый меняем на серый)
+    .program-card-header .program-time i {
+      color: $color-text-muted; // Часики становятся серыми
+    }
+
+    .program-author {
+      color: $color-text-muted; // Ссылка на автора становится серой
+
+      &:hover {
+        color: $color-primary; // При наведении плавно подсвечиваем оранжевым
+      }
+    }
+
+    .program-location i {
+      color: $color-text-muted; // Маркер карты становится серым
+    }
+  }
+
+  // Смещение на мобильных (< 767.98px)
   @include respond-to(mobile-only) {
     flex-direction: column !important;
 
@@ -191,60 +246,5 @@
       padding-left: 0;
       gap: 1rem;
     }
-  }
-}
-
-// --- НИЖНЯЯ ПАНЕЛЬ ---
-.program-controls-strip {
-  background-color: $color-white;
-  border-radius: $radius-xl; 
-  height: 4.6875rem; // 75px
-  padding: 0 2rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
-
-  .decor-center {
-    gap: 1.5rem;
-
-    .decor-apple-gray {
-      filter: grayscale(1) brightness(0.7);
-      opacity: 0.5;
-    }
-
-    .decor-text {
-      font-family: 'Marck Script', cursive;
-      font-size: 1.625rem; 
-      font-weight: 400;
-      color: $color-text-muted;
-      opacity: 0.5;
-    }
-  }
-
-  .program-navigation {
-    gap: 0.5rem; 
-
-    .btn-program-nav {
-      width: 2.375rem; // 38px
-      height: 2.375rem; // 38px
-      border-radius: 50%;
-      border: 1px solid $color-accent;
-      background: transparent;
-      color: $color-accent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      cursor: pointer;
-      transition: $transition;
-
-      &:hover {
-        background-color: $color-primary;
-        border-color: $color-primary;
-        color: $color-white;
-      }
-    }
-  }
-
-  @include respond-to(max-sm) {
-    padding: 0 1rem;
   }
 }

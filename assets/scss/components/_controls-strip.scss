@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.controls-strip {
+  background-color: $color-white;
+  border-radius: $radius-xl; // 32px
+  height: 4.6875rem; // 75px
+  padding: 0 1.25rem; // Ровно 20px паддинга по ТЗ!
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // Прижимает кнопку влево, а стрелочки вправо!
+
+  // Декоративный центр
+  .decor-center {
+    gap: 1.5rem;
+
+    .decor-apple-gray {
+      filter: grayscale(1) brightness(0.7);
+      opacity: 0.5;
+    }
+
+    .decor-text {
+      font-family: 'Marck Script', cursive;
+      font-size: 1.625rem; 
+      font-weight: 400;
+      color: $color-text-muted;
+      opacity: 0.5;
+    }
+  }
+
+  // Правые аккуратные кнопки навигации
+  .program-navigation {
+    gap: 0.5rem; // 8px зазор между кнопками
+
+    .btn-program-nav {
+      width: 2.375rem; // 38px
+      height: 2.375rem; // 38px
+      border-radius: 50%;
+      border: 1px solid $color-accent;
+      background: transparent;
+      color: $color-accent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+  @include respond-to(max-sm) {
+    padding: 0 1rem;
+  }
+}

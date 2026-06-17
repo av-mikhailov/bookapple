@@ -1,2 +1,150 @@
-@use "../abstracts/variables" as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
+.footer-section {
+    margin-top: 3rem;
+    background-color: $color-bg-alt; 
+    border-top-left-radius: $radius-xl; // 32px
+    border-top-right-radius: $radius-xl; // 32px
+    padding-top: 3.5rem; // Уменьшили отступ сверху для компактности по ТЗ!
+    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden; 
+    color: $color-white;
+
+    // Белый фоновый узор в углу подвала (точные 146px x 164px по ТЗ!)
+    .footer-bg-logo {
+        display: none;
+
+        @include respond-to(min-xxl) {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        bottom: -1rem; 
+        width: 9.125rem; // Точные 146px по ТЗ!
+        height: 10.25rem; // Точные 164px по ТЗ!
+        object-fit: contain;
+        filter: brightness(0) invert(1); 
+        opacity: 0.05; // 5% прозрачности по ТЗ
+        z-index: 1;
+        pointer-events: none;
+        }
+    }
+}
+
+// Заголовок виджета (с короткой оранжевой полосой снизу)
+.footer-title {
+  font-family: $font-accent;
+  font-size: 1.5rem; 
+  font-weight: 500;
+  color: $color-white;
+  position: relative;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3.5rem; 
+    height: 2px; 
+    background-color: $color-primary; 
+  }
+}
+
+// Список контактов (оптическое центрирование и плотные отступы)
+.footer-contacts-list {
+  font-family: $font-accent;
+  font-size: 0.875rem;
+  color: rgba($color-white, 0.9);
+
+  li {
+    line-height: 1.4;
+    margin-bottom: 0.625rem; // Плотный аккуратный отступ 10px между строками!
+
+    &:last-child {
+      margin-bottom: 1.5rem; // Чуть больше отступа снизу перед иконками соцсетей
+    }
+  }
+
+  .footer-icon {
+    font-size: 1.25rem; // ~20px
+    color: $color-primary; 
+    flex-shrink: 0;
+    display: inline-flex; // Центрирует сам символ иконки внутри своего блока
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    transition: $transition;
+    &:hover {
+      color: $color-primary !important;
+    }
+  }
+}
+
+// Соцсети
+.footer-socials {
+  .social-circle {
+    width: 2.25rem; 
+    height: 2.25rem; 
+    border-radius: 50%;
+    background-color: $color-accent; 
+    color: $color-bg-alt; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-primary; 
+      color: $color-white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Списки ссылок
+.footer-links-list {
+  li {
+    margin-bottom: 0.5rem; 
+  }
+
+  a {
+    font-family: $font-accent;
+    font-size: 0.875rem; 
+    color: rgba($color-white, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: $transition;
+
+    i {
+      color: $color-accent-alt; 
+      font-size: 1.125rem;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: $color-primary; 
+
+      i {
+        transform: translateX(3px); 
+      }
+    }
+  }
+}
+
+// Копирайт
+.footer-bottom {
+  border-top: 1px solid rgba($color-white, 0.08); 
+
+  .copyright-text {
+    font-family: $font-accent;
+    font-size: 0.875rem; 
+    color: rgba($color-white, 0.5); 
+  }
+}

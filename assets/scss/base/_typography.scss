@@ -80,3 +80,7 @@ a {
     color: darken($color-primary, 10%);
   }
 }
+
+html {
+  scroll-behavior: smooth; // Включает плавную прокрутку по всему сайту
+}

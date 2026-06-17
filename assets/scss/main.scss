@@ -5,7 +5,9 @@
 @use "base/typography";
 
 @use "components/buttons";
+@use "components/controls-strip";
 @use "components/mobile-menu";
+@use "components/back-to-top";
 
 @use "layout/header";
 @use "layout/body-layout";
@@ -14,3 +16,6 @@
 @use "sections/hero";
 @use "sections/about";
 @use "sections/program";
+@use "sections/guests";
+@use "sections/news";
+@use "sections/partners";

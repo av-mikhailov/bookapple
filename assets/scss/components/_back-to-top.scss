@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.back-to-top {
+  position: fixed;
+  right: 1.5rem; // 24px от правого края
+  bottom: 1.5rem; // 24px от нижнего края
+  z-index: 999;
+  width: 2.75rem; // 44px (удобно для клика пальцем)
+  height: 2.75rem; 
+  border-radius: 50%;
+  border: 1px solid $color-white;
+  background-color: $color-accent; // Наш оранжевый цвет
+  color: $color-white;
+  font-size: 1.75rem; // Крупная стрелочка
+  // box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease, background-color 0.3s ease;
+  
+  // Изначально кнопка полностью скрыта
+  opacity: 0;
+  visibility: hidden;
+
+  // Класс активации, который мы будем вешать через JS
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: darken($color-primary, 7%);
+    color: $color-white !important;
+  }
+
+  @include respond-to(max-sm) {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+}

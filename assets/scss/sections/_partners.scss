@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.partners-section {
+  padding-top: 2.5rem;
+  padding-bottom: 5.5rem;
+  background-color: $color-bg;
+}
+
+// Карточка партнера
+.partner-card {
+  background-color: $color-white;
+  border-radius: $radius-md; // 24px
+  padding: 1.25rem; // Ровно 20px паддинг по ТЗ
+  aspect-ratio: 416 / 200; // Пропорции Figma
+  display: flex;
+  align-items: center;
+  justify-content: center; // Центрируем логотип по осям X и Y
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+    .partner-logo {
+      transform: scale(1.02);
+    }
+  }
+
+  // Ограничение габаритов карточки на планшетах (768px - 1199px)
+  @include respond-to(tablet-only) {
+    aspect-ratio: auto;
+    min-height: 9.5rem; // Жестко держим высоту карточки на планшетах
+  }
+
+  // Адаптивное поведение для смартфонов
+  @include respond-to(max-sm) {
+    aspect-ratio: auto;
+    min-height: 8.5rem; 
+  }
+}
+
+// Логотип партнера (с защитой от вылета за границы)
+.partner-logo {
+  max-width: 100%;  // КРИТИЧНО: Логотип никогда не превысит доступную ширину паддингов!
+  max-height: 100%; // КРИТИЧНО: Логотип никогда не превысит доступную высоту паддингов!
+  width: auto;
+  height: auto;
+  object-fit: contain; // Сохраняем оригинальные пропорции логотипа
+  transition: $transition;
+
+  // --- Динамический контроль высоты логотипов по брейкпоинтам ---
+
+  // 1. Мониторы от 1400px (Ограничения из Figma по ТЗ)
+  @include respond-to(min-xxl) {
+    max-width: 21.875rem; // 350px 
+    max-height: 5.3125rem; // 85px 
+  }
+
+  // 2. Ноутбуки (1200px - 1399.98px)
+  @include respond-to(laptop-only) {
+    max-width: 16rem; 
+    max-height: 4.25rem; // Слегка ужимаем высоту до ~68px
+  }
+
+  // 3. Планшеты (768px - 1199.98px) - те самые промежуточные брейкпоинты
+  @include respond-to(tablet-only) {
+    max-width: 85%; // Оставляем 15% воздуха по бокам
+    max-height: 3.75rem; // Ужимаем высоту до ~60px для аккуратности
+  }
+
+  // 4. Смартфоны (< 767.98px)
+  @include respond-to(mobile-only) {
+    max-width: 80%;
+    max-height: 3.5rem; // На телефонах зажимаем до ~56px
+  }
+}

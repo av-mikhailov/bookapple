@@ -108,56 +108,124 @@ function getPluralWord(number, one, two, five) {
     return five;
 }
 
-const updateCountdown = () => {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
 
-    // Элементы DOM
-    const daysEl = document.getElementById('timer-days');
-    const hoursEl = document.getElementById('timer-hours');
-    const minutesEl = document.getElementById('timer-minutes');
-    const secondsEl = document.getElementById('timer-seconds');
+        // Элементы DOM
+        const daysEl = document.getElementById('timer-days');
+        const hoursEl = document.getElementById('timer-hours');
+        const minutesEl = document.getElementById('timer-minutes');
+        const secondsEl = document.getElementById('timer-seconds');
 
-    const labelDays = document.getElementById('label-days');
-    const labelHours = document.getElementById('label-hours');
-    const labelMinutes = document.getElementById('label-minutes');
-    const labelSeconds = document.getElementById('label-seconds');
+        const labelDays = document.getElementById('label-days');
+        const labelHours = document.getElementById('label-hours');
+        const labelMinutes = document.getElementById('label-minutes');
+        const labelSeconds = document.getElementById('label-seconds');
 
-    if (difference < 0) {
-        // Если дата прошла
-        if (daysEl) daysEl.innerText = "00";
-        if (hoursEl) hoursEl.innerText = "00";
-        if (minutesEl) minutesEl.innerText = "00";
-        if (secondsEl) secondsEl.innerText = "00";
-        return;
+        if (difference < 0) {
+            // Если дата прошла
+            if (daysEl) daysEl.innerText = "00";
+            if (hoursEl) hoursEl.innerText = "00";
+            if (minutesEl) minutesEl.innerText = "00";
+            if (secondsEl) secondsEl.innerText = "00";
+            return;
+        }
+
+        // Расчеты времени
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Вывод в HTML с добавлением ведущего нуля
+        if (daysEl) daysEl.innerText = days < 10 ? '0' + days : days;
+        if (hoursEl) hoursEl.innerText = hours < 10 ? '0' + hours : hours;
+        if (minutesEl) minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
+        if (secondsEl) secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
+
+        // Установка правильных окончаний на русском языке
+        if (labelDays) labelDays.innerText = getPluralWord(days, 'день', 'дня', 'дней');
+        if (labelHours) labelHours.innerText = getPluralWord(hours, 'час', 'часа', 'часов');
+        if (labelMinutes) labelMinutes.innerText = getPluralWord(minutes, 'минута', 'минуты', 'минут');
+        if (labelSeconds) labelSeconds.innerText = getPluralWord(seconds, 'секунда', 'секунды', 'секунд');
+    };
+
+    // Запуск таймера каждую секунду
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Первый запуск сразу при загрузке
+
+    // --- 4. Инициализация счетчиков PureCounter ---
+    if (typeof PureCounter !== 'undefined') {
+        new PureCounter();
     }
 
-    // Расчеты времени
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    // Вывод в HTML с добавлением ведущего нуля
-    if (daysEl) daysEl.innerText = days < 10 ? '0' + days : days;
-    if (hoursEl) hoursEl.innerText = hours < 10 ? '0' + hours : hours;
-    if (minutesEl) minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
-    if (secondsEl) secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
-
-    // Установка правильных окончаний на русском языке
-    if (labelDays) labelDays.innerText = getPluralWord(days, 'день', 'дня', 'дней');
-    if (labelHours) labelHours.innerText = getPluralWord(hours, 'час', 'часа', 'часов');
-    if (labelMinutes) labelMinutes.innerText = getPluralWord(minutes, 'минута', 'минуты', 'минут');
-    if (labelSeconds) labelSeconds.innerText = getPluralWord(seconds, 'секунда', 'секунды', 'секунд');
-};
-
-// Запуск таймера каждую секунду
-setInterval(updateCountdown, 1000);
-updateCountdown(); // Первый запуск сразу при загрузке
-
-// --- 4. Инициализация счетчиков PureCounter ---
-if (typeof PureCounter !== 'undefined') {
-    new PureCounter();
-}
+    // --- 5. Инициализация слайдера гостей Swiper ---
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.guests-swiper', {
+            slidesPerView: 1,       // 1 карточка на смартфонах по умолчанию
+            spaceBetween: 24,       // Зазор 24px
+            loop: true,             // Листаем по кругу
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.btn-guests-next',
+                prevEl: '.btn-guests-prev',
+            },
+            breakpoints: {
+                576: {
+                    slidesPerView: 2, // 2 карточки на крупных телефонах
+                },
+                992: {
+                    slidesPerView: 3, // 3 карточки на планшетах
+                },
+                1200: {
+                    slidesPerView: 4, // Ровно 4 карточки в ряд на десктопе по ТЗ!
+                }
+            }
+        });
+    }
     
+    // --- 6. Инициализация слайдера новостей Swiper ---
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.news-swiper', {
+            slidesPerView: 1,       // 1 карточка на смартфонах
+            spaceBetween: 24,       // Зазор 24px
+            loop: true,             // Циклично
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.btn-news-next',
+                prevEl: '.btn-news-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2, // 2 карточки на планшетах
+                },
+                1200: {
+                    slidesPerView: 3, // Ровно 3 карточки в ряд на десктопе по ТЗ!
+                }
+            }
+        });
+    }
+
+    // --- 7. Логика кнопки "Наверх" (Back to Top) ---
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+    const toggleBackToTop = () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('active');
+        } else {
+            backToTopBtn.classList.remove('active');
+        }
+    };
+
+    window.addEventListener('scroll', toggleBackToTop);
+    toggleBackToTop(); // Проверяем при первичной загрузке страницы
+}
 });
