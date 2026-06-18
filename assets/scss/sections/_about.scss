@@ -57,10 +57,16 @@
 .about-card {
   border-radius: $radius-xl; // 32px
   padding: 2.5rem; 
+  position: relative;
+  overflow: hidden; // КРИТИЧНО: Принудительно обрезаем все вылезающие элементы (включая логотип в углу)
 
-  // Скругление 16px на экранах ниже 992px
+  // Аппаратные GPU-хаки против мерцания и субпиксельных щелей при скролле:
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0); 
+
   @include respond-to(max-lg) {
-    border-radius: $radius-sm !important;
+    border-radius: $radius-sm !important; // 16px
   }
 
   @include respond-to(max-sm) {
@@ -103,11 +109,6 @@
     opacity: 0.09; 
     z-index: 1;
     pointer-events: none;
-    border-bottom-right-radius: $radius-xl; 
-
-    @include respond-to(max-lg) {
-      border-bottom-right-radius: $radius-sm;
-    }
   }
 
   @include respond-to(max-xl) {

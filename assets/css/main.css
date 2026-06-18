@@ -1026,6 +1026,11 @@ html {
 .about-card {
   border-radius: 32px;
   padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 @media (max-width: 991.98px) {
   .about-card {
@@ -1070,12 +1075,6 @@ html {
   opacity: 0.09;
   z-index: 1;
   pointer-events: none;
-  border-bottom-right-radius: 32px;
-}
-@media (max-width: 991.98px) {
-  .about-card-dark .card-bg-logo {
-    border-bottom-right-radius: 16px;
-  }
 }
 @media (max-width: 1199.98px) {
   .about-card-dark {
