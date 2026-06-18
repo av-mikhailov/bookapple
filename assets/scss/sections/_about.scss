@@ -25,7 +25,7 @@
       font-family: $font-accent;
       font-size: 3rem; 
       font-weight: 500; 
-      color: $color-text;
+      color: $color-bg-alt;
       margin: 0;
       white-space: nowrap;
     }
@@ -204,5 +204,302 @@
     .counter-label {
       font-size: 0.8rem;
     }
+  }
+}
+
+
+// ==========================================================================
+// 2. СТИЛИ ДЛЯ ВНУТРЕННЕЙ СТРАНИЦЫ (Страница about.html)
+// ==========================================================================
+
+// --- ЗАГОЛОВОК СТРАНИЦЫ ---
+.page-title-section {
+  padding-top: 9rem; 
+  padding-bottom: 2.5rem;
+  background-color: $color-bg;
+
+  .page-title {
+    font-family: $font-accent;
+    font-size: 2.75rem; 
+    font-weight: 500;
+    color: $color-bg-alt;
+  }
+
+  @include respond-to(max-sm) {
+    padding-top: 8rem;
+    .page-title { font-size: 2rem; }
+  }
+}
+
+// --- КАРТОЧКА-ОБЛОЖКА ВНУТРЕННЕЙ СТРАНИЦЫ ---
+.about-cover-section {
+  padding-bottom: 4rem;
+  background-color: $color-bg;
+}
+
+.about-cover-card {
+  background-color: $color-bg-alt; // Наш благородный чернильный синий
+  border-radius: $radius-xl; // 32px
+  padding: 3.5rem;
+  box-shadow: 0 12px 40px rgba($color-bg-alt, 0.15); // Глубокая мягкая тень
+
+  @include respond-to(laptop-only) {
+    padding: 2.5rem;
+  }
+
+  @include respond-to(max-xl) {
+    padding: 2rem;
+  }
+
+  // Фоновый логотип (белый, 5% прозрачности)
+  .cover-bg-pattern {
+    position: absolute;
+    right: 60%;
+    bottom: -1rem;
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    filter: brightness(0) invert(1);
+    opacity: 0.05; 
+    // transform: rotate(5deg);
+
+    @include respond-to(max-lg) {
+      display:none;
+    }
+  }
+
+  // Тег-плашка сверху
+  .cover-badge {
+    display: inline-block;
+    font-family: $font-accent;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color-accent-alt; // Сделали желтым для сочности
+    border: 1px solid rgba($color-accent-alt, 0.4);
+    padding: 0.4rem 1.25rem;
+    border-radius: 50px;
+  }
+
+  // Главная большая дата
+  .cover-date {
+    font-family: $font-accent;
+    font-size: 3rem; 
+    font-weight: 700;
+    color: $color-primary; // Оранжевый
+    line-height: 1.1;
+
+    @include respond-to(max-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  // Список контактов (белый на синем)
+  .cover-contacts {
+    font-family: $font-main;
+    font-size: 1rem;
+    color: rgba($color-white, 0.9);
+
+    li {
+      line-height: 1.4;
+    }
+
+    .cover-icon {
+      font-size: 1.35rem;
+      color: $color-primary;
+    }
+
+    a {
+      color: rgba($color-white, 0.9);
+      transition: $transition;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  // Возрастной рейтинг
+  .cover-age-rating {
+    font-family: $font-accent;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba($color-white, 0.3);
+  }
+
+  // Правая колонка
+  .cover-features-title {
+    font-family: $font-accent;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color-white; // Белый заголовок
+    margin-bottom: 1.5rem;
+
+    @include respond-to(max-sm) {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Галочки списка (зеленые на синем фоне выглядят потрясающе контрастно!)
+  .cover-features-list {
+    font-family: $font-main;
+    font-size: 1.125rem; 
+    color: rgba($color-white, 0.9);
+
+    li {
+      line-height: 1.4;
+    }
+
+    .cover-check-icon {
+      font-size: 1.625rem;
+      color: $color-accent; // Сочный зеленый
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+  }
+
+  // Блок поддержки фонда
+  .cover-support-block {
+    background-color: rgba($color-white, 0.04); // Сверхлегкий белый фон на синем
+    border: 1px solid rgba($color-white, 0.15); // Тонкая белая рамочка
+    border-radius: $radius-sm; 
+    padding: 1rem 1.25rem;
+
+    .support-icon {
+      font-size: 1.5rem;
+      color: $color-accent-alt; // Желтая иконка info-circle будет гореть как яркий маячок контраста!
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .support-text {
+      font-family: $font-main;
+      font-size: 0.95rem;
+      color: rgba($color-white, 0.85) !important; // <-- ИСПРАВЛЕНО: Теперь текст благородного белого цвета!
+      line-height: 1.4;
+    }
+  }
+}
+
+
+// ==========================================================================
+// 3. СЕКЦИЯ ИСТОРИИ И ТАЙМЛАЙНА (Исправленная и соосная версия)
+// ==========================================================================
+
+.history-section {
+  padding-top: 1rem;
+  padding-bottom: 6rem;
+  background-color: $color-bg;
+}
+
+// Заголовок-бадж "Немного истории"
+.history-badge {
+  display: inline-block;
+  font-family: $font-accent;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: $color-text-muted;
+  border: 1px solid rgba($color-text, 0.4);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+}
+
+// Вводный текстовый блок
+.history-intro-text {
+  .history-p {
+    font-family: $font-main;
+    font-size: 1.125rem; 
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    &.lead-text {
+      font-size: 1.25rem; 
+      color: $color-bg-alt; 
+      font-weight: 500;
+    }
+  }
+
+  .history-organizer {
+    font-family: $font-accent;
+    font-size: 1.125rem;
+    color: $color-primary;
+    margin-top: 1.5rem;
+    
+    strong {
+      font-weight: 500;
+    }
+  }
+}
+
+// --- ВЕРТИКАЛЬНЫЙ ТАЙМЛАЙН ---
+.timeline-container {
+  position: relative;
+  // Паддинг перенесен на timeline-item для жесткой соосности!
+
+  // Пунктирная линия (координата left совпадает с яблоками!)
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem; // Ровно 12px от левого края контейнера
+    top: 1.25rem;
+    bottom: 1.25rem;
+    border-left: 2px dotted $color-accent; 
+  }
+}
+
+// Элемент таймлайна (теперь отступ перенесен сюда)
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem; // Создаем место под яблоко и линию (40px)
+  margin-bottom: 2rem; 
+}
+
+// Яблоко-узел (идеально отцентровано по линии)
+.timeline-node {
+  position: absolute;
+  left: 0.75rem; // Ровно 12px от левого края (соосно с линией!)
+  top: 0.15rem; // Подгоняем высоту под первую строчку заголовка
+  transform: translateX(-50%); // Сдвигаем яблоко по центру оси
+  z-index: 2;
+  background-color: $color-bg; 
+  padding: 0.2rem 0; 
+
+  i {
+    font-size: 1.5rem; // Оптимальный размер bxl-apple
+    display: block;
+
+    &.node-green { color: $color-accent; }
+    &.node-yellow { color: $color-accent-alt; }
+    &.node-orange { color: $color-primary; }
+  }
+}
+
+// Заголовок milestone (удален лишний margin-left!)
+.timeline-title {
+  font-family: $font-accent;
+  font-size: 1.25rem; 
+  font-weight: 500;
+  color: $color-bg-alt;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+// Белые карточки таймлайна с текстом (удален лишний margin-left!)
+.timeline-card {
+  background-color: $color-white;
+  border-radius: $radius-md; 
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01); 
+
+  .timeline-text {
+    font-family: $font-main;
+    font-size: 1rem;
+    color: $color-text;
+    line-height: 1.5;
+  }
+
+  @include respond-to(max-sm) {
+    padding: 1.25rem;
   }
 }
