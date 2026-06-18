@@ -137,7 +137,7 @@ html {
   transition: color 0.3s ease;
 }
 .btn-hero-action::before {
-  background-color: #40526d;
+  background-color: #356169;
   transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-hero-action:hover {
@@ -621,7 +621,7 @@ html {
 }
 .footer-section {
   margin-top: 3rem;
-  background-color: #40526d;
+  background-color: #356169;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   padding-top: 3.5rem;
@@ -700,7 +700,7 @@ html {
   height: 2.25rem;
   border-radius: 50%;
   background-color: #ACCA51;
-  color: #40526d;
+  color: #356169;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -927,7 +927,7 @@ html {
 }
 @media (min-width: 768px) and (max-width: 1199.98px) {
   .hero-card-photo {
-    background-color: #40526d;
+    background-color: #356169;
     border-radius: 24px;
     overflow: hidden;
   }
@@ -942,7 +942,7 @@ html {
 }
 @media (max-width: 767.98px) {
   .hero-card-photo {
-    background-color: #40526d;
+    background-color: #356169;
     border-radius: 24px;
     overflow: hidden;
     position: relative;
@@ -994,7 +994,7 @@ html {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 3rem;
   font-weight: 500;
-  color: #40526d;
+  color: #356169;
   margin: 0;
   white-space: nowrap;
 }
@@ -1044,7 +1044,7 @@ html {
 }
 
 .about-card-dark {
-  background-color: #40526d;
+  background-color: #356169;
   color: #FFFFFF;
   position: relative;
 }
@@ -1175,7 +1175,7 @@ html {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 2.75rem;
   font-weight: 500;
-  color: #40526d;
+  color: #356169;
 }
 @media (max-width: 575.98px) {
   .page-title-section {
@@ -1192,10 +1192,10 @@ html {
 }
 
 .about-cover-card {
-  background-color: #40526d;
+  background-color: #356169;
   border-radius: 32px;
   padding: 3.5rem;
-  box-shadow: 0 12px 40px rgba(64, 82, 109, 0.15);
+  box-shadow: 0 12px 40px rgba(53, 97, 105, 0.15);
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .about-cover-card {
@@ -1341,7 +1341,7 @@ html {
 }
 .history-intro-text .history-p.lead-text {
   font-size: 1.25rem;
-  color: #40526d;
+  color: #356169;
   font-weight: 500;
 }
 .history-intro-text .history-organizer {
@@ -1399,7 +1399,7 @@ html {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
-  color: #40526d;
+  color: #356169;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -1436,7 +1436,7 @@ html {
   font-size: 1.125rem;
   font-weight: 500;
   color: #FFFFFF;
-  background-color: #40526d;
+  background-color: #356169;
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   transition: all 0.3s ease;
@@ -1513,7 +1513,7 @@ html {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.625rem;
   font-weight: 600;
-  color: #40526d;
+  color: #356169;
 }
 .program-card .program-card-header .program-time i {
   font-size: 1.5rem;
