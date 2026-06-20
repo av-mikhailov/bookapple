@@ -58,29 +58,40 @@
     font-display: swap;
 }
 
-body {
-  font-family: $font-main;
-  background-color: $color-bg;
-  color: $color-text;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-accent;
-  color: $color-text;
-}
-
-a {
-  color: $color-primary;
-  text-decoration: none;
-  transition: $transition;
-
-  &:hover, &:focus {
-    color: darken($color-primary, 10%);
+.text-content {
+  
+  // Любой стандартный H2 внутри статьи автоматически становится компактным баджем!
+  h2 {
+    display: inline-block;
+    font-family: $font-accent, sans-serif;
+    font-size: 1rem; // Компактные 18px по ТЗ
+    font-weight: 400; // Regular
+    color: $color-primary-alt; // Бирюзовый
+    border: 1px solid rgba($color-primary-alt, 0.6); // Ваша контрастная рамка
+    padding: 0.4rem 1.25rem;
+    border-radius: 50px; // Скругленная пилюля
+    margin-top: 0;
+    margin-bottom: 1.5rem; // Отступ снизу до текста
+    text-transform: none;
   }
-}
 
-html {
-  scroll-behavior: smooth; // Включает плавную прокрутку по всему сайту
+  // Абзацы внутри текста
+  p {
+    font-family: $font-main, sans-serif;
+    font-size: 1.125rem; // 18px
+    line-height: 1.6;
+    color: $color-text;
+    margin-bottom: 1.5rem;
+
+    // Стили лидирующего (первого) абзаца статьи
+    &.lead-text {
+      font-size: 1.25rem; // 20px
+      color: $color-primary-alt; 
+      font-weight: 500;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
 }

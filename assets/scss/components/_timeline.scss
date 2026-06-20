@@ -1,0 +1,72 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.timeline-container {
+  position: relative;
+
+  // Пунктирная линия
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem; 
+    top: 1.25rem;
+    bottom: 1.25rem;
+    border-left: 2px dotted $color-accent; 
+  }
+}
+
+// Элемент таймлайна (паддинг 40px)
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem; 
+  margin-bottom: 2rem; 
+}
+
+// Яблоко-узел (ваша точная соосная высота -0.3rem)
+.timeline-node {
+  position: absolute;
+  left: 0.75rem; 
+  top: -0.3rem; // Идеальный оптический центр от вас!
+  transform: translateX(-50%); 
+  z-index: 2;
+  background-color: $color-bg; 
+  padding: 0.2rem 0; 
+
+  i {
+    font-size: 1.5rem; 
+    display: block;
+
+    &.node-green { color: $color-accent; }
+    &.node-yellow { color: $color-accent-alt; }
+    &.node-orange { color: $color-primary; }
+  }
+}
+
+// Заголовок milestone
+.timeline-title {
+  font-family: $font-accent;
+  font-size: 1.25rem; 
+  font-weight: 500;
+  color: $color-primary-alt; // Бирюзовый
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+// Белые карточки таймлайна с текстом
+.timeline-card {
+  background-color: $color-white;
+  border-radius: $radius-md; 
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01); 
+
+  .timeline-text {
+    font-family: $font-main;
+    font-size: 1rem;
+    color: $color-text;
+    line-height: 1.5;
+  }
+
+  @include respond-to(max-sm) {
+    padding: 1.25rem;
+  }
+}

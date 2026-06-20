@@ -47,7 +47,7 @@
   width: 100%;
   max-width: 18.9375rem; // 303px
   height: 2.75rem; // 44px
-  border-radius: $radius-sm; // 16px
+  border-radius: $radius-md; // 16px
   z-index: 1;
 
   span, i {
@@ -56,7 +56,7 @@
 
   // Слайд-плашка закрашивания (ваши настроенные 0.8s)
   &::before {
-    background-color: $color-bg-alt;
+    background-color: $color-primary-alt;
     transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -204,7 +204,7 @@
   gap: 0.5rem;
   background-color: $color-accent;
   color: $color-white;
-  width: 11.0625rem; // 177px
+  width: 12.0625rem; // 177px
   height: 2.375rem; // 38px
   border-radius: 50px; // Капсула
   border: none;

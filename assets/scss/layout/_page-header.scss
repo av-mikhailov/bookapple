@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.page-title-section {
+  padding-top: 9rem; // Точные 9rem от вас!
+  padding-bottom: 2.5rem;
+  background-color: $color-bg;
+
+  .page-title {
+    font-family: $font-accent;
+    font-size: 2.75rem; 
+    font-weight: 500;
+    color: $color-primary-alt; // Бирюзовый
+  }
+
+  @include respond-to(max-sm) {
+    padding-top: 8rem;
+    .page-title { font-size: 2rem; }
+  }
+}

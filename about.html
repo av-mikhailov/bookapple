@@ -68,25 +68,24 @@
 <main id="main-content">
     
     <!-- Хлебные крошки и заголовок страницы -->
-<section class="page-title-section text-center">
-    <div class="container">
-        <h1 class="page-title mb-1">О фестивале</h1>
-        <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
-            <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item">
-                    <a href="index.html" class="text-decoration-none">Главная</a>
-                </li>
-                <!-- Текущая страница помечена aria-current для скринридеров -->
-                <li class="breadcrumb-item active" aria-current="page">О фестивале</li>
-            </ol>
-        </nav>
-    </div>
-</section>
-
+    <section class="page-title-section text-center">
+        <div class="container">
+            <h1 class="page-title mb-1">О фестивале</h1>
+            <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="text-decoration-none">Главная</a>
+                    </li>
+                    <!-- Текущая страница помечена aria-current для скринридеров -->
+                    <li class="breadcrumb-item active" aria-current="page">О фестивале</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
     <!-- Карточка-обложка "Теплый книжный крем" -->
     <section class="about-cover-section">
         <div class="container">
-            <article class="about-cover-card position-relative overflow-hidden">
+            <article class="cover-card position-relative overflow-hidden">
                 
                 <!-- Фоновое яблоко (нежное, золотисто-оранжевое на фоне крема) -->
                 <img src="assets/img/logo.svg" alt="" class="cover-bg-pattern" role="presentation">
@@ -167,79 +166,183 @@
             </article>
         </div>
     </section>
-<!-- Секция Истории и Таймлайна (8 колонок по центру) -->
-<section class="history-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 col-lg-10" data-aos="fade-up">
-                
-                <!-- Заголовок-бадж -->
-                <div class="history-badge mb-4">Немного истории</div>
+    <!-- Секция Истории и Таймлайна (8 колонок по центру) -->
+    <section class="history-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10" data-aos="fade-up">
+                    
+                    <!-- БЛОК А: ИСТОРИЯ (Открываем .text-content) -->
+                    <div class="text-content mb-5">
+                        <h2>Немного истории</h2>
+                        <p class="lead-text">
+                            «Книжная яблоня» — это Всероссийский литературный фестиваль, который каждую осень превращает Псков в столицу детской и подростковой книги.
+                        </p>
+                        <p class="text-muted">
+                            Для любителей литературы этот фестиваль настоящий праздник книги и чтения, мощное средство коммуникации писателей, издательств с широкой аудиторией. Для гостей-писателей — возможность пообщаться друг с другом, посетить новые места, познакомиться с новыми людьми.
+                        </p>
+                        <p class="history-organizer mb-0">
+                            <a href="https://bibliopskov.ru/" target="_blank">Организатор: МАУК «ЦБС» г. Пскова.</a>
+                        </p>
+                    </div> <!-- Закрываем .text-content перед таймлайном -->
 
-                <!-- Вводные абзацы -->
-                <div class="history-intro-text mb-5">
-                    <p class="history-p lead-text">
-                        «Книжная яблоня» — это Всероссийский литературный фестиваль, который каждую осень превращает Псков в столицу детской и подростковой книги.
-                    </p>
-                    <p class="history-p text-muted">
-                        Для любителей литературы этот фестиваль настоящий праздник книги и чтения, мощное средство коммуникации писателей, издательств с широкой аудиторией. Для гостей-писателей — возможность пообщаться друг с другом, посетить новые места, познакомиться с новыми людьми.
-                    </p>
-                    <p class="history-organizer">
-                        <strong>Организатор: МАУК «ЦБС» г. Пскова.</strong>
-                    </p>
+                    <!-- БЛОК Б: ТАЙМЛАЙН -->
+                    <div class="timeline-container position-relative mb-5">
+                        
+                        <!-- Событие 1: 2017 -->
+                        <div class="timeline-item">
+                            <div class="timeline-node">
+                                <i class="bxl bx-apple node-green" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="timeline-title">2017 год. Старт:</h3>
+                            <div class="timeline-card">
+                                <p class="timeline-text mb-0">
+                                    Литературный фестиваль «Книжная яблоня» впервые прошел в Пскове 13-15 сентября 2017 года в рамках Всероссийского культурно-просветительского проекта «Живые Лица: Навигатор по современной отечественной детской литературе».
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Событие 2: 2018 -->
+                        <div class="timeline-item">
+                            <div class="timeline-node">
+                                <i class="bxl bx-apple node-yellow" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="timeline-title">2018 год. Псковская прописка:</h3>
+                            <div class="timeline-card">
+                                <p class="timeline-text mb-0">
+                                    После ошеломительного успеха Второго фестиваля проект официально получил постоянную «псковскую прописку». Каждую осень фестиваль собирает лучших авторов.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Событие 3: Наши дни -->
+                        <div class="timeline-item mb-0">
+                            <div class="timeline-node">
+                                <i class="bxl bx-apple node-orange" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="timeline-title">Наши дни:</h3>
+                            <div class="timeline-card mb-0">
+                                <p class="timeline-text mb-0">
+                                    Сегодня фестиваль стал мощным мостом коммуникации между авторами, издательствами и тысячами читателей. Для писателей — это вдохновение и новые места, для детей — праздник, который запоминается на всю жизнь.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- БЛОК В: СЕГОДНЯ (Снова открываем .text-content) -->
+                    <div class="text-content pt-3 mb-4">
+                        <h2>Книжная яблоня сегодня</h2>
+                        <p class="mb-0">
+                            Каждый новый сезон «Книжной яблони» бьет рекорды прошлых лет. Фестиваль, начинавшийся как локальная культурная инициатива, сегодня превратился в масштабное всероссийское событие, которое охватывает весь город — от центральных библиотек до уютных районных филиалов.
+                        </p>
+                    </div> <!-- Закрываем .text-content перед счетчиками -->
+
+                    <!-- БЛОК Г: СЧЕТЧИКИ В РЯД (Используем готовую PureCounter разметку) -->
+                    <div class="row g-3 mb-4">
+                        
+                        <!-- Счетчик 1: Посетители -->
+                        <div class="col-6 col-md-3 d-flex">
+                            <div class="counter-card w-100 d-flex flex-column justify-content-center align-items-center text-center">
+                                <span class="counter-num">
+                                    <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3000" data-purecounter-duration="1.5">0</span>+
+                                </span>
+                                <span class="counter-label">Посетителей</span>
+                            </div>
+                        </div>
+
+                        <!-- Счетчик 2: Библиотеки -->
+                        <div class="col-6 col-md-3 d-flex">
+                            <div class="counter-card w-100 d-flex flex-column justify-content-center align-items-center text-center">
+                                <span class="counter-num">
+                                    <span class="purecounter" data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1.5">0</span>
+                                </span>
+                                <span class="counter-label">Библиотек</span>
+                            </div>
+                        </div>
+
+                        <!-- Счетчик 3: Писатели -->
+                        <div class="col-6 col-md-3 d-flex">
+                            <div class="counter-card w-100 d-flex flex-column justify-content-center align-items-center text-center">
+                                <span class="counter-num">
+                                    <span class="purecounter" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1.5">0</span>+
+                                </span>
+                                <span class="counter-label">Писателей</span>
+                            </div>
+                        </div>
+
+                        <!-- Счетчик 4: Издания -->
+                        <div class="col-6 col-md-3 d-flex">
+                            <div class="counter-card w-100 d-flex flex-column justify-content-center align-items-center text-center">
+                                <span class="counter-num">
+                                    <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1.5">0</span>+
+                                </span>
+                                <span class="counter-label">Изданий</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- БЛОК Д: ПРОДОЛЖЕНИЕ ТЕКСТА И ПАРТНЕРЫ (Снова открываем .text-content) -->
+                    <div class="text-content pt-3 mb-4">
+                        <p class="mb-5">
+                            За годы проведения фестиваля мы сформировали открытую культурную среду, где современные авторы могут напрямую общаться со своими читателями.
+                        </p>
+
+                        <h2>Партнеры</h2>
+                        
+                        <p class="text-muted">
+                            Фестиваль проходит при поддержке Управления культуры Администрации г. Пскова. Фестиваль поддерживает Союз городов Центра и Северо-Запада России. В течение 4 лет проходил в партнерстве с Всероссийским культурно-просветительским проектом «Живые Лица: Навигатор по современной отечественной детской литературе».
+                        </p>
+                        <p class="text-muted mb-0">
+                            В разные годы фестиваль поддерживали: Центр русского языка и культуры им. А.Ф. Лосева (Институт филологии МПГУ), Издательство для детей и юношества «БерИнгА» (г. Москва), МП г. Пскова «Северо-Западный центр социологии и маркетинга», Мастерская «Изборский пряник», Завод «Псковский гончар» и др.
+                        </p>
+                    </div> <!-- Закрываем .text-content перед спонсорами -->
+
+                    <!-- БЛОК Е: ЛОГОТИПЫ ПАРТНЕРОВ (по 2 штуки в ряд по ТЗ!) -->
+                    <div class="row g-4 justify-content-center">
+                        
+                         <!-- Партнер 1 -->
+                        <div class="col-md-6 d-flex">
+                            <a href="https://xn--80aeeqaabljrdbg6a3ahhcl4ay9hsa.xn--p1ai/" target="_blank" rel="noopener noreferrer" class="partner-card w-100 text-decoration-none" aria-label="Сайт Президентского фонда культурных инициатив (открывается в новой вкладке)">
+                                <img src="assets/img/logo-pfki-black.svg" alt="Президентский фонд культурных инициатив" class="partner-logo">
+                            </a>
+                        </div>
+
+                        <!-- Партнер 2 -->
+                        <div class="col-md-6 d-flex">
+                            <a href="https://bookunion.ru/" target="_blank" rel="noopener noreferrer" class="partner-card w-100 text-decoration-none" aria-label="Сайт Российского книжного союза (открывается в новой вкладке)">
+                                <img src="assets/img/logo-ks.png" alt="Российский книжный союз" class="partner-logo">
+                            </a>
+                        </div>
+
+                        <!-- Партнер 3 -->
+                        <div class="col-md-6 d-flex">
+                            <a href="https://читающая-россия.рф/" target="_blank" rel="noopener noreferrer" class="partner-card w-100 text-decoration-none" aria-label="Сайт Ассоциации Читающая Россия (открывается в новой вкладке)">
+                                <img src="assets/img/logo-cr.svg" alt="Ассоциация книжных фестивалей Читающая Россия" class="partner-logo">
+                            </a>
+                        </div>
+
+                        <!-- Партнер 4 -->
+                        <div class="col-md-6 d-flex">
+                            <a href="https://xn--80aeeqaabljrdbg6a3ahhcl4ay9hsa.xn--p1ai/" target="_blank" rel="noopener noreferrer" class="partner-card w-100 text-decoration-none" aria-label="Сайт Президентского фонда культурных инициатив (открывается в новой вкладке)">
+                                <img src="assets/img/logo-pfki-black.svg" alt="Президентский фонд культурных инициатив" class="partner-logo">
+                            </a>
+                        </div>
+
+                        <!-- Партнер 5 -->
+                        <div class="col-md-6 d-flex">
+                            <a href="https://bookunion.ru/" target="_blank" rel="noopener noreferrer" class="partner-card w-100 text-decoration-none" aria-label="Сайт Российского книжного союза (открывается в новой вкладке)">
+                                <img src="assets/img/logo-ks.png" alt="Российский книжный союз" class="partner-logo">
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-
-                <!-- Вертикальный таймлайн (с новыми иконками bxl-apple) -->
-<div class="timeline-container position-relative">
-    
-    <!-- Событие 1: 2017 -->
-    <div class="timeline-item">
-        <!-- Яблоко-узел (бренд-лого bxl-apple) -->
-        <div class="timeline-node">
-            <i class="bxl bx-apple node-green" aria-hidden="true"></i>
-        </div>
-        <h3 class="timeline-title">2017 год. Старт:</h3>
-        <div class="timeline-card">
-            <p class="timeline-text mb-0">
-                Литературный фестиваль «Книжная яблоня» впервые прошел в Пскове 13-15 сентября 2017 года в рамках Всероссийского культурно-просветительского проекта «Живые Лица: Навигатор по современной отечественной детской литературе».
-            </p>
-        </div>
-    </div>
-
-    <!-- Событие 2: 2018 -->
-    <div class="timeline-item">
-        <!-- Яблоко-узел -->
-        <div class="timeline-node">
-            <i class="bxl bx-apple node-yellow" aria-hidden="true"></i>
-        </div>
-        <h3 class="timeline-title">2018 год. Псковская прописка:</h3>
-        <div class="timeline-card">
-            <p class="timeline-text mb-0">
-                После ошеломительного успеха Второго фестиваля проект официально получил постоянную «псковскую прописку». Каждую осень фестиваль собирает лучших авторов.
-            </p>
-        </div>
-    </div>
-
-    <!-- Событие 3: Наши дни -->
-    <div class="timeline-item mb-0">
-        <!-- Оранжевое яблоко-узел -->
-        <div class="timeline-node">
-            <i class="bxl bx-apple node-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="timeline-title">Наши дни:</h3>
-        <div class="timeline-card mb-0">
-            <p class="timeline-text mb-0">
-                Сегодня фестиваль стал мощным мостом коммуникации между авторами, издательствами и тысячами читателей. Для писателей — это вдохновение и новые места, для детей — праздник, который запоминается на всю жизнь.
-            </p>
-        </div>
-    </div>
-
-</div>
-
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
 </main>
 
 <footer class="footer-section">

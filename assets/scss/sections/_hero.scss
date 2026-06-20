@@ -198,7 +198,7 @@
   // --- Настройки адаптивности карточки ---
 
   @include respond-to(tablet-only) {
-    background-color: $color-bg-alt;
+    background-color: $color-primary-alt;
     border-radius: $radius-md;
     overflow: hidden;
 
@@ -214,7 +214,7 @@
   }
 
   @include respond-to(mobile-only) {
-    background-color: $color-bg-alt; 
+    background-color: $color-primary-alt; 
     border-radius: $radius-md;
     overflow: hidden;
     position: relative; 

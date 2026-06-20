@@ -2,6 +2,7 @@
 @use "abstracts/mixins";
 
 @use "base/accessibility";
+@use "base/base";
 @use "base/typography";
 
 @use "components/buttons";
@@ -9,9 +10,11 @@
 @use "components/mobile-menu";
 @use "components/back-to-top";
 @use "components/breadcrumbs";
+@use "components/cover-card";
+@use "components/timeline";
 
 @use "layout/header";
-@use "layout/body-layout";
+@use "layout/page-header";
 @use "layout/footer";
 
 @use "sections/hero";

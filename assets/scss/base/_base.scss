@@ -1,0 +1,41 @@
+@use "sass:color";
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+html {
+  scroll-behavior: smooth; // Включает плавную прокрутку по всему сайту
+}
+
+body {
+  font-family: $font-main, sans-serif;
+  background-color: $color-bg;
+  color: $color-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+// 1. Глобальный сброс для ВСЕХ ссылок на сайте (кнопки, меню, карточки остаются чистыми)
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover, &:focus {
+    color: color.scale($color-primary, $lightness: -10%);
+  }
+}
+
+// 2. Премиальные текстовые ссылки строго внутри абзацев (в истории, статьях, описаниях)
+p a, 
+.text-content a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px; // Тонкая линия 1px 
+  text-underline-offset: 4px; // Отступ линии от текста
+  text-decoration-color: rgba($color-primary, 0.4); // Делаем линию нежной, полупрозрачной
+
+   &:hover, &:focus {
+    color: color.scale($color-primary, $lightness: -10%); 
+    text-decoration-color: color.scale($color-primary, $lightness: -10%);
+  }
+}

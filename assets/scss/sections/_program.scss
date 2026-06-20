@@ -1,3 +1,4 @@
+@use "sass:color";
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
@@ -16,7 +17,7 @@
     font-size: 1.125rem; 
     font-weight: 500;
     color: $color-white;
-    background-color: $color-bg-alt;
+    background-color: $color-primary-alt;
     border-radius: 50px; 
     padding: 0.5rem 1.5rem;
     transition: $transition;
@@ -100,7 +101,7 @@
       font-family: $font-accent;
       font-size: 1.625rem; 
       font-weight: 600;
-      color: $color-bg-alt;
+      color: $color-primary-alt;
 
       i {
         font-size: 1.5rem;
@@ -176,7 +177,7 @@
     }
 
     &:hover {
-      color: darken($color-primary, 10%);
+      color: color.scale($color-primary, $lightness: -10%);
     }
 
     @include respond-to(lg-only) {
@@ -246,5 +247,186 @@
       padding-left: 0;
       gap: 1rem;
     }
+  }
+}
+
+// --- СТИЛИ ДЛЯ СТРАНИЦЫ PROGRAM.HTML (ФИЛЬТРЫ) ---
+
+
+.program-page-section {
+  padding-bottom: 6rem;
+  background-color: $color-bg;
+}
+
+// Позиционирование первой строки фильтров (Даты + Год)
+.filter-top-row {
+  @include respond-to(mobile-only) {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center;
+    gap: 0.5rem;
+
+    .nav-pills-program {
+      justify-content: center !important;
+      width: 100%;
+    }
+  }
+}
+
+// 1. Выпадающая кнопка выбора года (с GPU-защитой от Chromium-бага обрезки углов)
+.btn-filter-dropdown {
+  background-color: transparent;
+  border: 1px solid rgba($color-text-muted, 0.4); 
+  color: $color-text-muted;
+  font-family: $font-accent;
+  font-size: 1.125rem; 
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px; 
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+
+  // Ограничиваем анимацию конкретными свойствами (больше никакого мерцания геометрии!)
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  // GPU-ускорение: принудительно сглаживает углы и стирает паразитные рамки в Chrome/Yandex
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  // Полный сброс фокусных обводок
+  &, 
+  &:hover, 
+  &:focus, 
+  &:active, 
+  &:focus-visible,
+  &.show {
+    outline: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    text-decoration: none !important;
+  }
+
+  * {
+    outline: 0 !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+  }
+
+  &::after {
+    margin-left: 0.25rem;
+    vertical-align: middle;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.3s ease;
+  }
+
+  &.show::after {
+    transform: rotate(180deg);
+  }
+
+  &:hover, &.show {
+    background-color: $color-bg;
+    border-color: $color-text-muted !important;
+    color: $color-text !important;
+  }
+
+  @include respond-to(mobile-only) {
+    font-size: 0.875rem; 
+    padding: 0.35rem 1.25rem;
+    margin-top: 1rem; 
+  }
+}
+
+// Выпадающее меню
+.dropdown-menu {
+  border-radius: $radius-sm; // 16px скругление самого окошка
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem; // Паддинг 8px по всему контуру окошка!
+  background-color: $color-white;
+  min-width: 12rem;
+
+  .dropdown-item {
+    font-family: $font-accent;
+    font-size: 0.95rem;
+    color: $color-text;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem; // Скругление 8px для каждой строки-кнопки по ТЗ!
+    transition: $transition;
+
+    // Элегантный нежный серо-бирюзовый фон при наведении (не на всю ширину!)
+    &:hover, &:focus {
+      background-color: rgba($color-bg, 0.5) !important; // Мягкий благородный фон
+      color: $color-primary-alt !important; // Бирюзовый текст
+    }
+
+    // Стиль активного выбранного года
+    &.active {
+      background-color: $color-bg !important; // Заливка бирюзовым
+      color: $color-text !important; // Белый текст
+    }
+  }
+}
+
+// 2. Строка тегов-направлений
+.filter-tags-row {
+  @include respond-to(mobile-only) {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center;
+    gap: 1rem;
+
+    .features-tags-group {
+      justify-content: center !important;
+      width: 100%;
+    }
+  }
+
+  .decor-tag-label {
+    font-family: $font-accent;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color-text-muted;
+    white-space: nowrap;
+  }
+}
+
+// Круглые теги направлений (Нейтральные серые по умолчанию!)
+.btn-tag-filter {
+  background-color: transparent;
+  border: 1px solid rgba($color-text-muted, 0.3); // Мягкая нейтральная рамка
+  color: $color-text-muted;
+  font-family: $font-accent;
+  font-size: 0.875rem; 
+  font-weight: 500;
+  padding: 0.35rem 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover, &.active {
+    background-color: $color-bg;
+    border-color: $color-text-muted;
+    color: $color-text-muted;
+  }
+}
+
+// --- ДЛИННЫЕ ДЕКОРАТИВНЫЕ ПОЛОСЫ ПО БОКАМ КНОПКИ ---
+.controls-divider {
+  width: 100%;
+
+  .divider-line {
+    display: inline-block;
+    width: 9.375rem; // Длинные 150px по вашему ТЗ!
+    height: 1px;
+    background-color: rgba($color-primary-alt, 0.2); // Тонкая бирюзовая полупрозрачная полоска
   }
 }

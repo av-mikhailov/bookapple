@@ -3,7 +3,7 @@
 
 .footer-section {
     margin-top: 3rem;
-    background-color: $color-bg-alt; 
+    background-color: $color-primary-alt; 
     border-top-left-radius: $radius-xl; // 32px
     border-top-right-radius: $radius-xl; // 32px
     padding-top: 3.5rem; // Уменьшили отступ сверху для компактности по ТЗ!
@@ -92,7 +92,7 @@
     height: 2.25rem; 
     border-radius: 50%;
     background-color: $color-accent; 
-    color: $color-bg-alt; 
+    color: $color-primary-alt; 
     display: inline-flex;
     align-items: center;
     justify-content: center;
