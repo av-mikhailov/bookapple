@@ -7,11 +7,11 @@
   right: 1.5rem; // 24px от правого края
   bottom: 1.5rem; // 24px от нижнего края
   z-index: 999;
-  width: 2.75rem; // 44px (удобно для клика пальцем)
-  height: 2.75rem; 
+  width: 3.5rem; // 44px (удобно для клика пальцем)
+  height: 3.5rem; 
   border-radius: 50%;
-  border: 1px solid $color-white;
-  background-color: $color-accent; // Наш оранжевый цвет
+  // border: 1px solid $color-white;
+  background-color: $color-accent; 
   color: $color-white;
   font-size: 1.75rem; // Крупная стрелочка
   // box-shadow: 0 4px 15px rgba($color-primary, 0.3);
@@ -23,7 +23,7 @@
 
   // Класс активации, который мы будем вешать через JS
   &.active {
-    opacity: 1;
+    opacity: 0.7;
     visibility: visible;
   }
 
@@ -35,8 +35,8 @@
   @include respond-to(max-sm) {
     right: 1rem;
     bottom: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     font-size: 1.5rem;
   }
 }

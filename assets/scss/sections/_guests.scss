@@ -9,27 +9,28 @@
 
 // Контейнер Swiper
 .guests-swiper {
-  padding: 1rem 0; // Небольшой отступ, чтобы тени карточек при наведении не обрезались
+  padding: 1rem 0; 
 }
 
-// Карточка гостя
+// Карточка гостя (Сетка на главной и на странице гостей)
 .guest-card {
   background-color: $color-primary;
   border-radius: 3rem; // 48px
-  padding: 1.25rem; // Ровно 20px со всех сторон по ТЗ!
+  padding: 1.25rem; // Ровно 20px со всех сторон
   color: $color-white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%; // Растягиваем на всю высоту Swiper-слайда
+  height: 100%; 
   transition: $transition;
+  position: relative; // КРИТИЧНО: Чтобы невидимая вуаль .stretched-link не вылезала за карточку!
 
   &:hover {
     transform: translateY(-4px);
-    // box-shadow: 0 12px 30px rgba($color-primary, 0.2);
+    // box-shadow: 0 12px 30px rgba($color-primary, 0.25);
   }
 
-  // Обёртка фото (с подложкой под прозрачные PNG)
+  // Обёртка фото (с подложкой под прозрачные PNG — ВЕРНУЛИ НА МЕСТО!)
   .guest-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1; 
@@ -37,7 +38,7 @@
     border-radius: 2rem; // 32px
     border: 5px solid $color-white; // Белая рамка 5px
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    background-color: #ececec;
+    background-color: #ececec; // Наша серая подложка под прозрачные PNG
   }
 
   .guest-img {
@@ -46,19 +47,28 @@
     object-fit: cover;
   }
 
-  // Фамилия и Имя
+  // Фамилия и Имя со ссылкой-вуалью stretched-link
   .guest-name {
     font-family: $font-accent;
     font-size: 1.5rem; // 24px
     font-weight: 500; 
     color: $color-white;
     line-height: 1.25;
-    margin-top: 1rem; // Ровно 16px отступа от фото по ТЗ!
+    margin-top: 1rem; // Ровно 16px отступа от фото
     margin-bottom: 0;
     text-align: center;
 
     @include respond-to(max-xl) {
       font-size: 1.25rem;
+    }
+
+    a {
+      color: $color-white;
+      transition: $transition;
+
+      &:hover {
+        color: $color-white !important;
+      }
     }
   }
 
@@ -68,10 +78,187 @@
     font-size: 0.875rem; // 14px
     font-weight: 400; 
     line-height: 1.4;
-    margin-top: auto; // Магически выталкивает элемент в самый низ карточки!
-    padding-top: 1rem; // Безопасный отступ сверху, если имя гостя длинное
+    margin-top: auto; // Выталкивает элемент в самый низ
+    padding-top: 1rem; 
     margin-bottom: 0;
     text-align: center;
     opacity: 0.95;
   }
+}
+
+// --- СТИЛИ ДЛЯ СТРАНИЦЫ GUESTS.HTML (ТАБЫ ГОДОВ) ---
+.guests-page-section {
+  padding-bottom: 6rem;
+  background-color: $color-bg;
+}
+
+.nav-pills-guests {
+  .nav-link {
+    background-color: $color-primary-alt; 
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    color: $color-white;
+    font-family: $font-accent;
+    font-weight: 500;
+    transition: $transition;
+
+    &.active {
+      background-color: $color-accent !important; 
+      color: $color-white !important;
+    }
+
+    &:hover {
+      background-color: $color-accent-alt !important; 
+      color: $color-white !important;
+    }
+  }
+}
+
+// ==========================================================================
+// СТИЛИ СТРАНИЦЫ ПРОФИЛЯ ГОСТЯ (guest-single.html) — ИСПРАВЛЕННАЯ СЕТКА!
+// ==========================================================================
+
+.guest-profile-section {
+  padding-top: 6.7rem;
+  padding-bottom: 1.5rem;
+  background-color: $color-bg;
+}
+
+// Оранжевая карточка-обложка по размерам из Figma (1296x378px)
+.guest-profile-card {
+  background-color: $color-primary; 
+  border-radius: $radius-xl; 
+  padding: 5rem 3rem 0 3rem; // Верхний паддинг 5rem оставляет место под абсолютные крошки!
+  height: 23.625rem; // Ровно 378px по ТЗ!
+  box-shadow: 0 12px 40px rgba($color-primary, 0.15);
+  position: relative;
+  // display: flex; <-- УБРАЛИ! Это ломало сетку .row и сжимало фотографию!
+
+  .row {
+    height: 100%; // Заставляет сетку занимать всю высоту карточки
+  }
+
+  // Хлебные крошки: СТРОГО в левом верхнем углу над фотографией по ТЗ!
+  .breadcrumb-nav-white {
+    position: absolute;
+    left: 3rem; // Соосно с левым паддингом
+    top: 2rem; // Нависают в самом верху
+    z-index: 10;
+  }
+
+  // Фоновое белое дерево
+  .profile-bg-pattern {
+    position: absolute;
+    right: 2rem;
+    bottom: -1.5rem;
+    width: 14rem;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.12; 
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  // Фото (прижато ровно к нижнему срезу и вернуло свои крупные размеры!)
+  .profile-photo {
+    max-height: 20.625rem; 
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-left: -3rem; // Прижимаем строго влево по ТЗ!
+    margin-right: auto; // Выталкивает свободное место вправо
+    margin-top: auto;
+    transform: translateY(0.125rem); 
+    z-index: 2;
+  }
+
+  // Заголовок и подписи
+  .profile-name {
+    color: $color-white;
+    font-family: $font-accent;
+    font-size: 2.75rem; 
+    font-weight: 500;
+  }
+
+  .profile-subtitle {
+    color: $color-white;
+    font-family: $font-accent;
+    font-size: 1.125rem;
+    font-weight: 400;
+    opacity: 0.95;
+  }
+
+  // Белые круглые соцсети
+  .profile-socials {
+    .social-circle-white {
+      width: 2.25rem; 
+      height: 2.25rem;
+      border-radius: 50%;
+      background-color: $color-white;
+      color: $color-primary;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-primary-alt; 
+        color: $color-white !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // --- Адаптивность обложки на смартфонах ---
+  @include respond-to(mobile-only) {
+    height: auto; 
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    display: block; // Обычный блок на мобильных
+
+    .breadcrumb-nav-white {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      max-height: 14rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0 !important;
+      align-self: center;
+    }
+
+    .profile-bg-pattern {
+      display: none; 
+    }
+
+    .profile-socials {
+      justify-content: center; 
+    }
+  }
+}
+
+// Оранжевые пилюли даты и времени
+.program-tag-pill {
+  font-family: $font-accent;
+  font-size: 0.8125rem; 
+  font-weight: 500;
+  color: $color-white;
+  background-color: $color-primary; 
+  padding: 0.35rem 1.25rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+// Секция биографии
+.guest-body-section {
+  padding-top: 2rem; 
+  padding-bottom: 6rem;
+  background-color: $color-bg;
 }

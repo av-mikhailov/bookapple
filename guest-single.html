@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Шур Елена - гость фестиваля «Книжная яблоня»</title>
+    <meta name="description" content="Шур Елена - гость фестиваля Книжная яблоня в Пскове.">
+    
+    <!-- Вендоры -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+    <link rel="stylesheet" href="assets/vendor/boxicons/fonts/basic/boxicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/boxicons/fonts/brands/boxicons-brands.min.css">
+    <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- Ссылка быстрого перехода для пользователей экранных дикторов и клавиатуры -->
+<a href="#main-content" class="visually-hidden-focusable py-2 px-3 bg-primary text-white position-absolute start-0 top-0 z-3">
+    Перейти к основному контенту
+</a>
+
+<header id="header" class="fixed-top header-transparent">
+    <div class="container">
+        <!-- Белая скругленная капсула шапки -->
+        <div class="header-inner d-flex align-items-center justify-content-between">
+            
+            <!-- Логотип и текстовое описание -->
+            <a href="index.html" class="logo-wrapper d-flex align-items-center text-decoration-none" aria-label="На главную страницу фестиваля Книжная яблоня">
+                <img src="assets/img/logo.svg" alt="" class="img-fluid logo-img" role="presentation" width="48" height="48">
+                <div class="logo-text d-flex flex-column justify-content-center">
+                    <span class="logo-subtitle">Литературный фестиваль</span>
+                    <span class="logo-title">Книжная яблоня</span>
+                </div>
+            </a>
+
+            <!-- Навигационная панель -->
+            <nav id="navbar" class="navbar-menu">
+                <!-- Кнопка закрытия для мобильного меню (скрыта на экранах шире 1200px) -->
+                <button type="button" class="mobile-nav-close d-xl-none" aria-label="Закрыть меню навигации">
+                    <i class="bx bx-x" aria-hidden="true"></i>
+                </button>
+
+                <ul class="nav-list d-flex align-items-center list-unstyled m-0">
+                    <li><a class="nav-link" href="about.html">О фестивале</a></li>
+                    <li><a class="nav-link" href="">Ярмарка</a></li>
+                    <li><a class="nav-link" href="program.html">Программа</a></li>
+                    <li><a class="nav-link" href="guests.html">Гости</a></li>
+                    <li><a class="nav-link" href="">Новости</a></li>
+                    <li><a class="nav-link" href="">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <!-- Кнопка-бургер мобильного меню (показывается на экранах уже 1200px) -->
+            <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Открыть меню навигации" aria-expanded="false" aria-controls="navbar">
+                <i class="bx bx-menu" aria-hidden="true"></i>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<main id="main-content">
+
+    <!-- 1. Оранжевая карточка-обложка профиля гостя -->
+    <section class="guest-profile-section">
+        <div class="container">
+            
+            <article class="guest-profile-card position-relative overflow-hidden" data-aos="fade-up">
+                
+                <!-- Декоративное белое яблоко в правом углу (скрыто на мобильных) -->
+                <img src="assets/img/logo.svg" alt="" class="profile-bg-pattern" role="presentation">
+
+                <!-- Хлебные крошки: СТРОГО в левом верхнем углу над фотографией -->
+                <nav aria-label="Хлебные крошки" class="breadcrumb-nav breadcrumb-nav-white">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="guests.html">Гости</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Шур Елена</li>
+                    </ol>
+                </nav>
+
+                <div class="row h-100 align-items-stretch position-relative z-2">
+                    
+                    <!-- Портрет гостя (слева, прижат ровно к нижнему краю карточки) -->
+                    <div class="col-md-4 d-flex align-items-end justify-content-center justify-content-md-start order-4 order-md-1">
+                        <img src="assets/img/guest-3.png" alt="Писатель Шур Елена" class="img-fluid profile-photo">
+                    </div>
+
+                    <!-- Имя, регалии и соцсети (по центру высоты карточки) -->
+                    <div class="col-md-8 d-flex flex-column justify-content-center text-center text-md-start order-2 order-md-2 mt-5 mt-md-0 pb-md-3">
+                        <div class="profile-info-text">
+                            <h1 class="profile-name mb-2">Шур Елена</h1>
+                            <p class="profile-subtitle mb-4">Детский писатель, биолог, эколог</p>
+                        </div>
+                        
+                        <!-- Соцсети (внизу текстового блока) -->
+                        <div class="profile-socials d-flex gap-2 justify-content-center justify-content-md-start">
+                            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Профиль ВКонтакте Шур Елены">
+                                <i class="bxl bx-vk" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Канал на YouTube Шур Елены">
+                                <i class="bxl bx-youtube" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Телеграм-канал Шур Елены">
+                                <i class="bxl bx-telegram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div> <!-- /row -->
+            </article> <!-- /guest-profile-card -->
+            
+        </div> <!-- /container -->
+    </section> <!-- /guest-profile-section -->
+
+    <!-- 2. Биография гостя (8 колонок по центру) -->
+    <section class="guest-body-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- Текстовый блок (Montserrat шрифты) -->
+                    <div class="text-content">
+                        <p>
+                            По образованию – архитектор, работала в институте «Псковгражданпроект», преподавателем ИЗО, директором детской художественной школы. В настоящее время руководитель собственной ИЗОстудии «АИСТ». Победитель Всероссийского конкурса программ и методических разработок среди преподавателей культуры и искусства (1 место).
+                        </p>
+
+                        <h2>Автор книг:</h2>
+                        
+                        <ul class="book-list">
+                            <li>
+                                <strong>«Занимательная энциклопедия рисования»</strong><br>
+                                <span>Книга по обучению изобразительному искусству детей от 6-12 лет. Это не только развлекательное чтение, но и образовательное. В книге использована авторская методика обучения, занявшая 1 место во Всероссийском конкурсе образовательных программ в области культуры и искусства. Её эффективность доказана 38-летним преподававанием автором в школах и студиях художественной направленности. Все основные понятия теории искусства подаются в формате авторских сказок со стихами, которые дети легко запоминают.</span>
+                            </li>
+                            <li>
+                                <strong>«Отгадай и разукрась!»</strong><br>
+                                <span>Альбом для раскрашивания. Книга, развивающая мелкую моторику пальчиков у детей.</span>
+                            </li>
+                            <li>
+                                <strong>«Капризная принцесса»</strong><br>
+                                <span>Сказка-раскраска в стихах. Книга рассказывает о том, как чрезмерные желания и капризы иногда могут привести к неприятностям.</span>
+                            </li>
+                        </ul>
+
+                        <h2>Участие в фестивале:</h2>
+                    </div> <!-- /text-content -->
+
+                    <!-- Карточка участия (Переиспользует наш .program-card) -->
+                    <article class="program-card d-flex">
+                        <div class="program-card-img-wrapper">
+                            <img src="assets/img/program-1.jpg" alt="Аудитория мероприятия" class="program-card-img">
+                        </div>
+                        <div class="program-card-content">
+                            <!-- Две оранжевые пилюли слева в ряд по ТЗ -->
+                            <div class="program-card-header d-flex align-items-center justify-content-start gap-2">
+                                <span class="program-tag-pill">24 сентября</span>
+                                <span class="program-tag-pill">10:00</span>
+                            </div>
+
+                            <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
+                                <h3 class="program-card-title">
+                                    <a href="event-single.html" class="stretched-link text-decoration-none">
+                                        «Древние карельские верования в сказках Анны Тиллес» – встреча с автором этнических сказок
+                                    </a>
+                                </h3>
+                                <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
+                                    <i class="bx bx-user" aria-hidden="true"></i> Шур Елена
+                                </a>
+                            </div>
+
+                            <div class="program-location d-flex align-items-center gap-1">
+                                <i class="bx bx-map" aria-hidden="true"></i>
+                                <span>Историко-краеведческая библиотека им. И. И. Василёва</span>
+                            </div>
+                        </div> <!-- /program-card-content -->
+                    </article> <!-- /program-card -->
+
+                </div> <!-- /col-xl-8 -->
+            </div> <!-- /row -->
+        </div> <!-- /container -->
+    </section> <!-- /guest-body-section -->
+
+</main> <!-- /main -->
+
+<footer class="footer-section">
+    
+    <!-- Фоновый логотип (точные 146px x 164px по ТЗ!) -->
+    <img src="assets/img/logo.svg" alt="" class="footer-bg-logo" role="presentation" width="146" height="164">
+
+    <div class="container position-relative z-2">
+        <div class="row g-4">
+            
+            <!-- Колонка 1: Контакты (сделана шире: 4 колонки из 12) -->
+            <div class="col-xl-4 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Контакты</h3>
+                    <p class="footer-text mb-4">
+                        Муниципальное автономное учреждение культуры «Централизованная библиотечная система» города Пскова
+                    </p>
+                    <ul class="footer-contacts-list list-unstyled p-0 m-0">
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="bx bx-location footer-icon" aria-hidden="true"></i>
+                            <span>Псков, пл. Ленина, 3</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="bx bx-phone footer-icon" aria-hidden="true"></i>
+                            <a href="tel:+78112331123" class="text-white text-decoration-none">8 (8112) 33-11-23</a>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="bx bx-envelope footer-icon" aria-hidden="true"></i>
+                            <a href="mailto:deti@bibliopskov.ru" class="text-white text-decoration-none">deti@bibliopskov.ru</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-socials d-flex gap-2">
+                        <a href="https://vk.com/" target="_blank" rel="noopener noreferrer" class="social-circle text-decoration-none" aria-label="Наша группа ВКонтакте (открывается в новой вкладке)">
+                            <i class="bxl bx-vk" aria-hidden="true"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Колонка 2: Обратная связь (3 колонки из 12) -->
+            <div class="col-xxl-4 col-xl-3 col-md-6 ps-xxl-5">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Обратная связь</h3>
+                    <ul class="footer-links-list list-unstyled p-0 m-0">
+                        <li>
+                            <a href="#" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Отзыв о работе библиотек
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Оценка качества услуг
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Независимая оценка качества
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Краеведческая справочная служба
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Комплектуем фонд вместе
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Колонка 3: Навигация (сделана компактнее: 2 колонки из 12) -->
+            <div class="col-xxl-2 col-xl-2 col-md-6 pe-xxl-5">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Навигация</h3>
+                    <ul class="footer-links-list list-unstyled p-0 m-0">
+                        <li>
+                            <a href="about.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> О фестивале
+                            </a>
+                        </li>
+                        <li>
+                            <a href="fair.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Ярмарка
+                            </a>
+                        </li>
+                        <li>
+                            <a href="program.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Программа
+                            </a>
+                        </li>
+                        <li>
+                            <a href="guests.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Гости
+                            </a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Новости
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contacts.html" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Колонка 4: Наши сайты (прижата к правому краю: 3 колонки из 12) -->
+            <div class="col-xxl-2 col-xl-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Наши сайты</h3>
+                    <ul class="footer-links-list list-unstyled p-0 m-0">
+                        <li>
+                            <a href="https://bibliopskov.ru" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> bibliopskov.ru
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://pskovkid.ru" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> pskovkid.ru
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://bibliogames.ru" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> bibliogames.ru
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nevsky-pskov.ru" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> nevsky-pskov.ru
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://vasilevka.ru" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bx bx-chevron-right" aria-hidden="true"></i> vasilevka.ru
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Копирайт -->
+        <div class="footer-bottom mt-4 pt-3 text-center">
+            <p class="copyright-text mb-0">
+                &copy; 2026, «Централизованная библиотечная система города Пскова»
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+<!-- Доступная кнопка "Наверх" -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center text-decoration-none" aria-label="Вернуться наверх страницы" id="backToTop">
+    <i class="bx bx-chevron-up" aria-hidden="true"></i>
+</a>
+<!-- Скрипты -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-@use "sass:color";
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
@@ -8,38 +7,59 @@
 
 .breadcrumb {
   font-family: $font-accent;
-  font-size: 0.9375rem; // ~15px
+  font-size: 0.9375rem; 
   margin: 0;
 
   .breadcrumb-item {
     display: flex;
     align-items: center;
 
-    // Ссылки на предыдущие страницы (акцентируем оранжевым по вашей идее!)
     a {
       color: $color-primary; 
       font-weight: 500;
       transition: $transition;
 
       &:hover {
-        color: color.scale($color-primary, $lightness: -10%);
-        text-decoration: underline; // Легкое подчеркивание при ховере для A11y
+        color: $color-primary-hover; // Используем безопасную переменную!
+        text-decoration: underline; 
       }
     }
 
-    // Текущая страница (неактивна, поэтому приглушаем)
     &.active {
       color: $color-text-muted;
       font-weight: 400;
     }
 
-    // Декоративный разделитель между пунктами
     & + .breadcrumb-item::before {
       content: "•";
       color: rgba($color-text-muted, 0.4);
       font-size: 1.2rem;
       padding-right: 0.75rem;
       padding-left: 0.75rem;
+    }
+  }
+}
+
+.breadcrumb-nav-white {
+  padding: 0;
+
+  .breadcrumb-item {
+    a {
+      color: rgba($color-white, 0.8) !important;
+      transition: $transition;
+
+      &:hover {
+        color: $color-white !important;
+      }
+    }
+
+    &.active {
+      color: $color-white !important;
+      font-weight: 500;
+    }
+
+    & + .breadcrumb-item::before {
+      color: rgba($color-white, 0.4) !important;
     }
   }
 }

@@ -41,13 +41,13 @@
   }
 }
 
-// --- КАРТОЧКИ ---
+// --- БАЗОВЫЙ КЛАСС КАРТОЧЕК (Починенный!) ---
 .program-card {
   background-color: $color-white;
   border-radius: $radius-md; 
   padding: 1rem; 
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
-  height: 100%; 
+  height: auto; // <-- ИСПРАВЛЕНО: Никакого принудительного 100% растягивания во внутренних страницах!
   display: flex;
   flex-direction: row; 
   position: relative; 
@@ -57,7 +57,6 @@
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
-    // При наведении на ЛЮБУЮ область карточки — линия плавно закрашивает ВСЕ строки заголовка на 100%
     .program-card-title a {
       background-size: 100% 1px;
     }
@@ -123,7 +122,6 @@
       padding: 0.25rem 0.75rem;
     }
 
-    // Нейтральный бейдж для прошедшего события
     .program-tag-past {
       background-color: #EAE8E4 !important;
       color: #f56046  !important;
@@ -135,23 +133,21 @@
     gap: 0.5rem; 
   }
 
-.program-card-title {
+  .program-card-title {
     font-family: $font-main;
     font-size: 1rem; 
     font-weight: 400;
     line-height: 1.4;
     margin: 0;
 
-    // Ссылка-заголовок (Stretched Link)
     a {
-      display: inline; // Критично! Должен быть строго inline, чтобы текст переносился по строкам
+      display: inline; 
       color: $color-text;
       
-      // Ваш фирменный многострочный градиентный эффект
       background-image: linear-gradient($color-text, $color-text);
       background-position: 0% 100%;
       background-repeat: no-repeat;
-      background-size: 0% 1px; // Изначально ширина линии 0%, толщина 1px
+      background-size: 0% 1px; 
       transition: background-size 0.4s ease-in-out;
     }
 
@@ -161,14 +157,13 @@
     }
   }
 
-  // Ссылка на автора поднята на z-index: 5, чтобы оставаться кликабельной поверх карточки
   .program-author {
     font-family: $font-main;
     font-size: 0.9rem; 
     font-weight: 400;
     color: $color-primary;
     position: relative;
-    z-index: 5; // Выше stretched-link
+    z-index: 5; 
     width: fit-content;
     transition: $transition;
 
@@ -202,38 +197,34 @@
     }
   }
 
-  // --- СТИЛИ ДЛЯ ПРОШЕДШИХ МЕРОПРИЯТИЙ (Trends) ---
   &.program-card-past {
-    opacity: 0.82; // Легкая общая полупрозрачность карточки
+    opacity: 0.82; 
 
     &:hover {
-      opacity: 1; // Возвращаем 100% при наведении
+      opacity: 1; 
     }
 
-    // Обесцвечиваем и притемняем картинку
     .program-card-img {
       filter: grayscale(0.8) brightness(0.85);
     }
 
-    // Приглушаем яркие акценты (оранжевый и зеленый меняем на серый)
     .program-card-header .program-time i {
-      color: $color-text-muted; // Часики становятся серыми
+      color: $color-text-muted; 
     }
 
     .program-author {
-      color: $color-text-muted; // Ссылка на автора становится серой
+      color: $color-text-muted; 
 
       &:hover {
-        color: $color-primary; // При наведении плавно подсвечиваем оранжевым
+        color: $color-primary; 
       }
     }
 
     .program-location i {
-      color: $color-text-muted; // Маркер карты становится серым
+      color: $color-text-muted; 
     }
   }
 
-  // Смещение на мобильных (< 767.98px)
   @include respond-to(mobile-only) {
     flex-direction: column !important;
 
@@ -250,15 +241,20 @@
   }
 }
 
-// --- СТИЛИ ДЛЯ СТРАНИЦЫ PROGRAM.HTML (ФИЛЬТРЫ) ---
+// --- Умное каскадное выравнивание высот в сетке программы ---
+.program-section, 
+.program-page-section {
+  .program-card {
+    height: 100%; // Карточки в сетках 2х2 по-прежнему будут идеально одинаковыми по высоте!
+  }
+}
 
-
+// --- СТИЛИ ФИЛЬТРОВ ---
 .program-page-section {
   padding-bottom: 6rem;
   background-color: $color-bg;
 }
 
-// Позиционирование первой строки фильтров (Даты + Год)
 .filter-top-row {
   @include respond-to(mobile-only) {
     flex-direction: column !important;
@@ -273,7 +269,6 @@
   }
 }
 
-// 1. Выпадающая кнопка выбора года (с GPU-защитой от Chromium-бага обрезки углов)
 .btn-filter-dropdown {
   background-color: transparent;
   border: 1px solid rgba($color-text-muted, 0.4); 
@@ -287,16 +282,12 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
-
-  // Ограничиваем анимацию конкретными свойствами (больше никакого мерцания геометрии!)
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
-  // GPU-ускорение: принудительно сглаживает углы и стирает паразитные рамки в Chrome/Yandex
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
 
-  // Полный сброс фокусных обводок
   &, 
   &:hover, 
   &:focus, 
@@ -345,12 +336,11 @@
   }
 }
 
-// Выпадающее меню
 .dropdown-menu {
-  border-radius: $radius-sm; // 16px скругление самого окошка
+  border-radius: $radius-sm; 
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 0.5rem; // Паддинг 8px по всему контуру окошка!
+  padding: 0.5rem; 
   background-color: $color-white;
   min-width: 12rem;
 
@@ -359,24 +349,21 @@
     font-size: 0.95rem;
     color: $color-text;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem; // Скругление 8px для каждой строки-кнопки по ТЗ!
+    border-radius: 0.5rem; 
     transition: $transition;
 
-    // Элегантный нежный серо-бирюзовый фон при наведении (не на всю ширину!)
     &:hover, &:focus {
-      background-color: rgba($color-bg, 0.5) !important; // Мягкий благородный фон
-      color: $color-primary-alt !important; // Бирюзовый текст
+      background-color: rgba($color-bg, 0.5) !important; 
+      color: $color-primary-alt !important; 
     }
 
-    // Стиль активного выбранного года
     &.active {
-      background-color: $color-bg !important; // Заливка бирюзовым
-      color: $color-text !important; // Белый текст
+      background-color: $color-bg !important; 
+      color: $color-text !important; 
     }
   }
 }
 
-// 2. Строка тегов-направлений
 .filter-tags-row {
   @include respond-to(mobile-only) {
     flex-direction: column !important;
@@ -399,10 +386,9 @@
   }
 }
 
-// Круглые теги направлений (Нейтральные серые по умолчанию!)
 .btn-tag-filter {
   background-color: transparent;
-  border: 1px solid rgba($color-text-muted, 0.3); // Мягкая нейтральная рамка
+  border: 1px solid rgba($color-text-muted, 0.3); 
   color: $color-text-muted;
   font-family: $font-accent;
   font-size: 0.875rem; 
@@ -419,14 +405,13 @@
   }
 }
 
-// --- ДЛИННЫЕ ДЕКОРАТИВНЫЕ ПОЛОСЫ ПО БОКАМ КНОПКИ ---
 .controls-divider {
   width: 100%;
 
   .divider-line {
     display: inline-block;
-    width: 9.375rem; // Длинные 150px по вашему ТЗ!
+    width: 9.375rem; 
     height: 1px;
-    background-color: rgba($color-primary-alt, 0.2); // Тонкая бирюзовая полупрозрачная полоска
+    background-color: rgba($color-primary-alt, 0.2); 
   }
 }

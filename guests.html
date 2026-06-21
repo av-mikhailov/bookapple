@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Программа фестиваля «Книжная яблоня»</title>
-    <meta name="description" content="Программа фестиваля Книжная яблоня в Пскове.">
+    <title>Гости фестиваля «Книжная яблоня»</title>
+    <meta name="description" content="Гости фестиваля Книжная яблоня в Пскове.">
     
     <!-- Вендоры -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -70,196 +70,173 @@
     <!-- 1. Хлебные крошки и заголовок страницы -->
     <section class="page-title-section text-center">
         <div class="container">
-            <h1 class="page-title mb-2">Программа фестиваля</h1>
+            <h1 class="page-title mb-2">Гости фестиваля</h1>
             <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item">
                         <a href="index.html" class="text-decoration-none">Главная</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Программа</li>
+                    <li class="breadcrumb-item active" aria-current="page">Гости</li>
                 </ol>
             </nav>
         </div>
     </section>
 
-    <!-- 2. Секция программы с фильтрацией -->
-<section class="program-page-section">
-    <div class="container">
-        
-        <!-- ВЕРХНЯЯ ЛИНИЯ ФИЛЬТРОВ: Даты слева, Год справа (Центрированы на мобильных) -->
-        <div class="filter-top-row d-flex align-items-center justify-content-between flex-wrap mb-4">
+    <!-- 2. Сетка гостей с фильтрацией по годам -->
+    <section class="guests-page-section">
+        <div class="container">
             
-            <!-- Левая часть: Выбор дат (Bootstrap Tabs) -->
-            <ul class="nav nav-pills nav-pills-program m-0" id="programPageTabs" role="tablist">
+            <!-- Табы выбора года (Центрированы, активный — зеленый по ТЗ!) -->
+            <ul class="nav nav-pills nav-pills-program nav-pills-guests justify-content-center mb-5" id="guestsPageTabs" role="tablist" data-aos="fade-up">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="p-tab-23" data-bs-toggle="pill" data-bs-target="#p-pane-23" type="button" role="tab" aria-selected="true">23 сентября</button>
+                    <button class="nav-link active" id="g-tab-2026" data-bs-toggle="pill" data-bs-target="#g-pane-2026" type="button" role="tab" aria-selected="true">2026 год</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="p-tab-24" data-bs-toggle="pill" data-bs-target="#p-pane-24" type="button" role="tab" aria-selected="false">24 сентября</button>
+                    <button class="nav-link" id="g-tab-2025" data-bs-toggle="pill" data-bs-target="#g-pane-2025" type="button" role="tab" aria-selected="false">2025 год</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="p-tab-25" data-bs-toggle="pill" data-bs-target="#p-pane-25" type="button" role="tab" aria-selected="false">25 сентября</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="p-tab-26" data-bs-toggle="pill" data-bs-target="#p-pane-26" type="button" role="tab" aria-selected="false">26 сентября</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="p-tab-27" data-bs-toggle="pill" data-bs-target="#p-pane-27" type="button" role="tab" aria-selected="false">27 сентября</button>
+                    <button class="nav-link" id="g-tab-2024" data-bs-toggle="pill" data-bs-target="#g-pane-2024" type="button" role="tab" aria-selected="false">2024 год</button>
                 </li>
             </ul>
 
-            <!-- Правая часть: Выпадающий список выбора ГОДА (Bootstrap Dropdown) -->
-            <div class="dropdown dropdown-year-wrapper">
-                <button class="btn btn-filter-dropdown dropdown-toggle" type="button" id="dropdownYear" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span>2026 год</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownYear">
-                    <li><a class="dropdown-item active" href="#">2026 год</a></li>
-                    <li><a class="dropdown-item" href="#">2025 год (Архив)</a></li>
-                    <li><a class="dropdown-item" href="#">2024 год (Архив)</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- НИЖНЯЯ СТРОКА ФИЛЬТРОВ: Тип мероприятия (Центрирована на мобильных) -->
-        <div class="filter-tags-row d-flex align-items-center mb-5">
-            <span class="decor-tag-label me-lg-3">Тип мероприятия:</span>
-            
-            <div class="features-tags-group d-flex flex-wrap gap-2">
-                <button class="btn-tag-filter active">Все</button>
-                <button class="btn-tag-filter">Мультипликация</button>
-                <button class="btn-tag-filter">Театр</button>
-                <button class="btn-tag-filter">Музей</button>
-                <button class="btn-tag-filter">Искусство</button>
-            </div>
-        </div>
-            <!-- Сетка карточек (Вкладка 23 сентября) -->
-            <div class="tab-content" id="programPageTabContent">
-                <div class="tab-pane fade show active" id="p-pane-23" role="tabpanel">
+            <!-- Содержимое вкладок (Сетка) -->
+            <div class="tab-content" id="guestsPageTabContent" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- ПАНЕЛЬ: 2026 год (Выводим 12 гостей: 3 ряда по 4 карточки) -->
+                <div class="tab-pane fade show active" id="g-pane-2026" role="tabpanel">
                     <div class="row g-4">
                         
-                        <!-- Мероприятие 1 -->
-                        <div class="col-lg-6">
-                            <article class="program-card d-flex">
-                                <div class="program-card-img-wrapper">
-                                    <img src="assets/img/program-1.jpg" alt="Мультипликация" class="program-card-img">
+                        <!-- Ряд 1 -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100 position-relative">
+                                
+                                <!-- Обёртка фото (теперь со стильной белой рамкой!) -->
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-1.png" alt="Дергачёва Наталья" class="guest-img img-fluid" width="236" height="215">
                                 </div>
-                                <div class="program-card-content">
-                                    <div class="program-card-header d-flex align-items-center justify-content-between">
-                                        <span class="program-time d-flex align-items-center gap-1">
-                                            <i class="bx bx-time-five" aria-hidden="true"></i> 10:00
-                                        </span>
-                                        <span class="program-tag">Мультипликация</span>
-                                    </div>
-                                    <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
-                                        <h3 class="program-card-title">
-                                            <a href="event-single.html" class="stretched-link text-decoration-none">
-                                                «Древние карельские верования в сказках Анны Тиллес» – встреча с автором этнических сказок
-                                            </a>
-                                        </h3>
-                                        <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
-                                            <i class="bx bx-user" aria-hidden="true"></i> Анна Тиллес
-                                        </a>
-                                    </div>
-                                    <div class="program-location d-flex align-items-center gap-1">
-                                        <i class="bx bx-map" aria-hidden="true"></i>
-                                        <span>Библиотека – Центр общения и информации им. И.Н. Григорьева</span>
-                                    </div>
-                                </div>
+
+                                <!-- Имя гостя со ссылкой-вуалью stretched-link -->
+                                <h3 class="guest-name">
+                                    <a href="guest-single.html" class="stretched-link text-decoration-none text-white">
+                                        Дергачёва<br>Наталья
+                                    </a>
+                                </h3>
+
+                                <!-- Регалии -->
+                                <p class="guest-regalia">Детский писатель</p>
+
                             </article>
                         </div>
 
-                        <!-- Мероприятие 2 -->
-                        <div class="col-lg-6">
-                            <article class="program-card d-flex">
-                                <div class="program-card-img-wrapper">
-                                    <img src="assets/img/program-2.jpg" alt="Театр" class="program-card-img">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-2.png" alt="Голубева Софья" class="guest-img img-fluid" width="236" height="215">
                                 </div>
-                                <div class="program-card-content">
-                                    <div class="program-card-header d-flex align-items-center justify-content-between">
-                                        <span class="program-time d-flex align-items-center gap-1">
-                                            <i class="bx bx-time-five" aria-hidden="true"></i> 11:00
-                                        </span>
-                                        <span class="program-tag">Театр</span>
-                                    </div>
-                                    <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
-                                        <h3 class="program-card-title">
-                                            <a href="event-single.html" class="stretched-link text-decoration-none">
-                                                Игровая программа по книге «Взрослительный вирус»
-                                            </a>
-                                        </h3>
-                                        <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
-                                            <i class="bx bx-user" aria-hidden="true"></i> Дарья Грибанова
-                                        </a>
-                                    </div>
-                                    <div class="program-location d-flex align-items-center gap-1">
-                                        <i class="bx bx-map" aria-hidden="true"></i>
-                                        <span>Библиотека – Центр детского чтения</span>
-                                    </div>
-                                </div>
+                                <h3 class="guest-name">Голубева<br>Софья</h3>
+                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
                             </article>
                         </div>
 
-                        <!-- Мероприятие 3 -->
-                        <div class="col-lg-6">
-                            <article class="program-card d-flex">
-                                <div class="program-card-img-wrapper">
-                                    <img src="assets/img/program-3.jpg" alt="Музей" class="program-card-img">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-3.png" alt="Шур Елена" class="guest-img img-fluid" width="236" height="215">
                                 </div>
-                                <div class="program-card-content">
-                                    <div class="program-card-header d-flex align-items-center justify-content-between">
-                                        <span class="program-time d-flex align-items-center gap-1">
-                                            <i class="bx bx-time-five" aria-hidden="true"></i> 12:00
-                                        </span>
-                                        <span class="program-tag">Музей</span>
-                                    </div>
-                                    <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
-                                        <h3 class="program-card-title">
-                                            <a href="event-single.html" class="stretched-link text-decoration-none">
-                                                «Мастерим книжную закладку-портал и добавляем волшебства» – мастер-класс
-                                            </a>
-                                        </h3>
-                                        <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
-                                            <i class="bx bx-user" aria-hidden="true"></i> Галина Евстратова
-                                        </a>
-                                    </div>
-                                    <div class="program-location d-flex align-items-center gap-1">
-                                        <i class="bx bx-map" aria-hidden="true"></i>
-                                        <span>Библиотека микрорайона Любятово «БиблиоЛюб»</span>
-                                    </div>
-                                </div>
+                                <h3 class="guest-name">Шур<br>Елена</h3>
+                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
                             </article>
                         </div>
 
-                        <!-- Мероприятие 4 -->
-                        <div class="col-lg-6">
-                            <article class="program-card d-flex">
-                                <div class="program-card-img-wrapper">
-                                    <img src="assets/img/program-4.jpg" alt="Искусство" class="program-card-img">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-4.png" alt="Капинус Мария" class="guest-img img-fluid" width="236" height="215">
                                 </div>
-                                <div class="program-card-content">
-                                    <div class="program-card-header d-flex align-items-center justify-content-between">
-                                        <span class="program-time d-flex align-items-center gap-1">
-                                            <i class="bx bx-time-five" aria-hidden="true"></i> 13:00
-                                        </span>
-                                        <span class="program-tag">Искусство</span>
-                                    </div>
-                                    <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
-                                        <h3 class="program-card-title">
-                                            <a href="event-single.html" class="stretched-link text-decoration-none">
-                                                Игровая программа по книге «Взрослительный вирус»
-                                            </a>
-                                        </h3>
-                                        <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
-                                            <i class="bx bx-user" aria-hidden="true"></i> Елена Станиславская, Дарина Стрельченко
-                                        </a>
-                                    </div>
-                                    <div class="program-location d-flex align-items-center gap-1">
-                                        <i class="bx bx-map" aria-hidden="true"></i>
-                                        <span>Библиотека «Родник» им. С. А. Золотцева</span>
-                                    </div>
+                                <h3 class="guest-name">Капинус<br>Мария</h3>
+                                <p class="guest-regalia">Детский писатель</p>
+                            </article>
+                        </div>
+
+                        <!-- Ряд 2 -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-5.jpeg" alt="Слабченко Людмила" class="guest-img img-fluid" width="236" height="215">
                                 </div>
+                                <h3 class="guest-name">Слабченко<br>Людмила</h3>
+                                <p class="guest-regalia">Детский писатель</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-6.jpeg" alt="Николаева Елена" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Николаева<br>Елена</h3>
+                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-7.jpeg" alt="Ефимова Светлана" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Ефимова<br>Светлана</h3>
+                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-8.jpeg" alt="Столова Ирина" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Столова<br>Ирина</h3>
+                                <p class="guest-regalia">Детский писатель</p>
+                            </article>
+                        </div>
+
+                        <!-- Ряд 3 -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-9.jpg" alt="Ширяева Елена" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Ширяева<br>Елена</h3>
+                                <p class="guest-regalia">Детский писатель</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-10.jpeg" alt="Налапий Вероника" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Налапий<br>Вероника</h3>
+                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-11.jpeg" alt="Копаницкая Наталья" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Копаницкая<br>Наталья</h3>
+                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
+                            </article>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
+                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
+                                <div class="guest-img-wrapper">
+                                    <img src="assets/img/guest-12.jpeg" alt="Незнанова Ольга" class="guest-img img-fluid" width="236" height="215">
+                                </div>
+                                <h3 class="guest-name">Незнанова<br>Ольга</h3>
+                                <p class="guest-regalia">Детский писатель</p>
                             </article>
                         </div>
 
@@ -275,6 +252,11 @@
                     </div>
 
                 </div>
+
+                <!-- Вкладки-заглушки для прошлых лет -->
+                <div class="tab-pane fade" id="g-pane-2025" role="tabpanel"><p class="text-center text-muted py-5">Архив гостей за 2025 год загружается...</p></div>
+                <div class="tab-pane fade" id="g-pane-2024" role="tabpanel"><p class="text-center text-muted py-5">Архив гостей за 2024 год загружается...</p></div>
+
             </div>
 
         </div>

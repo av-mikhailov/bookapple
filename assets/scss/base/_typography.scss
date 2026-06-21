@@ -58,36 +58,64 @@
     font-display: swap;
 }
 
+// --- УНИВЕРСАЛЬНЫЙ КОНТЕНТНЫЙ КЛАСС (Идеален для WordPress) ---
 .text-content {
   
-  // Любой стандартный H2 внутри статьи автоматически становится компактным баджем!
+  // Автоматический бадж-пилюля из H2 с защитой от прилипания сверху!
   h2 {
     display: inline-block;
     font-family: $font-accent, sans-serif;
-    font-size: 1rem; // Компактные 18px по ТЗ
-    font-weight: 400; // Regular
+    font-size: 1.125rem; 
+    font-weight: 400; 
     color: $color-primary-alt; // Бирюзовый
-    border: 1px solid rgba($color-primary-alt, 0.6); // Ваша контрастная рамка
+    border: 1px solid rgba($color-primary-alt, 0.9); 
     padding: 0.4rem 1.25rem;
-    border-radius: 50px; // Скругленная пилюля
-    margin-top: 0;
-    margin-bottom: 1.5rem; // Отступ снизу до текста
+    border-radius: 50px; 
+    margin-top: 1.5rem; // Автоматически отодвигает бадж от текста выше на 56px!
+    margin-bottom: 1.5rem; 
     text-transform: none;
+
+    // Первый бадж в статье не имеет отступа сверху
+    &:first-of-type,
+    &:first-child {
+      margin-top: 0 !important;
+    }
   }
 
-  // Абзацы внутри текста
+  // ТЗ: Текст под карточкой строго в одном шрифте Montserrat!
   p {
-    font-family: $font-main, sans-serif;
-    font-size: 1.125rem; // 18px
+    font-family: $font-main, sans-serif; 
+    font-size: 1rem; 
     line-height: 1.6;
     color: $color-text;
     margin-bottom: 1.5rem;
 
-    // Стили лидирующего (первого) абзаца статьи
     &.lead-text {
-      font-size: 1.25rem; // 20px
+      font-size: 1.25rem; 
       color: $color-primary-alt; 
       font-weight: 500;
+    }
+  }
+
+  // ТЗ: Оформление списка книг в виде классического ненумерованного списка
+  .book-list {
+    list-style-type: disc !important; // Маркеры-точки
+    padding-left: 1.5rem !important; // Отступ под маркеры
+    margin-bottom: 1rem;
+
+    li {
+      font-family: $font-main, sans-serif; // Единый шрифт Montserrat!
+      font-size: 1rem;
+      line-height: 1.5;
+      color: $color-text;
+      margin-bottom: 1rem; // Отступ между книгами
+
+      strong {
+        font-family: $font-main, sans-serif; // Единый шрифт Montserrat!
+        font-size: 1.125rem; 
+        color: $color-primary-alt; // Наш красивый бирюзовый
+        font-weight: 600;
+      }
     }
   }
 
