@@ -1,0 +1,268 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.event-cover-section {
+  padding-bottom: 3.5rem;
+  background-color: $color-bg;
+}
+
+// Карточка левая (Фото)
+.event-cover-photo-card {
+  aspect-ratio: 636 / 450; // Точные пропорции Figma по ТЗ
+  border-radius: $radius-xl; // 32px
+  overflow: hidden;
+
+  .cover-event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include respond-to(max-lg) {
+    aspect-ratio: auto;
+    height: 20rem;
+  }
+}
+
+// Карточка правая (Инфо и кнопка записи)
+.event-cover-info-card {
+  background-color: $color-primary-alt; // Бирюзовый фон
+  border-radius: $radius-xl; // 32px
+  aspect-ratio: 636 / 450; // Точные пропорции Figma
+  padding: 2.5rem;
+
+  // Фоновое белое дерево
+  .event-cover-bg-logo {
+    position: absolute;
+    right: 2rem;
+    bottom: -1.5rem;
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.04; 
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  // Направление
+  .event-tag-badge {
+    font-family: $font-accent;
+    font-size: 1rem; // 16px
+    font-weight: 400;
+    color: $color-white;
+    background-color: $color-accent; // Свежий зеленый
+    padding: 0.35rem 1.25rem;
+    border-radius: 50px;
+    display: inline-block;
+  }
+
+  // Детали по центру (Дата, Время, Место)
+  .event-cover-details {
+    color: $color-white;
+    font-family: $font-accent;
+    font-size: 1.25rem; // 20px по ТЗ
+    font-weight: 400;
+
+    i {
+      font-size: 1.5rem;
+      color: $color-accent-alt; // Золотые иконки
+      flex-shrink: 0;
+    }
+
+    @include respond-to(max-sm) {
+      font-size: 1rem;
+    }
+  }
+
+  @include respond-to(max-lg) {
+    aspect-ratio: auto;
+    min-height: 25rem;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+}
+
+// --- КНОПКА SHARE И ЕЕ ПРЕМИНАЛЬНЫЙ DROPDOWN (macOS STYLE) ---
+.btn-share-toggle {
+  width: 2.75rem; // 38px по ТЗ
+  height: 2.75rem; // 38px
+  border-radius: 50%;
+  background-color: $color-accent; // Зеленая круглая
+  color: $color-primary-alt;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: $transition;
+
+  &, &:hover, &:focus, &:active, &.show {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &:hover, &.show {
+    background-color: $color-primary; // Оранжевый слайд при наведении
+    color: $color-white;
+    // transform: scale(1.05);
+  }
+}
+
+// Выпадающее всплывающее меню поделиться строго по скрину из ТЗ!
+.dropdown-share-menu {
+  background-color: $color-white;
+  border-radius: 1.25rem !important; // Закругление 20px по ТЗ
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border: none !important;
+  padding: 0.75rem !important;
+  min-width: 17.5rem; // ~280px
+
+  li {
+    margin-bottom: 0.25rem;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .dropdown-item {
+    font-family: $font-accent;
+    font-size: 0.95rem;
+    color: $color-text;
+    padding: 0.5rem;
+    border-radius: 0.75rem; // Мягкие скругленные кнопки внутри
+    display: flex;
+    align-items: center;
+    transition: $transition;
+    background: transparent;
+    border: none;
+    width: 100%;
+
+    // Маленькие серые квадратики вокруг иконок по скрину ТЗ!
+    .share-icon-wrapper {
+      width: 2.25rem; // 36px
+      height: 2.25rem;
+      border-radius: 0.5rem; // 8px
+      background-color: $color-bg; // Серый фон
+      color: $color-primary-alt; // Бирюзовая иконка внутри
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      transition: $transition;
+    }
+
+    .share-text {
+      font-family: 'Cormorant Infant', serif; // Литературный шрифт для ссылок на скрине ТЗ!
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #5d4037; // Тёплый шоколадно-книжный оттенок текста на скрине
+    }
+
+    &:hover, &:focus {
+      background-color: rgba($color-primary, 0.05) !important; // Мягкий нежный оранжевый фон на ховере
+      
+      .share-icon-wrapper {
+        background-color: $color-primary; // Квадратик заливается оранжевым
+        color: $color-white; // Иконка белеет
+      }
+    }
+  }
+}
+
+// --- КАРТОЧКА ПИСАТЕЛЯ ВНИЗУ (100% Адаптивная БЭМ-карточка) ---
+.writer-card {
+  background-color: $color-white;
+  border-radius: $radius-xl; // 32px
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    // Тонкое многострочное подчеркивание при ховере
+    .writer-name a {
+      background-size: 100% 1px;
+    }
+  }
+
+  // Фоновое серое дерево-логотип справа
+  .writer-bg-logo {
+    position: absolute;
+    right: 2rem;
+    bottom: 0%;
+    width: 6.5rem;
+    height: auto;
+    opacity: 0.2; // Еле заметный узор
+    filter: brightness(0.4) sepia(1) invert(1);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Круглая фото-подложка 92x92px по ТЗ!
+  .writer-photo-wrapper {
+    width: 5.75rem; // Ровно 92px
+    height: 5.75rem; // Ровно 92px
+    border-radius: 50%;
+    background-color: $color-bg; // Фон серая подложка
+    overflow: hidden;
+    margin-right: 1.5rem; // 24px отступа от текста
+
+    .writer-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Текстовая часть
+  .writer-info-wrapper {
+    flex-grow: 1;
+
+    .writer-name {
+      font-family: $font-accent;
+      font-size: 1.375rem; // ~22px
+      font-weight: 500;
+
+      a {
+        color: $color-text;
+        display: inline;
+        position: relative;
+        padding-bottom: 2px;
+
+        // Фирменный градиентный скролл-подчеркивание бирюзового цвета!
+        background-image: linear-gradient($color-primary-alt, $color-primary-alt);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 1px;
+        transition: background-size 0.4s ease-in-out;
+      }
+    }
+
+    .writer-regalia {
+      font-family: $font-main;
+      font-size: 0.95rem;
+      color: $color-text-muted;
+    }
+  }
+
+  // Смещение на смартфонах по ТЗ: фото по центру крупнее (120px), текст ниже
+  @include respond-to(mobile-only) {
+    padding: 2rem 1.5rem;
+    align-items: center;
+    text-align: center;
+
+    .writer-photo-wrapper {
+      width: 7.5rem; // Крупные 120px на смартфонах по вашему ТЗ!
+      height: 7.5rem;
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .writer-bg-logo {
+      display: none; // Скрываем узор
+    }
+  }
+}

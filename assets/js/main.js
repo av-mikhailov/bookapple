@@ -165,4 +165,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- 8. Логика копирования ссылки события в буфер обмена ---
+    const copyLinkBtn = document.querySelector('.btn-copy-link');
+
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Копируем текущий URL страницы
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                
+                // Находим текстовый блок внутри кнопки, чтобы временно поменять его на успех
+                const textEl = copyLinkBtn.querySelector('.share-text');
+                const originalText = textEl.innerText;
+                
+                textEl.innerText = "Ссылка скопирована!";
+                copyLinkBtn.style.pointerEvents = "none"; // Защита от спама
+
+                // Возвращаем исходный текст через 2 секунды
+                setTimeout(() => {
+                    textEl.innerText = originalText;
+                    copyLinkBtn.style.pointerEvents = "";
+                }, 2000);
+                
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        });
+    }
 });

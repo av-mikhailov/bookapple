@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Шур Елена - гость фестиваля «Книжная яблоня»</title>
-    <meta name="description" content="Шур Елена - гость фестиваля Книжная яблоня в Пскове.">
+    <title>Начинающий писатель: что ждёт в пути?</title>
+    <meta name="description" content="Начинающий писатель: что ждёт в пути?">
     
     <!-- Вендоры -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -67,126 +67,154 @@
 
 <main id="main-content">
 
-    <!-- 1. Оранжевая карточка-обложка профиля гостя -->
-    <section class="guest-profile-section">
+    <!-- 1. Хлебные крошки и заголовок страницы -->
+    <section class="page-title-section text-center">
         <div class="container">
-            
-            <article class="guest-profile-card position-relative overflow-hidden" data-aos="fade-up">
+            <h1 class="page-title mb-2">«Начинающий писатель: что ждёт в пути?» – паблик-ток для молодежи и пишущих</h1>
+            <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+                    <li class="breadcrumb-item"><a href="program.html" class="text-decoration-none">Программа</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Паблик-ток</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 2. Секция первого экрана события (Две карточки 636x450px) -->
+    <section class="event-cover-section">
+        <div class="container">
+            <div class="row g-4">
                 
-                <!-- Декоративное белое яблоко в правом углу (скрыто на мобильных) -->
-                <img src="assets/img/logo.svg" alt="" class="profile-bg-pattern" role="presentation">
-
-                <!-- Хлебные крошки: СТРОГО в левом верхнем углу над фотографией -->
-                <nav aria-label="Хлебные крошки" class="breadcrumb-nav breadcrumb-nav-white">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-                        <li class="breadcrumb-item"><a href="guests.html">Гости</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Шур Елена</li>
-                    </ol>
-                </nav>
-
-                <div class="row h-100 align-items-stretch position-relative z-2">
-                    
-                    <!-- Портрет гостя (слева, прижат ровно к нижнему краю карточки) -->
-                    <div class="col-md-6 col-lg-5 col-xl-4 d-flex align-items-end justify-content-center justify-content-md-start order-4 order-md-1">
-                        <img src="assets/img/guest-3.png" alt="Писатель Шур Елена" class="profile-photo">
+                <!-- Левая карточка: Фото события -->
+                <div class="col-lg-6 d-flex">
+                    <div class="event-cover-photo-card w-100 position-relative overflow-hidden" data-aos="fade-right">
+                        <img src="assets/img/news-1.jpg" alt="Аудитория паблик-тока для молодежи" class="cover-event-img">
                     </div>
+                </div>
 
-                    <!-- Имя, регалии и соцсети (по центру высоты карточки) -->
-                    <div class="col-md-6 col-lg-7 col-xl-8 d-flex flex-column justify-content-center text-center text-md-start order-2 order-md-2 mt-5 mt-md-0 pb-md-5">
-                        <div class="profile-info-text">
-                            <h1 class="profile-name mb-2">Шур Елена</h1>
-                            <p class="profile-subtitle mb-4">Детский писатель, биолог, эколог</p>
-                        </div>
+                <!-- Правая карточка: Инфо и Кнопка Записи -->
+                <div class="col-lg-6 d-flex">
+                    <div class="event-cover-info-card w-100 position-relative overflow-hidden d-flex flex-column justify-content-between" data-aos="fade-left">
                         
-                        <!-- Соцсети (внизу текстового блока) -->
-                        <div class="profile-socials d-flex gap-2">
-                            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Профиль ВКонтакте Шур Елены">
-                                <i class="bxl bx-vk" aria-hidden="true"></i>
+                        <!-- Фоновый логотип (белый, 5% прозрачности) -->
+                        <img src="assets/img/logo.svg" alt="" class="event-cover-bg-logo" role="presentation">
+
+                        <!-- Верхняя строка: Направление и кнопка Share с Dropdown -->
+                        <div class="event-cover-header d-flex align-items-center justify-content-between position-relative z-2">
+                            <a href="program.html?type=art" class="btn-tag-badge text-decoration-none">
+                                <span>Искусство</span>
                             </a>
-                            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Канал на YouTube Шур Елены">
-                                <i class="bxl bx-youtube" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-circle-white text-decoration-none" aria-label="Телеграм-канал Шур Елены">
-                                <i class="bxl bx-telegram" aria-hidden="true"></i>
+                            
+                            <!-- Выпадающее окно "Поделиться" -->
+                            <div class="dropdown">
+                                <button class="btn btn-share-toggle" type="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Поделиться событием">
+                                    <i class="bx bx-share" aria-hidden="true"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-share-menu dropdown-menu-end" aria-labelledby="dropdownShare">
+                                    <li>
+                                        <button type="button" class="dropdown-item btn-copy-link d-flex align-items-center gap-3">
+                                            <span class="share-icon-wrapper"><i class="bx bx-copy"></i></span>
+                                            <span class="share-text">Скопировать ссылку</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center gap-3" href="https://vk.com/share.php?url=referer" target="_blank" rel="noopener noreferrer">
+                                            <span class="share-icon-wrapper"><i class="bxl bx-vk"></i></span>
+                                            <span class="share-text">Вконтакте</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center gap-3" href="https://t.me/share/url?url=referer" target="_blank" rel="noopener noreferrer">
+                                            <span class="share-icon-wrapper"><i class="bxl bx-telegram"></i></span>
+                                            <span class="share-text">Телеграм</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Середина: Дата, время и место -->
+                        <div class="event-cover-details d-flex flex-column gap-3 position-relative z-2">
+                            <div class="detail-row d-flex align-items-center gap-3">
+                                <i class="bx bx-calendar" aria-hidden="true"></i>
+                                <span>15 сентября, понедельник</span>
+                            </div>
+                            <div class="detail-row d-flex align-items-center gap-3">
+                                <i class="bx bx-clock-5" aria-hidden="true"></i>
+                                <span>17:00</span>
+                            </div>
+                            <div class="detail-row d-flex align-items-start gap-3">
+                                <i class="bx bx-location mt-1" aria-hidden="true"></i>
+                                <span>Историко-краеведческая библиотека им. И. И. Василёва</span>
+                            </div>
+                        </div>
+
+                        <!-- Низ: Оранжевая кнопка записи (скругление 24px) -->
+                       <div class="event-cover-footer position-relative z-2">
+                            <a href="#register-form" class="btn-register-event text-decoration-none">
+                                <span>Записаться на мероприятие</span>
                             </a>
                         </div>
+
                     </div>
+                </div>
 
-                </div> <!-- /row -->
-            </article> <!-- /guest-profile-card -->
-            
-        </div> <!-- /container -->
-    </section> <!-- /guest-profile-section -->
+            </div>
+        </div>
+    </section>
 
-    <!-- 2. Биография гостя (8 колонок по центру) -->
-    <section class="guest-body-section">
+    <!-- 3. Описание события и связанные писатели (8 колонок по центру) -->
+    <section class="event-body-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-10" data-aos="fade-up" data-aos-delay="100">
                     
-                    <!-- Текстовый блок (Montserrat шрифты) -->
-                    <div class="text-content">
+                    <!-- Текстовое описание -->
+                    <div class="text-content mb-0">
                         <p>
-                            По образованию – архитектор, работала в институте «Псковгражданпроект», преподавателем ИЗО, директором детской художественной школы. В настоящее время руководитель собственной ИЗОстудии «АИСТ». Победитель Всероссийского конкурса программ и методических разработок среди преподавателей культуры и искусства (1 место).
+                            «Книжная яблоня» — это Всероссийский литературный фестиваль, который каждую осень превращает Псков в столицу детской и подростковой книги.
+                        </p>
+                        <p class="text-muted">
+                            Для любителей литературы этот фестиваль настоящий праздник книги и чтения, мощное средство коммуникации писателей, издательств с широкой аудиторией. Для гостей-писателей — возможность пообщаться друг с другом, посетить новые места, познакомиться с новыми людьми.
+                        </p>
+                        <p class="mb-5">
+                            Организатор: МАУК «ЦБС» г. Пскова.
                         </p>
 
-                        <h2>Автор книг:</h2>
+                        <!-- Автоматический H2 бадж-пилюля! -->
+                        <h2>Приглашенные писатели:</h2>
+                    </div>
+
+                    <!-- Карточка приглашенного писателя (Белая, 100% адаптивная) -->
+                    <article class="writer-card d-flex flex-column flex-md-row position-relative overflow-hidden mb-5">
                         
-                        <ul class="book-list">
-                            <li>
-                                <strong>«Занимательная энциклопедия рисования»</strong><br>
-                                <span>Книга по обучению изобразительному искусству детей от 6-12 лет. Это не только развлекательное чтение, но и образовательное. В книге использована авторская методика обучения, занявшая 1 место во Всероссийском конкурсе образовательных программ в области культуры и искусства. Её эффективность доказана 38-летним преподававанием автором в школах и студиях художественной направленности. Все основные понятия теории искусства подаются в формате авторских сказок со стихами, которые дети легко запоминают.</span>
-                            </li>
-                            <li>
-                                <strong>«Отгадай и разукрась!»</strong><br>
-                                <span>Альбом для раскрашивания. Книга, развивающая мелкую моторику пальчиков у детей.</span>
-                            </li>
-                            <li>
-                                <strong>«Капризная принцесса»</strong><br>
-                                <span>Сказка-раскраска в стихах. Книга рассказывает о том, как чрезмерные желания и капризы иногда могут привести к неприятностям.</span>
-                            </li>
-                        </ul>
+                        <!-- Фоновое серое дерево-логотип справа (скрыто на мобильных) -->
+                        <img src="assets/img/logo.svg" alt="" class="writer-bg-logo" role="presentation">
 
-                        <h2>Участие в фестивале:</h2>
-                    </div> <!-- /text-content -->
-
-                    <!-- Карточка участия (Переиспользует наш .program-card) -->
-                    <article class="program-card d-flex">
-                        <div class="program-card-img-wrapper">
-                            <img src="assets/img/program-1.jpg" alt="Аудитория мероприятия" class="program-card-img">
+                        <!-- Левая часть: фото 92x92px в сером кругу -->
+                        <div class="writer-photo-wrapper d-flex align-items-center justify-content-center flex-shrink-0">
+                            <img src="assets/img/guest-2.png" alt="Голубева Софья" class="writer-photo img-fluid" width="92" height="92">
                         </div>
-                        <div class="program-card-content">
-                            <!-- Две оранжевые пилюли слева в ряд по ТЗ -->
-                            <div class="program-card-header d-flex align-items-center justify-content-start gap-2">
-                                <span class="program-tag-pill">24 сентября</span>
-                                <span class="program-tag-pill">10:00</span>
-                            </div>
 
-                            <div class="program-card-middle d-flex flex-column justify-content-center flex-grow-1">
-                                <h3 class="program-card-title">
-                                    <a href="event-single.html" class="stretched-link text-decoration-none">
-                                        «Древние карельские верования в сказках Анны Тиллес» – встреча с автором этнических сказок
-                                    </a>
-                                </h3>
-                                <a href="author-single.html" class="program-author d-flex align-items-center gap-1 text-decoration-none">
-                                    <i class="bx bx-user" aria-hidden="true"></i> Шур Елена
+                        <!-- Правая часть: ФИО и регалии -->
+                        <div class="writer-info-wrapper d-flex flex-column justify-content-center position-relative z-2">
+                            <h3 class="writer-name mb-1">
+                                <a href="author-single.html" class="stretched-link text-decoration-none">
+                                    Голубева Софья
                                 </a>
-                            </div>
+                            </h3>
+                            <p class="writer-regalia mb-0">Писатель, сценарист, редактор, педагог</p>
+                        </div>
 
-                            <div class="program-location d-flex align-items-center gap-1">
-                                <i class="bx bx-map" aria-hidden="true"></i>
-                                <span>Историко-краеведческая библиотека им. И. И. Василёва</span>
-                            </div>
-                        </div> <!-- /program-card-content -->
-                    </article> <!-- /program-card -->
+                    </article>
 
-                </div> <!-- /col-xl-8 -->
-            </div> <!-- /row -->
-        </div> <!-- /container -->
-    </section> <!-- /guest-body-section -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-</main> <!-- /main -->
+</main>
 
 <footer class="footer-section">
     

@@ -1,7 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// Базовая структура со слайд-эффектом для обеих кнопок
+// Базовая структура со слайд-эффектом для кнопок
 %btn-slide-base {
   display: inline-flex;
   align-items: center;
@@ -11,6 +11,7 @@
   transition: $transition;
   border: none;
   overflow: hidden;
+  position: relative; // <-- ИСПРАВЛЕНО: Теперь оранжевый слайд всегда заперт внутри любой кнопки!
 
   span, i {
     position: relative;
@@ -69,8 +70,7 @@
   }
 }
 
-// Кнопка «Расписание»
-// Кнопка «Расписание» из секции Hero
+// Кнопка «Расписание» из секции Hero (со всеми вашими брейкпоинтами в сохранности!)
 .btn-schedule {
   position: absolute;
   z-index: 3;
@@ -162,7 +162,7 @@
 }
 
 
-// Кнопка «Подробнее» на первой карточке (с эффектом слайд-закрашивания)
+// Кнопка «Подробнее» на первой карточке
 .btn-outline-about {
   @extend %btn-slide-base;
   background-color: transparent;
@@ -177,7 +177,7 @@
     transition: color 0.3s ease;
   }
 
-  // Настройка слайд-плашки закрашивания в зеленый цвет
+  // Настройка слайд-плашки закрашивания в зеленый цвет (ваши настроенные 0.8s)
   &::before {
     background-color: $color-accent;
     transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -246,5 +246,68 @@
   @include respond-to(max-sm) {
     width: auto;
     padding: 0 1.25rem;
+  }
+}
+
+// 1. Кнопка «Записаться на мероприятие» (слайд-заливка из оранжевого в бирюзовый!)
+.btn-register-event {
+  @extend %btn-slide-base;
+  background-color: $color-primary; // Фирменный оранжевый
+  color: $color-white;
+  font-size: 1.25rem; // Ровно 20px по ТЗ!
+  font-weight: 400;
+  height: 3rem; // 48px высота
+  padding: 0 2rem;
+  border-radius: $radius-md; // Скругление 24px по ТЗ!
+  width: auto;
+  z-index: 1;
+
+  span, i {
+    transition: color 0.3s ease;
+  }
+
+  // При наведении оранжевая кнопка плавно заливается бирюзовым цветом карточки!
+  &::before {
+    background-color: $color-bg;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: $color-text !important;
+  }
+
+  @include respond-to(max-sm) {
+    font-size: 1rem;
+    padding: 0 1rem;
+    width: 100%; // Растягиваем на всю ширину на смартфонах
+  }
+}
+
+// 2. Интерактивный бадж-ссылка категории (слайд-заливка из зеленого в оранжевый!)
+.btn-tag-badge {
+  @extend %btn-slide-base;
+  background-color: $color-primary-alt; // Свежий зеленый по умолчанию
+  color: $color-accent;
+  font-family: $font-accent;
+  font-size: 1rem; // 16px по ТЗ
+  font-weight: 400;
+  padding: 0.35rem 1.25rem;
+  border: 1px solid $color-accent;
+  border-radius: 50px; // Скругленная пилюля
+  height: auto;
+  z-index: 1;
+
+  span, i {
+    transition: color 0.3s ease;
+  }
+
+  // При наведении зеленый бадж плавно закрашивается оранжевым яблочным цветом!
+  &::before {
+    background-color: $color-accent;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: $color-text !important;
   }
 }

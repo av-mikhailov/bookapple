@@ -27,10 +27,9 @@
 
   &:hover {
     transform: translateY(-4px);
-    // box-shadow: 0 12px 30px rgba($color-primary, 0.25);
   }
 
-  // Обёртка фото (с подложкой под прозрачные PNG — ВЕРНУЛИ НА МЕСТО!)
+  // Обёртка фото (с подложкой под прозрачные PNG)
   .guest-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1; 
@@ -38,7 +37,7 @@
     border-radius: 2rem; // 32px
     border: 5px solid $color-white; // Белая рамка 5px
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    background-color: #ececec; // Наша серая подложка под прозрачные PNG
+    background-color: #ececec; // Наша серая подложка
   }
 
   .guest-img {
@@ -72,13 +71,13 @@
     }
   }
 
-  // Регалии (строго в самом низу карточки)
+  // Регалии
   .guest-regalia {
     font-family: $font-accent;
     font-size: 0.875rem; // 14px
     font-weight: 400; 
     line-height: 1.4;
-    margin-top: auto; // Выталкивает элемент в самый низ
+    margin-top: auto; 
     padding-top: 1rem; 
     margin-bottom: 0;
     text-align: center;
@@ -86,7 +85,7 @@
   }
 }
 
-// --- СТИЛИ ДЛЯ СТРАНИЦЫ GUESTS.HTML (ТАБЫ ГОДОВ) ---
+// --- ТАБЫ ГОДОВ GUESTS.HTML ---
 .guests-page-section {
   padding-bottom: 6rem;
   background-color: $color-bg;
@@ -115,11 +114,11 @@
 }
 
 // ==========================================================================
-// СТИЛИ СТРАНИЦЫ ПРОФИЛЯ ГОСТЯ (guest-single.html) — ИСПРАВЛЕННАЯ СЕТКА!
+// СТИЛИ СТРАНИЦЫ ПРОФИЛЯ ГОСТЯ (guest-single.html) — ПОЛНОСТЬЮ ОТЛАЖЕНО!
 // ==========================================================================
 
 .guest-profile-section {
-  padding-top: 6.7rem;
+  padding-top: 7.7rem; // Идеальные 16px отступа под парящей шапкой
   padding-bottom: 1.5rem;
   background-color: $color-bg;
 }
@@ -132,17 +131,29 @@
   height: 23.625rem; // Ровно 378px по ТЗ!
   box-shadow: 0 12px 40px rgba($color-primary, 0.15);
   position: relative;
-  // display: flex; <-- УБРАЛИ! Это ломало сетку .row и сжимало фотографию!
 
+  // Жестко ограничиваем 100% высоту строки только на экранах выше мобильного!
   .row {
-    height: 100%; // Заставляет сетку занимать всю высоту карточки
+    @media (min-width: 768px) {
+      height: 100%; 
+    }
+
+    // ТЗ: Оптимизируем ширину колонок на планшетах (768px - 1199px)
+    @include respond-to(tablet-only) {
+      .col-md-4 {
+        width: 40% !important; // Расширяем колонку фото до 40%
+      }
+      .col-md-8 {
+        width: 60% !important; // Сжимаем колонку текста до 60%
+      }
+    }
   }
 
-  // Хлебные крошки: СТРОГО в левом верхнем углу над фотографией по ТЗ!
+  // Хлебные крошки (СТРОГО в левом верхнем углу над фотографией по ТЗ!)
   .breadcrumb-nav-white {
     position: absolute;
-    left: 3rem; // Соосно с левым паддингом
-    top: 2rem; // Нависают в самом верху
+    left: 3rem; 
+    top: 2rem; 
     z-index: 10;
   }
 
@@ -166,11 +177,46 @@
     width: auto;
     object-fit: contain;
     display: block;
-    margin-left: -3rem; // Прижимаем строго влево по ТЗ!
-    margin-right: auto; // Выталкивает свободное место вправо
+    margin-left: -3rem; // Наш сдвиг влево на больших ПК
+    margin-right: auto; 
     margin-top: auto;
     transform: translateY(0.125rem); 
     z-index: 2;
+
+    // Снимаем ограничение .img-fluid на экранах выше мобильного!
+    @media (min-width: 768px) {
+      max-width: none !important; // Фото больше не сжимается по ширине!
+      width: auto !important;
+    }
+
+    // Фото на планшетах (768px - 1199px) теперь ОЧЕНЬ крупное и четкое!
+    @include respond-to(tablet-only) {
+      max-height: 18.5rem !important; 
+      margin-left: -5rem !important; 
+    }
+
+    @include respond-to(mobile-only) {
+      margin-left: 4.5rem;
+    }
+    @include respond-to(max-sm) {
+      margin-left: 1.5rem;
+    }
+  }
+
+  // Управляющая текстовая колонка (на десктопе выталкивает соцсети вниз!)
+  .profile-text-column {
+    @media (min-width: 768px) {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important; // Тексты — наверх, соцсети — на самый низ!
+      height: 100% !important;
+      padding-top: 1.5rem !important; // Пространство от хлебных крошек
+      padding-bottom: 2.5rem !important; // Прижимает соцсети строго к нижней границе ТЗ!
+    }
+
+    @include respond-to(tablet-only) {
+      padding-bottom: 2rem !important; 
+    }
   }
 
   // Заголовок и подписи
@@ -179,6 +225,10 @@
     font-family: $font-accent;
     font-size: 2.75rem; 
     font-weight: 500;
+
+    @include respond-to(tablet-only) {
+      font-size: 2rem; // Уменьшен до 32px для компактности на планшетах
+    }
   }
 
   .profile-subtitle {
@@ -187,9 +237,13 @@
     font-size: 1.125rem;
     font-weight: 400;
     opacity: 0.95;
+
+    @include respond-to(tablet-only) {
+      font-size: 1rem; 
+    }
   }
 
-  // Белые круглые соцсети
+  // Белые круглые соцсети (ховер плавно заливается бирюзовым!)
   .profile-socials {
     .social-circle-white {
       width: 2.25rem; 
@@ -215,7 +269,7 @@
   @include respond-to(mobile-only) {
     height: auto; 
     padding: 1.5rem 1.5rem 0 1.5rem;
-    display: block; // Обычный блок на мобильных
+    display: block; // Обычный блок на мобильных (убрали flex, убирает гигантскую высоту!)
 
     .breadcrumb-nav-white {
       position: relative !important;
@@ -230,6 +284,8 @@
     .profile-photo {
       max-height: 14rem;
       margin-top: 1.5rem;
+      margin-left: auto !important; 
+      margin-right: auto !important;
       margin-bottom: 0 !important;
       align-self: center;
     }

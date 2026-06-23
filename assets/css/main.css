@@ -151,7 +151,7 @@ p a:hover, p a:focus,
   font-weight: 600;
 }
 
-.btn-outline-about, .btn-hero-action {
+.btn-tag-badge, .btn-register-event, .btn-outline-about, .btn-hero-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -160,15 +160,16 @@ p a:hover, p a:focus,
   transition: all 0.3s ease;
   border: none;
   overflow: hidden;
+  position: relative;
 }
-.btn-outline-about span, .btn-hero-action span, .btn-outline-about i, .btn-hero-action i {
+.btn-tag-badge span, .btn-register-event span, .btn-outline-about span, .btn-hero-action span, .btn-tag-badge i, .btn-register-event i, .btn-outline-about i, .btn-hero-action i {
   position: relative;
   z-index: 2;
 }
-.btn-outline-about i, .btn-hero-action i {
+.btn-tag-badge i, .btn-register-event i, .btn-outline-about i, .btn-hero-action i {
   font-size: 1.4rem;
 }
-.btn-outline-about::before, .btn-hero-action::before {
+.btn-tag-badge::before, .btn-register-event::before, .btn-outline-about::before, .btn-hero-action::before {
   content: "";
   position: absolute;
   top: 0;
@@ -177,7 +178,7 @@ p a:hover, p a:focus,
   height: 100%;
   z-index: 1;
 }
-.btn-outline-about:hover::before, .btn-hero-action:hover::before {
+.btn-tag-badge:hover::before, .btn-register-event:hover::before, .btn-outline-about:hover::before, .btn-hero-action:hover::before {
   left: 0;
 }
 
@@ -364,6 +365,58 @@ p a:hover, p a:focus,
     width: auto;
     padding: 0 1.25rem;
   }
+}
+
+.btn-register-event {
+  background-color: #ED8621;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 400;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 24px;
+  width: auto;
+  z-index: 1;
+}
+.btn-register-event span, .btn-register-event i {
+  transition: color 0.3s ease;
+}
+.btn-register-event::before {
+  background-color: #F5F3F0;
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-register-event:hover {
+  color: #484848 !important;
+}
+@media (max-width: 575.98px) {
+  .btn-register-event {
+    font-size: 1rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+}
+
+.btn-tag-badge {
+  background-color: #356169;
+  color: #ACCA51;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.35rem 1.25rem;
+  border: 1px solid #ACCA51;
+  border-radius: 50px;
+  height: auto;
+  z-index: 1;
+}
+.btn-tag-badge span, .btn-tag-badge i {
+  transition: color 0.3s ease;
+}
+.btn-tag-badge::before {
+  background-color: #ACCA51;
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tag-badge:hover {
+  color: #484848 !important;
 }
 
 .controls-strip {
@@ -1952,7 +2005,7 @@ p a:hover, p a:focus,
 }
 
 .guest-profile-section {
-  padding-top: 6.7rem;
+  padding-top: 7.7rem;
   padding-bottom: 1.5rem;
   background-color: #F5F3F0;
 }
@@ -1965,8 +2018,18 @@ p a:hover, p a:focus,
   box-shadow: 0 12px 40px rgba(237, 134, 33, 0.15);
   position: relative;
 }
-.guest-profile-card .row {
-  height: 100%;
+@media (min-width: 768px) {
+  .guest-profile-card .row {
+    height: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .guest-profile-card .row .col-md-4 {
+    width: 40% !important;
+  }
+  .guest-profile-card .row .col-md-8 {
+    width: 60% !important;
+  }
 }
 .guest-profile-card .breadcrumb-nav-white {
   position: absolute;
@@ -1997,11 +2060,53 @@ p a:hover, p a:focus,
   transform: translateY(0.125rem);
   z-index: 2;
 }
+@media (min-width: 768px) {
+  .guest-profile-card .profile-photo {
+    max-width: none !important;
+    width: auto !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .guest-profile-card .profile-photo {
+    max-height: 18.5rem !important;
+    margin-left: -5rem !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .guest-profile-card .profile-photo {
+    margin-left: 4.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .guest-profile-card .profile-photo {
+    margin-left: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .guest-profile-card .profile-text-column {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .guest-profile-card .profile-text-column {
+    padding-bottom: 2rem !important;
+  }
+}
 .guest-profile-card .profile-name {
   color: #FFFFFF;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 2.75rem;
   font-weight: 500;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .guest-profile-card .profile-name {
+    font-size: 2rem;
+  }
 }
 .guest-profile-card .profile-subtitle {
   color: #FFFFFF;
@@ -2009,6 +2114,11 @@ p a:hover, p a:focus,
   font-size: 1.125rem;
   font-weight: 400;
   opacity: 0.95;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .guest-profile-card .profile-subtitle {
+    font-size: 1rem;
+  }
 }
 .guest-profile-card .profile-socials .social-circle-white {
   width: 2.25rem;
@@ -2045,6 +2155,8 @@ p a:hover, p a:focus,
   .guest-profile-card .profile-photo {
     max-height: 14rem;
     margin-top: 1.5rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
     margin-bottom: 0 !important;
     align-self: center;
   }
@@ -2221,5 +2333,236 @@ p a:hover, p a:focus,
   .partner-logo {
     max-width: 80%;
     max-height: 3.5rem;
+  }
+}
+
+.event-cover-section {
+  padding-bottom: 3.5rem;
+  background-color: #F5F3F0;
+}
+
+.event-cover-photo-card {
+  aspect-ratio: 636/450;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.event-cover-photo-card .cover-event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 991.98px) {
+  .event-cover-photo-card {
+    aspect-ratio: auto;
+    height: 20rem;
+  }
+}
+
+.event-cover-info-card {
+  background-color: #356169;
+  border-radius: 32px;
+  aspect-ratio: 636/450;
+  padding: 2.5rem;
+}
+.event-cover-info-card .event-cover-bg-logo {
+  position: absolute;
+  right: 2rem;
+  bottom: -1.5rem;
+  width: 20rem;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.04;
+  z-index: 1;
+  pointer-events: none;
+}
+.event-cover-info-card .event-tag-badge {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #ACCA51;
+  padding: 0.35rem 1.25rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+.event-cover-info-card .event-cover-details {
+  color: #FFFFFF;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.event-cover-info-card .event-cover-details i {
+  font-size: 1.5rem;
+  color: #FDCC39;
+  flex-shrink: 0;
+}
+@media (max-width: 575.98px) {
+  .event-cover-info-card .event-cover-details {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .event-cover-info-card {
+    aspect-ratio: auto;
+    min-height: 25rem;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+}
+
+.btn-share-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #ACCA51;
+  color: #356169;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-share-toggle, .btn-share-toggle:hover, .btn-share-toggle:focus, .btn-share-toggle:active, .btn-share-toggle.show {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn-share-toggle:hover, .btn-share-toggle.show {
+  background-color: #ED8621;
+  color: #FFFFFF;
+}
+
+.dropdown-share-menu {
+  background-color: #FFFFFF;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border: none !important;
+  padding: 0.75rem !important;
+  min-width: 17.5rem;
+}
+.dropdown-share-menu li {
+  margin-bottom: 0.25rem;
+}
+.dropdown-share-menu li:last-child {
+  margin-bottom: 0;
+}
+.dropdown-share-menu .dropdown-item {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 0.95rem;
+  color: #484848;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+.dropdown-share-menu .dropdown-item .share-icon-wrapper {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background-color: #F5F3F0;
+  color: #356169;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.dropdown-share-menu .dropdown-item .share-text {
+  font-family: "Cormorant Infant", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #5d4037;
+}
+.dropdown-share-menu .dropdown-item:hover, .dropdown-share-menu .dropdown-item:focus {
+  background-color: rgba(237, 134, 33, 0.05) !important;
+}
+.dropdown-share-menu .dropdown-item:hover .share-icon-wrapper, .dropdown-share-menu .dropdown-item:focus .share-icon-wrapper {
+  background-color: #ED8621;
+  color: #FFFFFF;
+}
+
+.writer-card {
+  background-color: #FFFFFF;
+  border-radius: 32px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+.writer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.writer-card:hover .writer-name a {
+  background-size: 100% 1px;
+}
+.writer-card .writer-bg-logo {
+  position: absolute;
+  right: 2rem;
+  bottom: 0%;
+  width: 6.5rem;
+  height: auto;
+  opacity: 0.2;
+  filter: brightness(0.4) sepia(1) invert(1);
+  pointer-events: none;
+  z-index: 1;
+}
+.writer-card .writer-photo-wrapper {
+  width: 5.75rem;
+  height: 5.75rem;
+  border-radius: 50%;
+  background-color: #F5F3F0;
+  overflow: hidden;
+  margin-right: 1.5rem;
+}
+.writer-card .writer-photo-wrapper .writer-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.writer-card .writer-info-wrapper {
+  flex-grow: 1;
+}
+.writer-card .writer-info-wrapper .writer-name {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1.375rem;
+  font-weight: 500;
+}
+.writer-card .writer-info-wrapper .writer-name a {
+  color: #484848;
+  display: inline;
+  position: relative;
+  padding-bottom: 2px;
+  background-image: linear-gradient(#356169, #356169);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.4s ease-in-out;
+}
+.writer-card .writer-info-wrapper .writer-regalia {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  color: #818181;
+}
+@media (max-width: 767.98px) {
+  .writer-card {
+    padding: 2rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .writer-card .writer-photo-wrapper {
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  .writer-card .writer-bg-logo {
+    display: none;
   }
 }/*# sourceMappingURL=main.css.map */
