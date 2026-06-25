@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Начинающий писатель: что ждёт в пути?</title>
-    <meta name="description" content="Начинающий писатель: что ждёт в пути?">
+    <title>Страница новости фестиваля «Книжная яблоня»</title>
+    <meta name="description" content="Страница новости фестиваля Книжная яблоня в Пскове.">
     
     <!-- Вендоры -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -67,48 +67,46 @@
 
 <main id="main-content">
 
-    <!-- 1. Хлебные крошки и заголовок страницы -->
+    <!-- 1. Хлебные крошки и заголовок новости -->
     <section class="page-title-section text-center">
         <div class="container">
-            <h1 class="page-title mb-2">«Начинающий писатель: что ждёт в пути?» – паблик-ток для молодежи и пишущих</h1>
+            <h1 class="page-title mb-2">В Пскове открылся восьмой литературный фестиваль «Книжная яблоня»</h1>
             <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
-                    <li class="breadcrumb-item"><a href="program.html" class="text-decoration-none">Программа</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Паблик-ток</li>
+                    <li class="breadcrumb-item"><a href="news.html" class="text-decoration-none">Новости</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Новость</li>
                 </ol>
             </nav>
         </div>
     </section>
 
-    <!-- 2. Секция первого экрана события (Две карточки 636x450px) -->
-    <section class="event-cover-section">
+    <!-- 2. Главная обложка новости (12 колонок, точные 1296x450px) -->
+    <section class="news-single-cover">
         <div class="container">
-            <div class="row g-4">
-                
-                <!-- Левая карточка: Фото события -->
-                <div class="col-lg-6 d-flex">
-                    <div class="event-cover-photo-card w-100 position-relative overflow-hidden" data-aos="fade-right">
-                        <img src="assets/img/news-1.jpg" alt="Аудитория паблик-тока для молодежи" class="cover-event-img">
-                    </div>
-                </div>
+            <div class="news-cover-img-wrapper" data-aos="fade-up">
+                <img src="assets/img/news-single-1.jpg" alt="Открытие фестиваля Книжная яблоня" class="news-cover-img">
+            </div>
+        </div>
+    </section>
 
-                <!-- Правая карточка: Инфо и Кнопка Записи -->
-                <div class="col-lg-6 d-flex">
-                    <div class="event-cover-info-card w-100 position-relative overflow-hidden d-flex flex-column justify-content-between" data-aos="fade-left">
+    <!-- 3. Тело новости (8 колонок по центру: 2-8-2) -->
+    <section class="news-single-body-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- Мета-данные: дата слева, Share справа (аккуратно разделены) -->
+                    <div class="news-meta-row d-flex align-items-center justify-content-between mb-4">
                         
-                        <!-- Фоновый логотип (белый, 5% прозрачности) -->
-                        <img src="assets/img/logo.svg" alt="" class="event-cover-bg-logo" role="presentation">
+                        <!-- Дата в аккуратной капсуле -->
+                        <time datetime="2025-09-24" class="news-meta-date">24.09.2025</time>
 
-                        <!-- Верхняя строка: Направление и кнопка Share с Dropdown -->
-                        <div class="event-cover-header d-flex align-items-center justify-content-between position-relative z-2">
-                            <a href="program.html?type=art" class="btn-tag-badge text-decoration-none">
-                                <span>Искусство</span>
-                            </a>
-                            
-                            <!-- Выпадающее окно "Поделиться" -->
+                        <!-- Кнопка "Поделиться" -->
+                        <div class="news-meta-share d-flex align-items-center gap-2">
+                            <span class="share-label d-none d-sm-inline">Поделиться:</span>
                             <div class="dropdown">
-                                <button class="btn btn-share-toggle" type="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Поделиться событием">
+                                <button class="btn btn-share-toggle" type="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Поделиться новостью">
                                     <i class="bx bx-share" aria-hidden="true"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-share-menu dropdown-menu-end" aria-labelledby="dropdownShare">
@@ -120,13 +118,13 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item d-flex align-items-center gap-3" href="https://vk.com/share.php?url=referer" target="_blank" rel="noopener noreferrer">
-                                            <span class="share-icon-wrapper"><i class="bxl bx-vk"></i></span>
+                                            <span class="share-icon-wrapper"><i class="bxl bx-vk" aria-hidden="true"></i></span>
                                             <span class="share-text">Вконтакте</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item d-flex align-items-center gap-3" href="https://t.me/share/url?url=referer" target="_blank" rel="noopener noreferrer">
-                                            <span class="share-icon-wrapper"><i class="bxl bx-telegram"></i></span>
+                                            <span class="share-icon-wrapper"><i class="bxl bx-telegram" aria-hidden="true"></i></span>
                                             <span class="share-text">Телеграм</span>
                                         </a>
                                     </li>
@@ -134,85 +132,42 @@
                             </div>
                         </div>
 
-                        <!-- Середина: Дата, время и место -->
-                        <div class="event-cover-details d-flex flex-column gap-3 position-relative z-2">
-                            <div class="detail-row d-flex align-items-center gap-3">
-                                <i class="bx bx-calendar" aria-hidden="true"></i>
-                                <span>15 сентября, понедельник</span>
-                            </div>
-                            <div class="detail-row d-flex align-items-center gap-3">
-                                <i class="bx bx-clock-5" aria-hidden="true"></i>
-                                <span>17:00</span>
-                            </div>
-                            <div class="detail-row d-flex align-items-start gap-3">
-                                <i class="bx bx-location mt-1" aria-hidden="true"></i>
-                                <span>Историко-краеведческая библиотека им. И. И. Василёва</span>
-                            </div>
-                        </div>
+                    </div> <!-- /news-meta-row -->
 
-                        <!-- Низ: Оранжевая кнопка записи (скругление 24px) -->
-                       <div class="event-cover-footer position-relative z-2">
-                            <a href="#register-form" class="btn-register-event text-decoration-none">
-                                <span>Записаться на мероприятие</span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Описание события и связанные писатели (8 колонок по центру) -->
-    <section class="event-body-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10" data-aos="fade-up" data-aos-delay="100">
-                    
-                    <!-- Текстовое описание -->
-                    <div class="text-content mb-0">
+                    <!-- Текстовый контент (Montserrat шрифты) -->
+                    <div class="text-content">
+                        <p class="lead-text">
+                            24 сентября открылся восьмой литературный фестиваль «Книжная яблоня». Это большой фестиваль — знакомство с современной детской и подростковой литературой.
+                        </p>
                         <p>
-                            «Книжная яблоня» — это Всероссийский литературный фестиваль, который каждую осень превращает Псков в столицу детской и подростковой книги.
+                            На открытии фестиваля с приветственным словом выступили Уполномоченный по правам ребенка в Псковской области Наталья Викторовна Соколова, начальник Управления культуры Администрации г. Пскова Алейникова Дарья Владимировна и директор «Централизованной библиотечной системы» г. Пскова Слабченко Людмила Владимировна.
                         </p>
-                        <p class="text-muted">
-                            Для любителей литературы этот фестиваль настоящий праздник книги и чтения, мощное средство коммуникации писателей, издательств с широкой аудиторией. Для гостей-писателей — возможность пообщаться друг с другом, посетить новые места, познакомиться с новыми людьми.
+                        <p>
+                            Приятным сюрпризом для гостей мероприятия стала викторина от представителей издательства «Эвлорин» Марины Дороченковой и Ольги Шестаковой по мотивам комикса «Сказка в реальности».
                         </p>
-                        <p class="mb-5">
-                            Организатор: МАУК «ЦБС» г. Пскова.
+                        <p>
+                            «Книжная яблоня» объединяет — с предложением о дружбе и сотрудничестве на открытии фестиваля выступила Людмила Степанова, один из организаторов форума «Книжный Выборг», представитель издательства «Самокат». Приветствовали участников мероприятия воспитанники народного коллектива «Псковский цирк», студия юного актера «Позитив» и Псковский областной колледж искусств им. Н.А. Римского-Корсакова.
                         </p>
+                    </div> <!-- /text-content -->
 
-                        <!-- Автоматический H2 бадж-пилюля! -->
-                        <h2>Приглашенные писатели:</h2>
+                    <!-- Галерея из двух картинок внизу статьи (col-6) -->
+                    <div class="row g-4 mt-2">
+                        <div class="col-6">
+                            <div class="gallery-img-wrapper">
+                                <img src="assets/img/news-single-2.jpg" alt="Дети на фестивале" class="gallery-img">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="gallery-img-wrapper">
+                                <img src="assets/img/news-single-3.jpg" alt="Зрители на мероприятии" class="gallery-img">
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Карточка приглашенного писателя (Белая, 100% адаптивная) -->
-                    <article class="writer-card d-flex flex-column flex-md-row position-relative overflow-hidden mb-5">
-                        
-                        <!-- Фоновое серое дерево-логотип справа (скрыто на мобильных) -->
-                        <img src="assets/img/logo.svg" alt="" class="writer-bg-logo" role="presentation">
-
-                        <!-- Левая часть: фото 92x92px в сером кругу -->
-                        <div class="writer-photo-wrapper d-flex align-items-center justify-content-center flex-shrink-0">
-                            <img src="assets/img/guest-2.png" alt="Голубева Софья" class="writer-photo img-fluid" width="92" height="92">
-                        </div>
-
-                        <!-- Правая часть: ФИО и регалии -->
-                        <div class="writer-info-wrapper d-flex flex-column justify-content-center position-relative z-2">
-                            <h3 class="writer-name mb-1">
-                                <a href="guest-single.html" class="stretched-link text-decoration-none">
-                                    Голубева Софья
-                                </a>
-                            </h3>
-                            <p class="writer-regalia mb-0">Писатель, сценарист, редактор, педагог</p>
-                        </div>
-
-                    </article>
-
-                </div>
-            </div>
-        </div>
-    </section>
+                </div> <!-- /col-xl-8 -->
+            </div> <!-- /row -->
+        </div> <!-- /container -->
+    </section> <!-- /news-single-body-section -->
 
 </main>
 

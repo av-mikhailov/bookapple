@@ -1,0 +1,58 @@
+@use "sass:color";
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.pagination {
+  gap: 0.5rem; // Ровно 8px между кнопками-цифрами по ТЗ!
+
+  .page-item {
+    
+    // Обычная (пассивная) круглая кнопка
+    .page-link, span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem; // Ровно 38px
+      height: 2.5rem; // Ровно 38px
+      border-radius: 50% !important; // Превращаем в идеальный круг!
+      border: 1px solid rgba($color-primary-alt, 0.4); // Тонкая бирюзовая рамка
+      background-color: transparent;
+      color: $color-primary-alt; // Бирюзовые циферки
+      font-family: $font-accent;
+      font-size: 1.125rem; // ~18px
+      font-weight: 400;
+      padding: 0;
+      transition: $transition;
+      cursor: pointer;
+
+      // Сброс дефолтной бутстраповской обводки фокуса
+      &, &:focus, &:active {
+        box-shadow: none !important;
+        outline: none !important;
+      }
+
+      // Плавный ховер-эффект заполнения бирюзовым цветом
+      &:hover {
+        background-color: $color-primary-alt !important;
+        border-color: $color-primary-alt !important;
+        color: $color-white !important;
+      }
+    }
+
+    // Активная (текущая) круглая кнопка (залита бирюзовым по ТЗ)
+    &.active {
+      .page-link, span {
+        background-color: $color-primary !important; // Бирюзовый фон
+        border-color: $color-primary !important;
+        color: $color-white !important;
+        font-weight: 600;
+        cursor: default;
+      }
+    }
+
+    // Иконка-шеврон перехода вперед
+    i {
+      font-size: 1.5rem;
+    }
+  }
+}

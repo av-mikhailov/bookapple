@@ -2,39 +2,36 @@
 @use '../abstracts/mixins' as *;
 
 .news-section {
-  padding-top: 2.5rem;
+  padding-top: 5.5rem;
   padding-bottom: 5.5rem;
   background-color: $color-bg;
 }
 
-// Контейнер Swiper
+// Контейнер Swiper на главной
 .news-swiper {
   padding: 1rem 0;
 }
 
-// Карточка новости
+// Карточка новости на главной и в архиве
 .news-card {
   position: relative;
   width: 100%;
-  aspect-ratio: 416 / 350; // Точные пропорции Figma по ТЗ!
+  aspect-ratio: 416 / 350; 
   border-radius: $radius-xl; // 32px
-  padding: 1.25rem; // 20px паддинг по ТЗ
+  padding: 1.25rem; 
   overflow: hidden;
   transition: $transition;
 
-  // Эффект плавного приближения картинки на 5% при наведении на карточку
   &:hover {
     .news-card-img {
       transform: scale(1.05);
     }
 
-    // Тонкое многострочное подчеркивание заголовка
     .news-title a {
       background-size: 100% 1px;
     }
   }
 
-  // Фоновая картинка новости
   .news-card-img {
     position: absolute;
     top: 0;
@@ -46,7 +43,6 @@
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  // Насыщенное градиентное затемнение от ТЗ: #282520 75% внизу до 10% вверху с общей прозрачностью 80%
   .news-card-overlay {
     position: absolute;
     top: 0;
@@ -55,34 +51,30 @@
     height: 100%;
     background: linear-gradient(
       to top,
-      rgba(40, 37, 32, 0.85) 0%,   // Насыщенный низ
-      rgba(40, 37, 32, 0.5) 60%,    // Мягкий центр
-      rgba(40, 37, 32, 0.15) 100%   // Легкий верх
+      rgba(40, 37, 32, 0.85) 0%,   
+      rgba(40, 37, 32, 0.5) 60%,    
+      rgba(40, 37, 32, 0.15) 100%   
     );
     z-index: 2;
     pointer-events: none;
   }
 
-  // Контентная область (прижата к левому нижнему углу)
   .news-card-content {
-    position: relative;
-    z-index: 3; // Поверх градиента
+    z-index: 3; 
     color: $color-white;
   }
 
-  // Заголовок новости
   .news-title {
     font-family: $font-accent;
-    font-size: 1.25rem; // 20px по ТЗ
-    font-weight: 400; // Regular
+    font-size: 1.25rem; 
+    font-weight: 400; 
     line-height: 1.35;
-    margin-bottom: 0.75rem; // Ровно 12px отступа до даты по ТЗ!
+    margin-bottom: 0.75rem; 
 
     a {
       display: inline;
       color: $color-white;
       
-      // Наш золотой стандарт многострочного подчеркивания
       background-image: linear-gradient($color-white, $color-white);
       background-position: 0% 100%;
       background-repeat: no-repeat;
@@ -91,11 +83,10 @@
     }
   }
 
-  // Дата публикации
   .news-date {
     font-family: $font-accent;
-    font-size: 0.8125rem; // 13px по ТЗ
-    font-weight: 400; // Regular
+    font-size: 0.8125rem; 
+    font-weight: 400; 
     color: $color-white;
     opacity: 0.85;
     display: block;
@@ -103,9 +94,110 @@
 
   @include respond-to(max-sm) {
     aspect-ratio: auto;
-    min-height: 18rem; // На очень узких экранах даем растянуться естественно
+    min-height: 18rem; 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
   }
+}
+
+// Секция архива новостей
+.news-page-section {
+  padding-bottom: 6rem;
+  background-color: $color-bg;
+}
+
+// ==========================================================================
+// СТИЛИ ОТДЕЛЬНОЙ СТРАНИЦЫ НОВОСТИ (news-single.html) — ИСПРАВЛЕННЫЕ КЛАССЫ!
+// ==========================================================================
+
+// Секция обложки-фото новости
+.news-single-cover {
+  padding-bottom: 2rem;
+  background-color: $color-bg;
+
+  // Контейнер широкого фото новости (точные 1296x450px)
+  .news-cover-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1296 / 450; // Идеальные пропорции широкой панорамы Figma!
+    border-radius: $radius-xl; // 32px
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    @include respond-to(max-xl) {
+      aspect-ratio: auto;
+      height: 22rem; // Удобная высота на планшетах
+    }
+
+    @include respond-to(max-sm) {
+      height: 14rem; // Сжимаем на мобильных
+    }
+  }
+
+  .news-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Секция тела новости
+.news-single-body-section {
+  padding-top: 0rem; // Плотный аккуратный отступ от обложки
+  padding-bottom: 6rem;
+  background-color: $color-bg;
+}
+
+// Тонкая линия-разделитель под фото перед текстом
+.news-meta-row {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem !important;
+
+  .news-meta-date {
+    font-family: $font-accent;
+    font-size: 0.8125rem; // 13px по ТЗ
+    font-weight: 500;
+    color: $color-text-muted;
+    border: 1px solid rgba($color-text-muted, 0.4);
+    padding: 0.35rem 1.25rem;
+    border-radius: 50px;
+  }
+
+  .share-label {
+    font-family: $font-accent;
+    font-size: 0.9375rem; 
+    color: $color-text-muted;
+  }
+}
+
+// Контейнер-обертка картинок галереи (жестко держит габариты и обрезает зум)
+.gallery-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; // Идеальный прямоугольник
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  transition: $transition;
+
+  @include respond-to(max-xl) {
+    border-radius: $radius-sm;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    // При наведении на рамку — фото плавно увеличивается на 3% внутри
+    .gallery-img {
+      transform: scale(1.03); // Сверхлегкий благородный зум
+    }
+  }
+}
+
+// Картинка внутри галереи
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); // Мягкая и медленная анимация приближения
 }
