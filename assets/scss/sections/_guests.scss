@@ -5,6 +5,10 @@
   padding-top: 2.5rem;
   padding-bottom: 5.5rem;
   background-color: $color-bg;
+
+  @include respond-to(max-sm) {
+    padding-bottom: 3.5rem;
+  }
 }
 
 // Контейнер Swiper
@@ -228,6 +232,10 @@
 
     @include respond-to(tablet-only) {
       font-size: 2rem; // Уменьшен до 32px для компактности на планшетах
+    }
+
+    @include respond-to(max-sm) {
+      font-size: 1.75rem; 
     }
   }
 

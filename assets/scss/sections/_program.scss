@@ -6,6 +6,10 @@
   padding-top: 2.5rem;
   padding-bottom: 5.5rem;
   background-color: $color-bg;
+
+  @include respond-to(max-sm) {
+    padding-bottom: 3.5rem;
+  }
 }
 
 // --- КНОПКИ ДАТ ---

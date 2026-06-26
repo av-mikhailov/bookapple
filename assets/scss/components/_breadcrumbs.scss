@@ -45,7 +45,7 @@
 
   .breadcrumb-item {
     a {
-      color: rgba($color-white, 0.8) !important;
+      color: $color-white !important;
       transition: $transition;
 
       &:hover {
@@ -54,8 +54,8 @@
     }
 
     &.active {
-      color: $color-white !important;
-      font-weight: 500;
+      color: rgba($color-white, 0.8) !important;
+      font-weight: 400;
     }
 
     & + .breadcrumb-item::before {

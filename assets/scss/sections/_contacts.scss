@@ -1,0 +1,92 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.find-us-section {
+  background-color: $color-bg;
+}
+
+// Обертка для карты по вашей точной схеме
+.map-wrapper {
+  height: 100%; 
+  
+  @media (max-width: 991.98px) {
+    height: 25rem; // ~400px на планшетах/мобильных по ТЗ
+  }
+} 
+
+// Общая стилизация информационных карточек по вашему макету
+.info-box {
+  padding: 1.875rem; // 30px
+  background: $color-white; 
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: $radius-md; // Скругление 24px под стиль нашего сайта!
+  text-align: center;
+  transition: $transition;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+
+    // При наведении кружок иконки сочно заливается оранжевым!
+    i {
+      background-color: $color-primary !important;
+      color: $color-white !important;
+    }
+  }
+  
+  // Кружки вокруг иконок по вашему макету
+  i {
+    font-size: 1.5rem; // 24px
+    color: $color-primary;
+    background-color: $color-bg;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    margin-bottom: 1rem; // 16px
+    transition: $transition;
+  }
+
+  h3 {
+    font-family: $font-accent;
+    font-size: 1.25rem; // 20px
+    color: $color-primary-alt; // Наш бирюзовый
+    font-weight: 500;
+    margin-bottom: 0.5rem; // 8px
+  }
+
+  p {
+    padding: 0;
+    margin-bottom: 0;
+    line-height: 1.4;
+    font-size: 0.9375rem; // 15px
+    color: $color-text;
+    font-family: $font-main;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      // Тонкое премиальное подчеркивание ссылок с отступом в 3px!
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba($color-primary-alt, 0.3);
+      transition: $transition;
+      
+      &:hover {
+        color: $color-primary;
+        text-decoration-color: $color-primary;
+      }
+    }
+  }
+}

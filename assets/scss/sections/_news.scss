@@ -2,9 +2,13 @@
 @use '../abstracts/mixins' as *;
 
 .news-section {
-  padding-top: 5.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 5.5rem;
   background-color: $color-bg;
+
+  @include respond-to(max-sm) {
+    padding-bottom: 3.5rem;
+  }
 }
 
 // Контейнер Swiper на главной

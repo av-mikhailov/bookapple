@@ -204,8 +204,7 @@
   gap: 0.5rem;
   background-color: $color-accent;
   color: $color-white;
-  width: 12.0625rem; // 177px
-  height: 2.375rem; // 38px
+  padding: 0.35rem 1.25rem;
   border-radius: 50px; // Капсула
   border: none;
   font-family: $font-accent;
@@ -245,7 +244,7 @@
 
   @include respond-to(max-sm) {
     width: auto;
-    padding: 0 1.25rem;
+    padding: 0.35rem 1.25rem;
   }
 }
 
