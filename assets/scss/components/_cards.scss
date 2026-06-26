@@ -1,1 +1,372 @@
-@use "../abstracts/variables" as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// 1. КАРТОЧКА МЕРОПРИЯТИЯ (.program-card) — Используется везде
+// ==========================================================================
+.program-card {
+  background-color: $color-white;
+  border-radius: $radius-md; 
+  padding: 1rem; 
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  height: auto; 
+  display: flex;
+  flex-direction: row; 
+  position: relative; 
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    .program-card-title a {
+      background-size: 100% 1px;
+    }
+  }
+
+  .program-card-img-wrapper {
+    width: 17.875rem; 
+    height: 14.0625rem; 
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: $radius-sm;
+
+    @include respond-to(lg-only) {
+      width: 11rem;
+      height: 9.5rem;
+    }
+
+    @include respond-to(md-only) {
+      width: 17.875rem;
+      height: 14.0625rem;
+    }
+  }
+
+  .program-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $transition;
+  }
+
+  .program-card-content {
+    flex-grow: 1;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .program-card-header {
+    .program-time {
+      font-family: $font-accent;
+      font-size: 1.625rem; 
+      font-weight: 600;
+      color: $color-primary-alt;
+
+      i {
+        font-size: 1.5rem;
+        color: $color-primary;
+      }
+
+      @include respond-to(lg-only) {
+        font-size: 1.325rem; 
+      }
+    }
+
+    .program-tag {
+      font-family: $font-accent;
+      font-size: 0.75rem; 
+      font-weight: 400;
+      color: $color-text;
+      background-color: $color-bg;
+      border-radius: $radius-sm; 
+      padding: 0.25rem 0.75rem;
+    }
+
+    .program-tag-past {
+      background-color: #EAE8E4 !important;
+      color: #f56046 !important;
+    }
+  }
+
+  .program-card-middle {
+    margin: 0.5rem 0;
+    gap: 0.5rem; 
+  }
+
+  .program-card-title {
+    font-family: $font-main;
+    font-size: 1rem; 
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+
+    a {
+      display: inline; 
+      color: $color-text;
+      background-image: linear-gradient($color-text, $color-text);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 1px; 
+      transition: background-size 0.4s ease-in-out;
+    }
+
+    @include respond-to(lg-only) {
+      font-size: 0.9rem; 
+      line-height: 1.2;
+    }
+  }
+
+  .program-author {
+    font-family: $font-main;
+    font-size: 0.9rem; 
+    font-weight: 400;
+    color: $color-primary;
+    position: relative;
+    z-index: 5; 
+    width: fit-content;
+    transition: $transition;
+
+    i {
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      color: $color-primary-hover; // Использует новую безопасную переменную!
+    }
+
+    @include respond-to(lg-only) {
+      font-size: 0.9rem; 
+    }
+  }
+
+  .program-location {
+    font-family: $font-main;
+    font-size: 0.8125rem; 
+    color: $color-text-muted;
+    line-height: 1.3;
+
+    i {
+      font-size: 1.25rem;
+      color: $color-accent;
+    }
+
+    @include respond-to(lg-only) {
+      font-size: 0.7rem; 
+      line-height: 1.2;
+    }
+  }
+
+  &.program-card-past {
+    opacity: 0.82; 
+
+    &:hover {
+      opacity: 1; 
+    }
+
+    .program-card-img {
+      filter: grayscale(0.8) brightness(0.85);
+    }
+
+    .program-card-header .program-time i {
+      color: #818181;
+    }
+
+    .program-author {
+      color: #818181;
+
+      &:hover {
+        color: #ED8621;
+      }
+    }
+
+    .program-location i {
+      color: #818181;
+    }
+  }
+
+  @include respond-to(mobile-only) {
+    flex-direction: column !important;
+
+    .program-card-img-wrapper {
+      width: 100% !important;
+      height: 12rem !important;
+      margin-bottom: 1rem;
+    }
+
+    .program-card-content {
+      padding-left: 0;
+      gap: 1rem;
+    }
+  }
+}
+
+
+// ==========================================================================
+// 2. КАРТОЧКА ГОСТЯ (.guest-card) — Используется везде
+// ==========================================================================
+.guest-card {
+  background-color: $color-primary;
+  border-radius: 3rem; 
+  padding: 1.25rem; 
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; 
+  transition: $transition;
+  position: relative; 
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba($color-primary, 0.25);
+  }
+
+  .guest-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 2rem; 
+    border: 5px solid $color-white; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #ececec; 
+  }
+
+  .guest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guest-name {
+    font-family: $font-accent;
+    font-size: 1.5rem; 
+    font-weight: 500; 
+    color: $color-white;
+    line-height: 1.25;
+    margin-top: 1rem; 
+    margin-bottom: 0;
+    text-align: center;
+
+    @include respond-to(max-xl) {
+      font-size: 1.25rem;
+    }
+
+    a {
+      color: $color-white;
+      transition: $transition;
+
+      &:hover {
+        color: $color-white !important;
+      }
+    }
+  }
+
+  .guest-regalia {
+    font-family: $font-accent;
+    font-size: 0.875rem; 
+    font-weight: 400; 
+    line-height: 1.4;
+    margin-top: auto; 
+    padding-top: 1rem; 
+    margin-bottom: 0;
+    text-align: center;
+    opacity: 0.95;
+  }
+}
+
+
+// ==========================================================================
+// 3. КАРТОЧКА НОВОСТИ (.news-card) — Используется везде
+// ==========================================================================
+.news-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 416 / 350; 
+  border-radius: $radius-xl; // 32px
+  padding: 1.25rem; 
+  overflow: hidden;
+  transition: $transition;
+
+  .stretched-link::after {
+    z-index: 5 !important; // Наша победная строчка наложения!
+  }
+
+  &:hover {
+    .news-card-img {
+      transform: scale(1.05);
+    }
+
+    .news-title a {
+      background-size: 100% 1px;
+    }
+  }
+
+  .news-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .news-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top,
+      rgba(40, 37, 32, 0.85) 0%,   
+      rgba(40, 37, 32, 0.5) 60%,    
+      rgba(40, 37, 32, 0.15) 100%   
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .news-card-content {
+    z-index: 3; 
+    color: $color-white;
+  }
+
+  .news-title {
+    font-family: $font-accent;
+    font-size: 1.25rem; 
+    font-weight: 400; 
+    line-height: 1.35;
+    margin-bottom: 0.75rem; 
+
+    a {
+      display: inline;
+      color: $color-white;
+      background-image: linear-gradient($color-white, $color-white);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 1px;
+      transition: background-size 0.4s ease-in-out;
+    }
+  }
+
+  .news-date {
+    font-family: $font-accent;
+    font-size: 0.8125rem; 
+    font-weight: 400; 
+    color: $color-white;
+    opacity: 0.85;
+    display: block;
+  }
+
+  @include respond-to(max-sm) {
+    aspect-ratio: auto;
+    min-height: 18rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

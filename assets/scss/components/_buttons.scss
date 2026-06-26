@@ -172,6 +172,7 @@
   height: 2.375rem; // 38px
   border-radius: $radius-md; // 24px (1.5rem)
   padding: 0;
+  font-weight: 500;
 
   span, i {
     transition: color 0.3s ease;
@@ -193,7 +194,6 @@
   }
 }
 
-
 // Универсальная кнопка-пилюля со слайд-закрашиванием (Программа, Гости и др.)
 .btn-accent-pill {
   position: relative;
@@ -203,8 +203,10 @@
   justify-content: center;
   gap: 0.5rem;
   background-color: $color-accent;
-  color: $color-white;
-  padding: 0.35rem 1.25rem;
+  color: $color-white; // Белый по умолчанию
+  // width: 12.0625rem;
+  // height: 2.375rem;
+  padding: 0.35rem 1.5rem;
   border-radius: 50px; // Капсула
   border: none;
   font-family: $font-accent;
@@ -215,6 +217,7 @@
   span, i {
     position: relative;
     z-index: 2;
+    transition: color 0.3s ease; // Плавный переход цвета текста
   }
 
   i {
@@ -242,9 +245,18 @@
     }
   }
 
+  // --- НАШ МОДИФИКАТОР: Бирюзовый текст на зеленом фоне для темных карточек ---
+  &--alt {
+    color: $color-primary-alt; // Бирюзовый цвет текста по умолчанию
+
+    &:hover {
+      color: $color-white !important; // Белеет при заливке оранжевым ховером!
+    }
+  }
+
   @include respond-to(max-sm) {
     width: auto;
-    padding: 0.35rem 1.25rem;
+    padding: 0 1.25rem;
   }
 }
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Гости фестиваля «Книжная яблоня»</title>
-    <meta name="description" content="Гости фестиваля Книжная яблоня в Пскове.">
+    <title>О выставке-ярмарке | «Книжная яблоня»</title>
+    <meta name="description" content="О выставке-ярмарке в рамках фестиваля Книжная яблоня в Пскове.">
     
     <!-- Вендоры -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -70,195 +70,204 @@
     <!-- 1. Хлебные крошки и заголовок страницы -->
     <section class="page-title-section text-center">
         <div class="container">
-            <h1 class="page-title mb-2">Гости фестиваля</h1>
+            <h1 class="page-title mb-1">О фестивале</h1>
             <nav aria-label="Хлебные крошки" class="breadcrumb-nav">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item">
                         <a href="index.html" class="text-decoration-none">Главная</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Гости</li>
+                    <!-- Текущая страница помечена aria-current для скринридеров -->
+                    <li class="breadcrumb-item active" aria-current="page">О фестивале</li>
                 </ol>
             </nav>
         </div>
     </section>
 
-    <!-- 2. Сетка гостей с фильтрацией по годам -->
-    <section class="guests-page-section">
+    <!-- 2. Карточка-обложка "Теплый книжный крем" -->
+    <section class="about-cover-section">
         <div class="container">
-            
-            <!-- Табы выбора года (Центрированы, активный — зеленый по ТЗ!) -->
-            <ul class="nav nav-pills nav-pills-program nav-pills-guests justify-content-center mb-5" id="guestsPageTabs" role="tablist" data-aos="fade-up">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="g-tab-2026" data-bs-toggle="pill" data-bs-target="#g-pane-2026" type="button" role="tab" aria-selected="true">2026 год</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="g-tab-2025" data-bs-toggle="pill" data-bs-target="#g-pane-2025" type="button" role="tab" aria-selected="false">2025 год</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="g-tab-2024" data-bs-toggle="pill" data-bs-target="#g-pane-2024" type="button" role="tab" aria-selected="false">2024 год</button>
-                </li>
-            </ul>
-
-            <!-- Содержимое вкладок (Сетка) -->
-            <div class="tab-content" id="guestsPageTabContent" data-aos="fade-up" data-aos-delay="100">
+            <article class="cover-card position-relative overflow-hidden" data-aos="fade-up">
                 
-                <!-- ПАНЕЛЬ: 2026 год (Выводим 12 гостей: 3 ряда по 4 карточки) -->
-                <div class="tab-pane fade show active" id="g-pane-2026" role="tabpanel">
-                    <div class="row g-4">
-                        
-                        <!-- Ряд 1 -->
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100 position-relative">
-                                
-                                <!-- Обёртка фото (теперь со стильной белой рамкой!) -->
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-1.png" alt="Дергачёва Наталья" class="guest-img img-fluid" width="236" height="215">
-                                </div>
+                <!-- Фоновое яблоко (белое, 5% прозрачности) -->
+                <img src="assets/img/logo.svg" alt="" class="cover-bg-pattern" role="presentation">
 
-                                <!-- Имя гостя со ссылкой-вуалью stretched-link -->
-                                <h3 class="guest-name">
-                                    <a href="guest-single.html" class="stretched-link text-decoration-none text-white">
-                                        Дергачёва<br>Наталья
-                                    </a>
-                                </h3>
+                <div class="row g-5 align-items-center position-relative z-2">
+                    
+                    <!-- Левая колонка: Дата и контакты -->
+                    <div class="col-lg-5">
+                        <div class="cover-left-content">
+                            <span class="cover-badge mb-5">Ярмарка 2026</span>
+                            <time class="cover-date d-block mb-5">25 - 27 сентября</time>
+                            
+                            <ul class="cover-contacts list-unstyled p-0 m-0 mb-5">
+                                <li class="d-flex align-items-center gap-2 mb-2">
+                                    <i class="bx bx-location cover-icon" aria-hidden="true"></i>
+                                    <span>г. Псков, пл. Ленина, д. 3</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-2">
+                                    <i class="bx bx-phone cover-icon" aria-hidden="true"></i>
+                                    <a href="tel:+78112561630" class="text-decoration-none">8 (8112) 56-16-30</a>
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bx bx-envelope cover-icon" aria-hidden="true"></i>
+                                    <a href="mailto:deti@bibliopskov.ru" class="text-decoration-none">deti@bibliopskov.ru</a>
+                                </li>
+                            </ul>
 
-                                <!-- Регалии -->
-                                <p class="guest-regalia">Детский писатель</p>
+                            <div class="cover-info-label mb-4">
+                                <span>Вход свободный</span>
+                            </div>
 
-                            </article>
+                            <span class="cover-age-rating d-block">6+</span>
                         </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-2.png" alt="Голубева Софья" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Голубева<br>Софья</h3>
-                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-3.png" alt="Шур Елена" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Шур<br>Елена</h3>
-                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-4.png" alt="Капинус Мария" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Капинус<br>Мария</h3>
-                                <p class="guest-regalia">Детский писатель</p>
-                            </article>
-                        </div>
-
-                        <!-- Ряд 2 -->
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-5.jpeg" alt="Слабченко Людмила" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Слабченко<br>Людмила</h3>
-                                <p class="guest-regalia">Детский писатель</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-6.jpeg" alt="Николаева Елена" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Николаева<br>Елена</h3>
-                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-7.jpeg" alt="Ефимова Светлана" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Ефимова<br>Светлана</h3>
-                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-8.jpeg" alt="Столова Ирина" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Столова<br>Ирина</h3>
-                                <p class="guest-regalia">Детский писатель</p>
-                            </article>
-                        </div>
-
-                        <!-- Ряд 3 -->
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-9.jpg" alt="Ширяева Елена" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Ширяева<br>Елена</h3>
-                                <p class="guest-regalia">Детский писатель</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-10.jpeg" alt="Налапий Вероника" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Налапий<br>Вероника</h3>
-                                <p class="guest-regalia">Писатель, сценарист, редактор, педагог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-11.jpeg" alt="Копаницкая Наталья" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Копаницкая<br>Наталья</h3>
-                                <p class="guest-regalia">Детский писатель, биолог, эколог</p>
-                            </article>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex">
-                            <article class="guest-card text-center d-flex flex-column justify-content-between w-100">
-                                <div class="guest-img-wrapper">
-                                    <img src="assets/img/guest-12.jpeg" alt="Незнанова Ольга" class="guest-img img-fluid" width="236" height="215">
-                                </div>
-                                <h3 class="guest-name">Незнанова<br>Ольга</h3>
-                                <p class="guest-regalia">Детский писатель</p>
-                            </article>
-                        </div>
-
                     </div>
 
-                    <!-- ПОРЦИОННАЯ КНОПКА «Показать еще» (AJAX-совместимая по ТЗ) -->
-                    <div class="controls-divider d-flex align-items-center justify-content-center mt-5" data-aos="fade-up">
-                        <span class="divider-line d-none d-sm-block" aria-hidden="true"></span>
-                        <button type="button" class="btn-accent-pill mx-sm-4">
-                            <span>Показать еще</span>
-                        </button>
-                        <span class="divider-line d-none d-sm-block" aria-hidden="true"></span>
+                    <!-- Правая колонка: Доработанные профессиональные триггеры -->
+                    <div class="col-lg-7">
+                        <div class="cover-right-content">
+                            <h2 class="cover-features-title">Что вас ждет?</h2>
+                            
+                            <ul class="cover-features-list list-unstyled p-0 m-0 mb-5">
+                                <li class="d-flex align-items-start gap-2 mb-3">
+                                    <i class="bx bx-check cover-check-icon" aria-hidden="true"></i>
+                                    <span>Сотни новинок детской литературы напрямую от издательств</span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2 mb-3">
+                                    <i class="bx bx-check cover-check-icon" aria-hidden="true"></i>
+                                    <span>Творческие автограф-сессии и личные встречи с писателями</span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2 mb-3">
+                                    <i class="bx bx-check cover-check-icon" aria-hidden="true"></i>
+                                    <span>Удобные способы расчета (карты, переводы, наличные)</span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2">
+                                    <i class="bx bx-check cover-check-icon" aria-hidden="true"></i>
+                                    <span>Интерактивные мастер-классы и конкурсы прямо у книжных рядов</span>
+                                </li>
+                            </ul>
+
+                            <div class="cover-support-block d-flex align-items-start gap-2">
+                                <i class="bx bx-info-circle support-icon" aria-hidden="true"></i>
+                                <p class="support-text mb-0">
+                                    В 2026 году фестиваль проходит при поддержке Президентского фонда культурных инициатив.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+            </article>
+        </div>
+    </section>
 
-                <!-- Вкладки-заглушки для прошлых лет -->
-                <div class="tab-pane fade" id="g-pane-2025" role="tabpanel"><p class="text-center text-muted py-5">Архив гостей за 2025 год загружается...</p></div>
-                <div class="tab-pane fade" id="g-pane-2024" role="tabpanel"><p class="text-center text-muted py-5">Архив гостей за 2024 год загружается...</p></div>
+    <!-- 3. Текстовое наполнение (8 колонок по центру: 2-8-2) -->
+    <section class="history-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10" data-aos="fade-up">
+                    
+                    <!-- БЛОК А: О ЯРМАРКЕ -->
+                    <div class="text-content mb-5">
+                        <h2>О ярмарке</h2>
+                        <p class="lead-text">
+                            Выставка-ярмарка — одно из ключевых событий Девятого Всероссийского литературного фестиваля «Книжная яблоня».
+                        </p>
+                        <p class="text-muted">
+                            Это уникальное интерактивное пространство, которое объединяет ведущие издательства детской литературы, независимых авторов, иллюстраторов и книжные магазины региона с тысячами активных читателей Пскова на одной уютной площадке.
+                        </p>
+                        <p class="history-organizer mb-0">
+                            <a href="https://bibliopskov.ru/" target="_blank" class="text-decoration-none">Организатор: МАУК «ЦБС» г. Пскова.</a>
+                        </p>
+                    </div>
 
+                    <!-- БЛОК Б: ПОСЕТИТЕЛЯМ (с буллитами) -->
+                    <div class="text-content mb-5">
+                        <h2>Посетителям</h2>
+                        <p>
+                            Выставка-ярмарка — это отличная возможность обновить домашнюю библиотеку лучшими современными книгами без розничных наценок и весело провести время всей семьей.
+                        </p>
+                        <ul class="book-list">
+                            <li>
+                                <strong>Вход абсолютно свободный</strong><br>
+                                <span>Платить за вход на ярмарку и посещение любых сопутствующих мероприятий не нужно. Мы рады каждому гостю!</span>
+                            </li>
+                            <li>
+                                <strong>Книги по издательским ценам</strong><br>
+                                <span>Покупайте новинки детской и подростковой литературы напрямую у создателей, минуя наценки розничных магазинов.</span>
+                            </li>
+                            <li>
+                                <strong>Уникальные автографы</strong><br>
+                                <span>Вы сможете не только приобрести книгу, но и сразу подписать её у автора на творческой встрече.</span>
+                            </li>
+                            <li>
+                                <strong>Удобный расчет</strong><br>
+                                <span>Большинство участников ярмарки принимают к оплате как банковские карты, так и наличные средства.</span>
+                            </li>
+                            <li>
+                                <strong>Интерактивная программа</strong><br>
+                                <span>Прямо среди книжных рядов будут проходить мастер-классы, презентации книг, викторины и экспресс-конкурсы для детей.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- БЛОК В: УЧАСТНИКАМ (с буллитами) -->
+                    <div class="text-content mb-5">
+                        <h2>Условия для участников</h2>
+                        <p>
+                            Мы создаем максимально комфортные, открытые и выгодные условия для популяризации детского чтения и поддержки книжного бизнеса в регионе:
+                        </p>
+                        <ul class="book-list">
+                            <li>
+                                <strong>Бесплатное участие</strong><br>
+                                <span>Организаторы фестиваля не берут плату за предоставление выставочных мест и столов для экспозиции.</span>
+                            </li>
+                            <li>
+                                <strong>Прямые продажи</strong><br>
+                                <span>Участники самостоятельно ведут коммерческую деятельность во время ярмарки в соответствии с законодательством РФ. Вся прибыль остается у вас.</span>
+                            </li>
+                            <li>
+                                <strong>Прямой контакт с аудиторией</strong><br>
+                                <span>Возможность лично презентовать свои новинки самой активной читающей аудитории, педагогам, методистам и библиотекам Псковской области.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- БЛОК Г: ИЗДАТЕЛЬСТВА (Визуальное украшение страницы!) -->
+                    <div class="text-content mb-4">
+                        <h2>Издательства-участники</h2>
+                    </div>
+
+                    <!-- Сетка логотипов (по 2 в ряд на основе нашего готового класса .partner-card!) -->
+                    <div class="row g-4 justify-content-center">
+                        
+                        <div class="col-md-6 d-flex">
+                            <div class="partner-card w-100">
+                                <img src="assets/img/logo-pfki-black.svg" alt="Издательство Розовый жираф" class="partner-logo">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
+                            <div class="partner-card w-100">
+                                <img src="assets/img/logo-cr.svg" alt="Издательство Самокат" class="partner-logo">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
+                            <div class="partner-card w-100">
+                                <img src="assets/img/logo-ks.png" alt="Издательство МИФ Детство" class="partner-logo">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
+                            <div class="partner-card w-100">
+                                <img src="assets/img/logo-cr.svg" alt="Издательство КомпасГид" class="partner-logo">
+                            </div>
+                        </div>
+
+                    </div> <!-- /row -->
+
+                </div>
             </div>
-
         </div>
     </section>
 

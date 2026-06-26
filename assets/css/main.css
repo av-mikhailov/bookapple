@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif, sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #F5F3F0;
   color: #484848;
   -webkit-font-smoothing: antialiased;
@@ -300,6 +300,7 @@ p a:hover, p a:focus,
   height: 2.375rem;
   border-radius: 24px;
   padding: 0;
+  font-weight: 500;
 }
 .btn-outline-about span, .btn-outline-about i {
   transition: color 0.3s ease;
@@ -327,7 +328,7 @@ p a:hover, p a:focus,
   gap: 0.5rem;
   background-color: #ACCA51;
   color: #FFFFFF;
-  padding: 0.35rem 1.25rem;
+  padding: 0.35rem 1.5rem;
   border-radius: 50px;
   border: none;
   font-family: "Montserrat Alternates", sans-serif;
@@ -338,6 +339,7 @@ p a:hover, p a:focus,
 .btn-accent-pill span, .btn-accent-pill i {
   position: relative;
   z-index: 2;
+  transition: color 0.3s ease;
 }
 .btn-accent-pill i {
   font-size: 1.4rem;
@@ -359,10 +361,16 @@ p a:hover, p a:focus,
 .btn-accent-pill:hover::before {
   left: 0;
 }
+.btn-accent-pill--alt {
+  color: #356169;
+}
+.btn-accent-pill--alt:hover {
+  color: #FFFFFF !important;
+}
 @media (max-width: 575.98px) {
   .btn-accent-pill {
     width: auto;
-    padding: 0.35rem 1.25rem;
+    padding: 0 1.25rem;
   }
 }
 
@@ -725,7 +733,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: #ED8621;
+  color: #FDCC39;
   line-height: 1.1;
 }
 @media (max-width: 575.98px) {
@@ -739,7 +747,7 @@ p a:hover, p a:focus,
   color: rgba(255, 255, 255, 0.9);
 }
 .cover-card .cover-contacts li {
-  line-height: 1.4;
+  line-height: 1.6;
 }
 .cover-card .cover-contacts .cover-icon {
   font-size: 1.35rem;
@@ -780,7 +788,7 @@ p a:hover, p a:focus,
 }
 .cover-card .cover-features-list .cover-check-icon {
   font-size: 1.625rem;
-  color: #ACCA51;
+  color: #ED8621;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -792,7 +800,7 @@ p a:hover, p a:focus,
 }
 .cover-card .cover-support-block .support-icon {
   font-size: 1.5rem;
-  color: #FDCC39;
+  color: #ED8621;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -801,6 +809,24 @@ p a:hover, p a:focus,
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.85) !important;
   line-height: 1.4;
+}
+
+.cover-info-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ACCA51;
+  color: #356169;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  height: 2.375rem;
+  padding: 0 2rem;
+  border-radius: 50px;
+  width: fit-content;
+  cursor: default;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(172, 202, 81, 0.15);
 }
 
 .timeline-container {
@@ -1990,20 +2016,33 @@ p a:hover, p a:focus,
 }
 .guest-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(237, 134, 33, 0.25);
+}
+.guest-card:hover .guest-img-wrapper {
+  border-radius: 40% 60% 35% 65%/60% 35% 65% 40% !important;
+  transform: scale(1.02);
 }
 .guest-card .guest-img-wrapper {
   width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
-  border-radius: 2rem;
   border: 5px solid #FFFFFF;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   background-color: #ececec;
+  border-radius: 60% 40% 65% 35%/40% 55% 45% 60% !important;
+  transition: border-radius 0.5s ease-in-out, transform 0.4s ease, box-shadow 0.4s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 .guest-card .guest-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 .guest-card .guest-name {
   font-family: "Montserrat Alternates", sans-serif;
@@ -2058,7 +2097,7 @@ p a:hover, p a:focus,
   color: #FFFFFF !important;
 }
 .nav-pills-guests .nav-link:hover {
-  background-color: #FDCC39 !important;
+  background-color: #92B33B !important;
   color: #FFFFFF !important;
 }
 
