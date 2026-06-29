@@ -32,7 +32,7 @@
   // При наведении — плавно морфируем асимметричные углы
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba($color-primary, 0.25);
+    // box-shadow: 0 12px 30px rgba($color-primary, 0.25);
 
     .guest-img-wrapper {
       // Плавный волнообразный морфинг при наведении
@@ -138,7 +138,7 @@
     }
 
     &:hover {
-      background-color: $color-accent-hover !important; 
+      background-color: $color-primary !important; 
       color: $color-white !important;
     }
   }

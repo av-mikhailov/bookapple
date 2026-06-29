@@ -26,16 +26,24 @@
 .timeline-node {
   position: absolute;
   left: 0.75rem; 
-  top: -0.3rem; // Идеальный оптический центр от вас!
+  top: -0.1rem;
   transform: translateX(-50%); 
   z-index: 2;
   background-color: $color-bg; 
   padding: 0.2rem 0; 
 
-  i {
-    font-size: 1.5rem; 
+  // Наше магическое яблоко-маска (идеальные компактные 20px!)
+  .timeline-apple {
     display: block;
+    width: 1.25rem; // Ровно 20px по вашему ТЗ!
+    height: 1.25rem; // Ровно 20px
+    background-color: currentColor; // Системно перенимает цвет свойства color!
 
+    // Накладываем форму SVG как маску обрезки
+    mask: url('../img/apple.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/apple.svg') no-repeat center / contain;
+
+    // Раскрашиваем маску SVG-яблока в нужные цвета!
     &.node-green { color: $color-accent; }
     &.node-yellow { color: $color-accent-alt; }
     &.node-orange { color: $color-primary; }
@@ -47,7 +55,7 @@
   font-family: $font-accent;
   font-size: 1.25rem; 
   font-weight: 500;
-  color: $color-primary-alt; // Бирюзовый
+  color: $color-primary-alt; // Наш бирюзовый
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -57,7 +65,7 @@
   background-color: $color-white;
   border-radius: $radius-md; 
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01); 
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01); 
 
   .timeline-text {
     font-family: $font-main;

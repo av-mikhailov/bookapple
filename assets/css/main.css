@@ -105,10 +105,10 @@ p a:hover, p a:focus,
   display: inline-block;
   font-family: "Montserrat Alternates", sans-serif, sans-serif;
   font-size: 1.125rem;
-  font-weight: 400;
-  color: #356169;
-  border: 1px solid rgba(53, 97, 105, 0.9);
-  padding: 0.4rem 1.25rem;
+  font-weight: 500;
+  color: #ED8621;
+  border: 1px solid rgba(237, 134, 33, 0.9);
+  padding: 0.5rem 1.25rem;
   border-radius: 50px;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -126,7 +126,7 @@ p a:hover, p a:focus,
 }
 .text-content p.lead-text {
   font-size: 1.25rem;
-  color: #356169;
+  color: #3C3C3B;
   font-weight: 500;
 }
 .text-content .book-list {
@@ -144,7 +144,7 @@ p a:hover, p a:focus,
 .text-content .book-list li strong {
   font-family: "Montserrat", sans-serif, sans-serif;
   font-size: 1.125rem;
-  color: #356169;
+  color: #3C3C3B;
   font-weight: 600;
 }
 .text-content strong {
@@ -198,7 +198,7 @@ p a:hover, p a:focus,
   transition: color 0.3s ease;
 }
 .btn-hero-action::before {
-  background-color: #356169;
+  background-color: #3C3C3B;
   transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-hero-action:hover {
@@ -362,7 +362,7 @@ p a:hover, p a:focus,
   left: 0;
 }
 .btn-accent-pill--alt {
-  color: #356169;
+  color: #3C3C3B;
 }
 .btn-accent-pill--alt:hover {
   color: #FFFFFF !important;
@@ -379,8 +379,8 @@ p a:hover, p a:focus,
   color: #FFFFFF;
   font-size: 1.25rem;
   font-weight: 400;
-  height: 3rem;
-  padding: 0 2rem;
+  height: 2.8rem;
+  padding: 0 1rem;
   border-radius: 24px;
   width: auto;
   z-index: 1;
@@ -404,13 +404,13 @@ p a:hover, p a:focus,
 }
 
 .btn-tag-badge {
-  background-color: #356169;
-  color: #ACCA51;
+  background-color: #3C3C3B;
+  color: #FFFFFF;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   padding: 0.35rem 1.25rem;
-  border: 1px solid #ACCA51;
+  border: 1px solid #FFFFFF;
   border-radius: 50px;
   height: auto;
   z-index: 1;
@@ -419,7 +419,7 @@ p a:hover, p a:focus,
   transition: color 0.3s ease;
 }
 .btn-tag-badge::before {
-  background-color: #ACCA51;
+  background-color: #FFFFFF;
   transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-tag-badge:hover {
@@ -442,7 +442,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 3rem;
   font-weight: 500;
-  color: #356169;
+  color: #3C3C3B;
   margin: 0;
   white-space: nowrap;
 }
@@ -686,10 +686,9 @@ p a:hover, p a:focus,
 }
 
 .cover-card {
-  background-color: #356169;
+  background-color: #E6E6E6;
   border-radius: 32px;
   padding: 3.5rem;
-  box-shadow: 0 12px 40px rgba(53, 97, 105, 0.15);
   position: relative;
 }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
@@ -704,15 +703,13 @@ p a:hover, p a:focus,
 }
 .cover-card .cover-bg-pattern {
   position: absolute;
-  right: 60%;
+  right: 58%;
   bottom: -1rem;
   width: 15rem;
   height: 15rem;
   object-fit: contain;
   z-index: 1;
   pointer-events: none;
-  filter: brightness(0) invert(1);
-  opacity: 0.05;
 }
 @media (max-width: 991.98px) {
   .cover-card .cover-bg-pattern {
@@ -724,8 +721,8 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: #F5F3F0;
-  border: 1px solid rgba(245, 243, 240, 0.9);
+  color: #484848;
+  border: 1px solid rgba(129, 129, 129, 0.9);
   padding: 0.4rem 1.25rem;
   border-radius: 50px;
 }
@@ -733,7 +730,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: #FDCC39;
+  color: #484848;
   line-height: 1.1;
 }
 @media (max-width: 575.98px) {
@@ -744,7 +741,7 @@ p a:hover, p a:focus,
 .cover-card .cover-contacts {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(72, 72, 72, 0.9);
 }
 .cover-card .cover-contacts li {
   line-height: 1.6;
@@ -754,7 +751,7 @@ p a:hover, p a:focus,
   color: #ED8621;
 }
 .cover-card .cover-contacts a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(72, 72, 72, 0.9);
   transition: all 0.3s ease;
 }
 .cover-card .cover-contacts a:hover {
@@ -764,13 +761,13 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(72, 72, 72, 0.3);
 }
 .cover-card .cover-features-title {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 2rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #484848;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 575.98px) {
@@ -781,7 +778,7 @@ p a:hover, p a:focus,
 .cover-card .cover-features-list {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(72, 72, 72, 0.9);
 }
 .cover-card .cover-features-list li {
   line-height: 1.4;
@@ -793,21 +790,21 @@ p a:hover, p a:focus,
   margin-top: 0.1rem;
 }
 .cover-card .cover-support-block {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(245, 243, 240, 0.7);
+  border: 1px solid rgba(245, 243, 240, 0.9);
   border-radius: 16px;
   padding: 1rem 1.25rem;
 }
 .cover-card .cover-support-block .support-icon {
   font-size: 1.5rem;
-  color: #ED8621;
+  color: #818181;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
 .cover-card .cover-support-block .support-text {
   font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: rgba(72, 72, 72, 0.85) !important;
   line-height: 1.4;
 }
 
@@ -816,7 +813,7 @@ p a:hover, p a:focus,
   align-items: center;
   justify-content: center;
   background-color: #ACCA51;
-  color: #356169;
+  color: #FFFFFF;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
@@ -850,23 +847,27 @@ p a:hover, p a:focus,
 .timeline-node {
   position: absolute;
   left: 0.75rem;
-  top: -0.3rem;
+  top: -0.1rem;
   transform: translateX(-50%);
   z-index: 2;
   background-color: #F5F3F0;
   padding: 0.2rem 0;
 }
-.timeline-node i {
-  font-size: 1.5rem;
+.timeline-node .timeline-apple {
   display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: currentColor;
+  mask: url("../img/apple.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/apple.svg") no-repeat center/contain;
 }
-.timeline-node i.node-green {
+.timeline-node .timeline-apple.node-green {
   color: #ACCA51;
 }
-.timeline-node i.node-yellow {
+.timeline-node .timeline-apple.node-yellow {
   color: #FDCC39;
 }
-.timeline-node i.node-orange {
+.timeline-node .timeline-apple.node-orange {
   color: #ED8621;
 }
 
@@ -874,7 +875,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
-  color: #356169;
+  color: #3C3C3B;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -883,7 +884,7 @@ p a:hover, p a:focus,
   background-color: #FFFFFF;
   border-radius: 24px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
 }
 .timeline-card .timeline-text {
   font-family: "Montserrat", sans-serif;
@@ -907,9 +908,9 @@ p a:hover, p a:focus,
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50% !important;
-  border: 1px solid rgba(53, 97, 105, 0.4);
+  border: 1px solid rgba(60, 60, 59, 0.4);
   background-color: transparent;
-  color: #356169;
+  color: #3C3C3B;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
@@ -922,8 +923,8 @@ p a:hover, p a:focus,
   outline: none !important;
 }
 .pagination .page-item .page-link:hover, .pagination .page-item span:hover {
-  background-color: #356169 !important;
-  border-color: #356169 !important;
+  background-color: #3C3C3B !important;
+  border-color: #3C3C3B !important;
   color: #FFFFFF !important;
 }
 .pagination .page-item.active .page-link, .pagination .page-item.active span {
@@ -978,14 +979,14 @@ p a:hover, p a:focus,
 .logo-wrapper .logo-subtitle {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 0.62rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.03em;
   opacity: 0.8;
 }
 .logo-wrapper .logo-title {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -1066,7 +1067,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 2.75rem;
   font-weight: 500;
-  color: #356169;
+  color: #3C3C3B;
 }
 @media (max-width: 575.98px) {
   .page-title-section {
@@ -1079,7 +1080,7 @@ p a:hover, p a:focus,
 
 .footer-section {
   margin-top: 3rem;
-  background-color: #356169;
+  background-color: #3C3C3B;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   padding-top: 3.5rem;
@@ -1158,7 +1159,7 @@ p a:hover, p a:focus,
   height: 2.25rem;
   border-radius: 50%;
   background-color: #ACCA51;
-  color: #356169;
+  color: #3C3C3B;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1184,7 +1185,7 @@ p a:hover, p a:focus,
   transition: all 0.3s ease;
 }
 .footer-links-list a i {
-  color: #FDCC39;
+  color: #ED8621;
   font-size: 1.125rem;
   transition: transform 0.3s ease;
 }
@@ -1385,7 +1386,7 @@ p a:hover, p a:focus,
 }
 @media (min-width: 768px) and (max-width: 1199.98px) {
   .hero-card-photo {
-    background-color: #356169;
+    background-color: #3C3C3B;
     border-radius: 24px;
     overflow: hidden;
   }
@@ -1400,7 +1401,7 @@ p a:hover, p a:focus,
 }
 @media (max-width: 767.98px) {
   .hero-card-photo {
-    background-color: #356169;
+    background-color: #3C3C3B;
     border-radius: 24px;
     overflow: hidden;
     position: relative;
@@ -1462,7 +1463,7 @@ p a:hover, p a:focus,
 }
 
 .about-card-dark {
-  background-color: #356169;
+  background-color: #3C3C3B;
   color: #FFFFFF;
 }
 .about-card-dark .card-text-wrapper,
@@ -1602,7 +1603,7 @@ p a:hover, p a:focus,
 }
 .history-intro-text .history-p.lead-text {
   font-size: 1.25rem;
-  color: #356169;
+  color: #3C3C3B;
   font-weight: 500;
 }
 .history-intro-text .history-organizer {
@@ -1634,17 +1635,17 @@ p a:hover, p a:focus,
   font-size: 1.125rem;
   font-weight: 500;
   color: #FFFFFF;
-  background-color: #356169;
+  background-color: #3C3C3B;
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   transition: all 0.3s ease;
 }
 .nav-pills-program .nav-link.active {
-  background-color: #ED8621 !important;
+  background-color: #ACCA51 !important;
   color: #FFFFFF !important;
 }
 .nav-pills-program .nav-link:hover {
-  background-color: #ACCA51 !important;
+  background-color: #ED8621 !important;
   color: #FFFFFF !important;
 }
 @media (max-width: 575.98px) {
@@ -1711,7 +1712,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.625rem;
   font-weight: 600;
-  color: #356169;
+  color: #3C3C3B;
 }
 .program-card .program-card-header .program-time i {
   font-size: 1.5rem;
@@ -1932,7 +1933,7 @@ p a:hover, p a:focus,
 }
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {
   background-color: rgba(245, 243, 240, 0.5) !important;
-  color: #356169 !important;
+  color: #3C3C3B !important;
 }
 .dropdown-menu .dropdown-item.active {
   background-color: #F5F3F0 !important;
@@ -1984,7 +1985,7 @@ p a:hover, p a:focus,
   display: inline-block;
   width: 9.375rem;
   height: 1px;
-  background-color: rgba(53, 97, 105, 0.2);
+  background-color: rgba(60, 60, 59, 0.2);
 }
 
 .guests-section {
@@ -2016,7 +2017,6 @@ p a:hover, p a:focus,
 }
 .guest-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(237, 134, 33, 0.25);
 }
 .guest-card:hover .guest-img-wrapper {
   border-radius: 40% 60% 35% 65%/60% 35% 65% 40% !important;
@@ -2084,7 +2084,7 @@ p a:hover, p a:focus,
 }
 
 .nav-pills-guests .nav-link {
-  background-color: #356169;
+  background-color: #3C3C3B;
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   color: #FFFFFF;
@@ -2097,7 +2097,7 @@ p a:hover, p a:focus,
   color: #FFFFFF !important;
 }
 .nav-pills-guests .nav-link:hover {
-  background-color: #92B33B !important;
+  background-color: #ED8621 !important;
   color: #FFFFFF !important;
 }
 
@@ -2235,7 +2235,7 @@ p a:hover, p a:focus,
   transition: all 0.3s ease;
 }
 .guest-profile-card .profile-socials .social-circle-white:hover {
-  background-color: #356169;
+  background-color: #3C3C3B;
   color: #FFFFFF !important;
   transform: translateY(-2px);
 }
@@ -2556,7 +2556,7 @@ p a:hover, p a:focus,
 }
 
 .event-cover-info-card {
-  background-color: #356169;
+  background-color: #3C3C3B;
   border-radius: 32px;
   aspect-ratio: 636/450;
   padding: 2.5rem;
@@ -2591,7 +2591,7 @@ p a:hover, p a:focus,
 }
 .event-cover-info-card .event-cover-details i {
   font-size: 1.5rem;
-  color: #FDCC39;
+  color: #ED8621;
   flex-shrink: 0;
 }
 @media (max-width: 575.98px) {
@@ -2613,7 +2613,7 @@ p a:hover, p a:focus,
   height: 2.75rem;
   border-radius: 50%;
   background-color: #ACCA51;
-  color: #356169;
+  color: #3C3C3B;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -2663,7 +2663,7 @@ p a:hover, p a:focus,
   height: 2.25rem;
   border-radius: 0.5rem;
   background-color: #F5F3F0;
-  color: #356169;
+  color: #3C3C3B;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2736,7 +2736,7 @@ p a:hover, p a:focus,
   display: inline;
   position: relative;
   padding-bottom: 2px;
-  background-image: linear-gradient(#356169, #356169);
+  background-image: linear-gradient(#3C3C3B, #3C3C3B);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 1px;
@@ -2778,19 +2778,19 @@ p a:hover, p a:focus,
 }
 .custom-accordion .accordion-item {
   background-color: transparent !important;
-  border: 1px solid rgba(53, 97, 105, 0.25) !important;
+  border: 1px solid rgba(60, 60, 59, 0.25) !important;
   border-radius: 32px !important;
   padding: 0rem 1rem 0rem 1.5rem;
   margin: 0;
   transition: all 0.3s ease;
 }
 .custom-accordion .accordion-item:hover {
-  border-color: rgba(53, 97, 105, 0.5) !important;
-  box-shadow: 0 4px 15px rgba(53, 97, 105, 0.03);
+  border-color: rgba(60, 60, 59, 0.5) !important;
+  box-shadow: 0 4px 15px rgba(60, 60, 59, 0.03);
 }
 .custom-accordion .accordion-button {
   background-color: transparent !important;
-  color: #356169 !important;
+  color: #3C3C3B !important;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -2827,7 +2827,7 @@ p a:hover, p a:focus,
 }
 .custom-accordion .accordion-button:not(.collapsed)::after {
   transform: translateY(-50%) rotate(45deg);
-  background-color: #356169;
+  background-color: #3C3C3B;
   border-color: #ED8621;
   color: #ED8621;
 }
@@ -2849,8 +2849,8 @@ p a:hover, p a:focus,
 }
 
 .faq-feedback-card {
-  background-color: rgba(53, 97, 105, 0.05);
-  border: 1px solid rgba(53, 97, 105, 0.15);
+  background-color: rgba(60, 60, 59, 0.05);
+  border: 1px solid rgba(60, 60, 59, 0.15);
   border-radius: 32px;
   padding: 1.5rem 2rem;
 }
@@ -2858,7 +2858,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #356169;
+  color: #3C3C3B;
   display: flex;
   align-items: flex-start !important;
 }
@@ -2936,7 +2936,7 @@ p a:hover, p a:focus,
 .info-box h3 {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.25rem;
-  color: #356169;
+  color: #3C3C3B;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -2954,7 +2954,7 @@ p a:hover, p a:focus,
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(53, 97, 105, 0.3);
+  text-decoration-color: rgba(60, 60, 59, 0.3);
   transition: all 0.3s ease;
 }
 .info-box p a:hover {

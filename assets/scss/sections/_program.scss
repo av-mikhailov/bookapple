@@ -27,11 +27,11 @@
     transition: $transition;
 
     &.active {
-      background-color: $color-primary !important;
+      background-color: $color-accent !important;
       color: $color-white !important;
     }
     &:hover {
-        background-color: $color-accent !important;
+        background-color: $color-primary !important;
         color: $color-white !important;
     }
   }
