@@ -489,7 +489,7 @@ p a:hover, p a:focus,
   gap: 1.5rem;
 }
 .controls-strip .decor-center .decor-apple-gray {
-  filter: grayscale(1) brightness(0.7);
+  filter: grayscale(1) brightness(0.85);
   opacity: 0.5;
 }
 .controls-strip .decor-center .decor-text {
