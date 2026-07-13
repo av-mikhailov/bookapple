@@ -686,7 +686,9 @@ p a:hover, p a:focus,
 }
 
 .cover-card {
-  background-color: #E6E6E6;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   border-radius: 32px;
   padding: 3.5rem;
   position: relative;
@@ -701,28 +703,39 @@ p a:hover, p a:focus,
     padding: 2rem;
   }
 }
-.cover-card .cover-bg-pattern {
-  position: absolute;
-  right: 53%;
-  bottom: -1rem;
-  width: 15rem;
-  height: 15rem;
-  object-fit: contain;
-  z-index: 1;
-  pointer-events: none;
-}
-@media (max-width: 991.98px) {
-  .cover-card .cover-bg-pattern {
-    display: none;
+.cover-card {
+  /*
+  .cover-bg-pattern {
+    position: absolute;
+    right: 60%;
+    bottom: -1rem;
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    filter: brightness(0) invert(1);
+    opacity: 0.05; 
+
+    @include respond-to(max-lg) {
+      display: none;
+    }
   }
+  */
+}
+.cover-card--about {
+  background-image: url("../img/background-2.jpg");
+}
+.cover-card--fair {
+  background-image: url("../img/background-4.jpg");
 }
 .cover-card .cover-badge {
   display: inline-block;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: #484848;
-  border: 1px solid rgba(129, 129, 129, 0.9);
+  color: #F5F3F0;
+  border: 1px solid rgba(245, 243, 240, 0.9);
   padding: 0.4rem 1.25rem;
   border-radius: 50px;
 }
@@ -730,7 +743,7 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: #484848;
+  color: #ED8621;
   line-height: 1.1;
 }
 @media (max-width: 575.98px) {
@@ -741,17 +754,17 @@ p a:hover, p a:focus,
 .cover-card .cover-contacts {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
-  color: rgba(72, 72, 72, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 .cover-card .cover-contacts li {
-  line-height: 1.6;
+  line-height: 1.4;
 }
 .cover-card .cover-contacts .cover-icon {
   font-size: 1.35rem;
   color: #ED8621;
 }
 .cover-card .cover-contacts a {
-  color: rgba(72, 72, 72, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
 }
 .cover-card .cover-contacts a:hover {
@@ -761,13 +774,13 @@ p a:hover, p a:focus,
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: rgba(72, 72, 72, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 .cover-card .cover-features-title {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 2rem;
   font-weight: 600;
-  color: #484848;
+  color: #FFFFFF;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 575.98px) {
@@ -778,52 +791,39 @@ p a:hover, p a:focus,
 .cover-card .cover-features-list {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
-  color: rgba(72, 72, 72, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 .cover-card .cover-features-list li {
   line-height: 1.4;
 }
 .cover-card .cover-features-list .cover-check-icon {
   font-size: 1.625rem;
-  color: #ED8621;
+  color: #ACCA51;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
 .cover-card .cover-support-block {
-  background-color: rgba(245, 243, 240, 0.7);
-  border: 1px solid rgba(245, 243, 240, 0.9);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   padding: 1rem 1.25rem;
 }
 .cover-card .cover-support-block .support-icon {
   font-size: 1.5rem;
-  color: #818181;
+  color: #FDCC39;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
 .cover-card .cover-support-block .support-text {
   font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
-  color: rgba(72, 72, 72, 0.85) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   line-height: 1.4;
 }
-
-.cover-info-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ACCA51;
-  color: #FFFFFF;
-  font-family: "Montserrat Alternates", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 500;
-  height: 2.375rem;
-  padding: 0 2rem;
-  border-radius: 50px;
-  width: fit-content;
-  cursor: default;
-  pointer-events: none;
-  box-shadow: 0 4px 15px rgba(172, 202, 81, 0.15);
+@media (max-width: 991.98px) {
+  .cover-card {
+    padding: 2rem 1.5rem;
+  }
 }
 
 .timeline-container {

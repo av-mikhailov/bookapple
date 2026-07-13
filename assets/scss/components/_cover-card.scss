@@ -2,10 +2,17 @@
 @use '../abstracts/mixins' as *;
 
 .cover-card {
-  background-color: $color-bg-alt; // Наш благородный бирюзовый
+  // === СТАРЫЙ СПЛОШНОЙ ФОН (Закомментирован для тестов картинок) ===
+  // background-color: $color-primary-alt; 
+  // box-shadow: 0 12px 40px rgba($color-primary-alt, 0.15);
+  
+  // === НОВЫЙ ФОН-ИЗОБРАЖЕНИЕ ОТ ДИЗАЙНЕРА ===
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  
   border-radius: $radius-xl; // 32px
   padding: 3.5rem;
-  // box-shadow: 0 12px 40px rgba($color-primary-alt, 0.15);
   position: relative;
 
   @include respond-to(laptop-only) {
@@ -16,20 +23,42 @@
     padding: 2rem;
   }
 
-  // Фоновый логотип (ваша точная настройка 15rem, 60% и скрытие на планшетах)
+  // === СТАРЫЙ ФОНОВЫЙ УЗОР (Закомментирован, чтобы не накладывался на графику дизайнера) ===
+  /*
   .cover-bg-pattern {
     position: absolute;
-    right: 53%;
+    right: 60%;
     bottom: -1rem;
     width: 15rem;
     height: 15rem;
     object-fit: contain;
     z-index: 1;
     pointer-events: none;
+    filter: brightness(0) invert(1);
+    opacity: 0.05; 
 
     @include respond-to(max-lg) {
       display: none;
     }
+  }
+  */
+
+  // --- МОДИФИКАТОР: Картинка на странице О фестивале (about.html) ---
+  &--about {
+    // Укажите имя файла вашей картинки (например, about-cover.jpg или .svg)
+    background-image: url('../img/background-2.jpg'); 
+    
+    // Если картинка дизайнера темная — белый цвет текста будет читаться идеально. 
+    // Если картинка светлая, раскомментируйте код ниже, чтобы сделать текст читаемым:
+    // .cover-date, .cover-contacts, .cover-features-title, .cover-features-list, .support-text {
+    //   color: $color-text !important;
+    // }
+  }
+
+  // --- МОДИФИКАТОР: Картинка на странице Ярмарка (fair.html) ---
+  &--fair {
+    // Укажите имя файла картинки ярмарки
+    background-image: url('../img/background-4.jpg'); 
   }
 
   // Тег-плашка сверху
@@ -38,8 +67,8 @@
     font-family: $font-accent;
     font-size: 1rem;
     font-weight: 500;
-    color: $color-text;
-    border: 1px solid rgba($color-text-muted, 0.9);
+    color: $color-bg;
+    border: 1px solid rgba($color-bg, 0.9);
     padding: 0.4rem 1.25rem;
     border-radius: 50px;
   }
@@ -49,7 +78,7 @@
     font-family: $font-accent;
     font-size: 3rem; 
     font-weight: 700;
-    color: $color-text;
+    color: $color-primary; // Оранжевый
     line-height: 1.1;
 
     @include respond-to(max-sm) {
@@ -61,10 +90,10 @@
   .cover-contacts {
     font-family: $font-main;
     font-size: 1rem;
-    color: rgba($color-text, 0.9);
+    color: rgba($color-white, 0.9);
 
     li {
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     .cover-icon {
@@ -73,7 +102,7 @@
     }
 
     a {
-      color: rgba($color-text, 0.9);
+      color: rgba($color-white, 0.9);
       transition: $transition;
 
       &:hover {
@@ -87,7 +116,7 @@
     font-family: $font-accent;
     font-size: 1.5rem;
     font-weight: 600;
-    color: rgba($color-text, 0.3);
+    color: rgba($color-white, 0.3);
   }
 
   // Правая колонка
@@ -95,7 +124,7 @@
     font-family: $font-accent;
     font-size: 2rem;
     font-weight: 600;
-    color: $color-text; // Белый заголовок
+    color: $color-white; // Белый заголовок
     margin-bottom: 1.5rem;
 
     @include respond-to(max-sm) {
@@ -103,11 +132,11 @@
     }
   }
 
-  // Галочки списка
+  // Галочки списка (зеленые на синем фоне выглядят потрясающе контрастно!)
   .cover-features-list {
     font-family: $font-main;
     font-size: 1.125rem; 
-    color: rgba($color-text, 0.9);
+    color: rgba($color-white, 0.9);
 
     li {
       line-height: 1.4;
@@ -115,7 +144,7 @@
 
     .cover-check-icon {
       font-size: 1.625rem;
-      color: $color-primary; // Сочный зеленый
+      color: $color-accent; // Сочный зеленый
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
@@ -123,14 +152,14 @@
 
   // Блок поддержки фонда
   .cover-support-block {
-    background-color: rgba($color-bg, 0.7); // Сверхлегкий белый фон на бирюзовом
-    border: 1px solid rgba($color-bg, 0.9); // Тонкая белая рамочка
+    background-color: rgba($color-white, 0.04); // Сверхлегкий белый фон
+    border: 1px solid rgba($color-white, 0.15); // Тонкая белая рамочка
     border-radius: $radius-sm; 
     padding: 1rem 1.25rem;
 
     .support-icon {
       font-size: 1.5rem;
-      color: $color-text-muted; // Желтая иконка info-circle
+      color: $color-accent-alt; // Желтая иконка info-circle
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
@@ -138,27 +167,12 @@
     .support-text {
       font-family: $font-main;
       font-size: 0.95rem;
-      color: rgba($color-text, 0.85) !important;
+      color: rgba($color-white, 0.85) !important; // Теперь текст благородного белого цвета!
       line-height: 1.4;
     }
   }
-}
 
-// Статичный информационный бадж-информер (для страниц "Ярмарка" и др.)
-.cover-info-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $color-accent; // Фирменный зеленый по ТЗ
-  color: $color-white;
-  font-family: $font-accent;
-  font-size: 1.125rem; // 18px (как у кнопок)
-  font-weight: 500;
-  height: 2.375rem; // Строго 38px в высоту (сохраняем геометрию кнопок!)
-  padding: 0 2rem; // Боковые отступы
-  border-radius: 50px; // Капсула
-  width: fit-content; // Тянется под размер текста
-  cursor: default; // Обычная стрелочка мыши вместо "ручки"
-  pointer-events: none; // Отключает любые фокусы браузера
-  box-shadow: 0 4px 15px rgba($color-accent, 0.15);
+  @include respond-to(max-lg) {
+    padding: 2rem 1.5rem;
+  }
 }
