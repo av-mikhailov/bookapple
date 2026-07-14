@@ -3,8 +3,8 @@
 
 .cover-card {
   // === СТАРЫЕ СПЛОШНЫЕ СТИЛИ (Закомментированы для тестирования фонов) ===
-  // background-color: $color-primary-alt; 
-  // box-shadow: 0 12px 40px rgba($color-primary-alt, 0.15);
+  background-color: $color-bg-alt; 
+  //box-shadow: 0 12px 40px rgba($color-primary-alt, 0.15);
   
   // === НОВЫЕ СТИЛИ ДЛЯ КАРТИНОК ДИЗАЙНЕРА ===
   background-size: cover !important;
@@ -24,7 +24,7 @@
   }
 
   // === СТАРЫЙ ФОНОВЫЙ УЗОР (Закомментирован, чтобы не накладывался на графику) ===
-  /*
+  
   .cover-bg-pattern {
     position: absolute;
     right: 53%;
@@ -39,18 +39,15 @@
       display: none;
     }
   }
-  */
 
-  // --- МОДИФИКАТОРЫ ДЛЯ ФОНОВЫХ КАРТИНОК ДИЗАЙНЕРА ---
-  &--about {
-    background-image: url('../img/background-2.jpg'); // Изображение для О фестивале
-  }
+  // // --- МОДИФИКАТОРЫ ДЛЯ ФОНОВЫХ КАРТИНОК ДИЗАЙНЕРА ---
+  // &--about {
+  //   background-image: url('../img/background-2.jpg'); // Изображение для О фестивале
+  // }
 
-  &--fair {
-    background-image: url('../img/background-3.jpg'); // Изображение для Ярмарки
-  }
-
-  // === ПОЛНОСТЬЮ ВОССТАНОВЛЕННЫЕ ВАШИ ТЕМНЫЕ ЦВЕТА (100% соосность с макетом!) ===
+  // &--fair {
+  //   background-image: url('../img/background-1.jpg'); // Изображение для Ярмарки
+  // }
 
   // Тег-плашка сверху
   .cover-badge {

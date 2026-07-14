@@ -686,6 +686,7 @@ p a:hover, p a:focus,
 }
 
 .cover-card {
+  background-color: #E6E6E6;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -703,29 +704,20 @@ p a:hover, p a:focus,
     padding: 2rem;
   }
 }
-.cover-card {
-  /*
-  .cover-bg-pattern {
-    position: absolute;
-    right: 53%;
-    bottom: -1rem;
-    width: 15rem;
-    height: 15rem;
-    object-fit: contain;
-    z-index: 1;
-    pointer-events: none;
-
-    @include respond-to(max-lg) {
-      display: none;
-    }
+.cover-card .cover-bg-pattern {
+  position: absolute;
+  right: 53%;
+  bottom: -1rem;
+  width: 15rem;
+  height: 15rem;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (max-width: 991.98px) {
+  .cover-card .cover-bg-pattern {
+    display: none;
   }
-  */
-}
-.cover-card--about {
-  background-image: url("../img/background-2.jpg");
-}
-.cover-card--fair {
-  background-image: url("../img/background-3.jpg");
 }
 .cover-card .cover-badge {
   display: inline-block;
